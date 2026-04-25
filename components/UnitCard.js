@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 const STATUS_LABEL = {
@@ -14,9 +15,17 @@ const STATUS_STYLE = {
   completed: "bg-emerald-100 text-emerald-800",
 };
 
-export default function UnitCard({ unit, index, initialStatus, canTrack }) {
+export default function UnitCard({
+  unit,
+  index,
+  initialStatus,
+  canTrack,
+  classLevel,
+}) {
   const [status, setStatus] = useState(initialStatus);
   const [saving, setSaving] = useState(false);
+
+  const hasPractice = (unit.exerciseCount || 0) > 0;
 
   async function update(next) {
     if (!canTrack) return;
@@ -57,19 +66,22 @@ export default function UnitCard({ unit, index, initialStatus, canTrack }) {
         </ul>
       </div>
 
-      <div className="mt-3">
-        <h4 className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-          Activities
-        </h4>
-        <ul className="mt-1 list-disc space-y-1 pl-5 text-sm text-slate-700">
-          {unit.activities.map((a) => (
-            <li key={a}>{a}</li>
-          ))}
-        </ul>
+      <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-slate-100 pt-3">
+        <Link
+          href={`/curriculum/${classLevel}/${unit.id}`}
+          className="btn-primary"
+        >
+          {hasPractice ? "Open chapter & practice" : "Open chapter"}
+        </Link>
+        {hasPractice && (
+          <span className="text-xs text-slate-500">
+            {unit.exerciseCount} graded question{unit.exerciseCount === 1 ? "" : "s"}
+          </span>
+        )}
       </div>
 
       {canTrack && (
-        <div className="mt-4 flex flex-wrap gap-2 border-t border-slate-100 pt-3">
+        <div className="mt-3 flex flex-wrap gap-2">
           {["not_started", "in_progress", "completed"].map((s) => (
             <button
               key={s}

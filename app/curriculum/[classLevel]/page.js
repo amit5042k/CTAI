@@ -82,7 +82,14 @@ export default async function ClassPage({ params }) {
               {g.units.map((u, i) => (
                 <UnitCard
                   key={u.id}
-                  unit={u}
+                  unit={{
+                    id: u.id,
+                    name: u.name,
+                    outcomes: u.outcomes,
+                    activities: u.activities,
+                    exerciseCount: (u.exercises || []).length,
+                  }}
+                  classLevel={cls.classLevel}
                   index={i + 1}
                   initialStatus={progressMap[u.id] || "not_started"}
                   canTrack={canTrack}

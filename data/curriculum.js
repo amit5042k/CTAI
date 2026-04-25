@@ -25,6 +25,52 @@ export const curriculum = [
           "Caesar-cipher encoding game with shift keys",
           "Find hidden number-names inside letter grids",
         ],
+        intro:
+          "A cipher is a way to scramble a message so only someone with the right key can read it. The Caesar cipher shifts every letter forward by a fixed number of places.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Encoding with shift = 1",
+            problem: "Encode the word CAT with a shift of 1.",
+            solution:
+              "Shift each letter one place forward: C → D, A → B, T → U. The encoded word is DBU.",
+          },
+          {
+            id: "ex-2",
+            title: "Decoding with shift = 3",
+            problem: "Decode the word EBP using shift 3.",
+            solution:
+              "Shift each letter three places backward: E → B, B → Y, P → M. The decoded word is BYM (which is not a real word — try other shifts when decoding!).",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "Encoding A with a shift of 2 gives which letter?",
+            options: ["B", "C", "D", "Y"],
+            answerIndex: 1,
+            explanation: "Move forward 2 places: A → B → C.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "If HELLO is encoded as IFMMP, what was the shift used?",
+            options: ["1", "2", "3", "4"],
+            answerIndex: 0,
+            explanation: "H→I, E→F, L→M each move by 1.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Without knowing the shift key, a Caesar-encoded message cannot be read at all.",
+            answer: false,
+            explanation:
+              "False — there are only 25 useful shifts, so someone could try them all. That's why modern messages use much stronger encryption.",
+          },
+        ],
       },
       {
         id: "c3-ct-2",
@@ -194,6 +240,49 @@ export const curriculum = [
           "Reason with odd/even properties",
         ],
         activities: ["Coin-flip magic on a 5x5 grid"],
+        intro:
+          "Numbers and shapes often follow rules. If we can spot the rule, we can predict what comes next — that's the heart of computational thinking.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Continue the pattern",
+            problem: "What comes next? 2, 4, 6, 8, ?",
+            solution:
+              "Each number increases by 2, so the next one is 10. The rule is 'add 2 each step'.",
+          },
+          {
+            id: "ex-2",
+            title: "Odd vs even check",
+            problem: "Is the sum 7 + 4 odd or even?",
+            solution:
+              "Odd + even = odd. So 7 + 4 = 11 is odd. (You can also just compute it.)",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "What comes next? 1, 3, 5, 7, ?",
+            options: ["8", "9", "10", "11"],
+            answerIndex: 1,
+            explanation: "It's the odd-numbers sequence; add 2 each step.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which sum is even?",
+            options: ["3 + 4", "5 + 2", "6 + 4", "7 + 2"],
+            answerIndex: 2,
+            explanation: "even + even = even, so 6 + 4 = 10 is even.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: Adding two odd numbers always gives an odd result.",
+            answer: false,
+            explanation: "odd + odd = even. e.g. 3 + 5 = 8.",
+          },
+        ],
       },
       {
         id: "c4-ct-4",
@@ -463,6 +552,54 @@ export const curriculum = [
           "Solve problems where each picture stands for many",
         ],
         activities: ["Build a pictograph for class library books"],
+        intro:
+          "A pictograph uses a small picture to stand for a larger number. To read it, multiply the count of pictures by the value of one picture.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "One symbol = many items",
+            problem:
+              "In a chart, one tree icon stands for 10 trees. A row has 4 full tree icons and 1 half icon. How many trees does the row show?",
+            solution:
+              "4 full × 10 = 40, plus a half icon = 5. Total = 45 trees.",
+          },
+          {
+            id: "ex-2",
+            title: "Comparing two rows",
+            problem:
+              "Team A has 3 full tree icons; Team B has 5 full tree icons. Each icon = 10 trees. How many more trees does B have?",
+            solution: "B has 50, A has 30, so B has 20 more trees.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "If 1 book icon = 5 books, and a row shows 6 icons, how many books does the row represent?",
+            options: ["11", "25", "30", "35"],
+            answerIndex: 2,
+            explanation: "6 × 5 = 30.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "Class A has 4 icons, Class B has 7 icons. If 1 icon = 10 students, how many more students does Class B have?",
+            options: ["3", "10", "30", "70"],
+            answerIndex: 2,
+            explanation: "(7 - 4) × 10 = 30.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A pictograph with half-icons can represent values that aren't whole multiples of the icon value.",
+            answer: true,
+            explanation:
+              "Yes — a half-icon is commonly used to mean half the value of one icon.",
+          },
+        ],
       },
     ],
   },
@@ -592,6 +729,66 @@ export const curriculum = [
           "Classify data as numbers, text, images, audio or video",
         ],
         activities: ["Collect class attendance and present as data"],
+        intro:
+          "Data is raw, unorganised facts. When we organise and analyse data, it becomes information that helps us decide things.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Data vs Information",
+            problem:
+              "A list of every student's marks in a test is _____. The class average computed from that list is _____.",
+            solution:
+              "The list is data; the average is information — it summarises the raw data so we can act on it.",
+          },
+          {
+            id: "ex-2",
+            title: "Classify the data",
+            problem:
+              "Tag each item: (a) a photo of a leaf, (b) the temperature 28°C, (c) a song clip, (d) the word 'apple'.",
+            solution:
+              "(a) image, (b) numeric, (c) audio, (d) text. Modern AI systems learn from all of these data types.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Which of these is the BEST example of 'information' rather than just data?",
+            options: [
+              "A spreadsheet of every sale at a shop",
+              "A long list of temperature readings",
+              "'It rained more in July than in June'",
+              "A folder full of photos",
+            ],
+            answerIndex: 2,
+            explanation:
+              "The first three rows are raw data. The conclusion 'it rained more in July' summarises the data — that's information.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "A weather app predicts rain. Which kind of data does it MOST likely use?",
+            options: [
+              "Only one student's homework",
+              "Numbers from satellites and weather stations",
+              "Random words from a book",
+              "A single photograph",
+            ],
+            answerIndex: 1,
+            explanation:
+              "Weather predictions use lots of numeric data from sensors and satellites.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: The number of students in your class is an example of data.",
+            answer: true,
+            explanation: "Yes — any factual measurement counts as data.",
+          },
+        ],
       },
       {
         id: "c6-ai-3",
@@ -701,6 +898,54 @@ export const curriculum = [
           "Match real applications to the right AI domain",
         ],
         activities: ["Match-the-app to its AI domain card sort"],
+        intro:
+          "AI is not one big thing — it is a collection of domains. The three most common are Data Science (working with numbers and tables), Computer Vision (working with images and video), and Natural Language Processing (working with text and speech).",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Pick the right domain",
+            problem:
+              "Which AI domain is at work when your phone unlocks by recognising your face?",
+            solution: "Computer Vision — the system understands the image of your face.",
+          },
+          {
+            id: "ex-2",
+            title: "When the input is text",
+            problem:
+              "A chatbot replies to your typed question. Which domain is most involved?",
+            solution: "Natural Language Processing — it works with human language.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "A streaming app predicts which song you'll like next from a table of past listens. Which domain is this?",
+            options: ["Computer Vision", "Data Science", "NLP", "Robotics"],
+            answerIndex: 1,
+            explanation:
+              "It works with structured numeric data (your listening history) — that's Data Science.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "A self-driving car detects pedestrians in camera images. Which domain is this?",
+            options: ["NLP", "Data Science", "Computer Vision", "None"],
+            answerIndex: 2,
+            explanation: "Recognising things in images is Computer Vision.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Every machine that follows fixed instructions is an AI.",
+            answer: false,
+            explanation:
+              "False — fixed-rule machines are automation. AI specifically learns from data.",
+          },
+        ],
       },
       {
         id: "c7-ai-2",
@@ -820,6 +1065,67 @@ export const curriculum = [
           "Apply the lifecycle to a small classroom problem",
         ],
         activities: ["Plan an AI project canvas in groups"],
+        intro:
+          "Every AI project follows a similar journey: define the problem, collect data, prepare the data, train a model, evaluate it, and deploy it. After deployment, you keep monitoring and improving it.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Stage spotter",
+            problem:
+              "You photograph 200 leaves and label each one as healthy or diseased so the model can learn. Which stage of the lifecycle are you in?",
+            solution:
+              "Data collection and preparation — you are gathering the labelled examples the model will learn from.",
+          },
+          {
+            id: "ex-2",
+            title: "Why we evaluate",
+            problem:
+              "Your trained model says it is 99% accurate on the training set but only 60% accurate on new pictures. What is happening?",
+            solution:
+              "The model has memorised the training set rather than learning the pattern. You need more diverse data and to evaluate on a separate test set.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Which is the FIRST stage of an AI project lifecycle?",
+            options: [
+              "Train the model",
+              "Define the problem",
+              "Deploy to production",
+              "Collect data",
+            ],
+            answerIndex: 1,
+            explanation:
+              "You need a clear problem statement first — otherwise you don't know what data to collect.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "Which stage usually takes the MOST time in real AI projects?",
+            options: [
+              "Defining the problem",
+              "Collecting and cleaning data",
+              "Training the model",
+              "Writing the final report",
+            ],
+            answerIndex: 1,
+            explanation:
+              "Data work — collecting, cleaning and labelling — is famously the longest stage in real-world AI projects.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Once a model is deployed, the AI project is finished and no more work is needed.",
+            answer: false,
+            explanation:
+              "False — deployed models drift over time, so monitoring and re-training are part of the lifecycle.",
+          },
+        ],
       },
       {
         id: "c8-ai-2",
