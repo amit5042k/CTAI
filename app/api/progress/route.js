@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getCurrentUser } from "@/lib/auth";
 import { setProgress, getProgressForUser } from "@/lib/db";
+import { getClass } from "@/data/curriculum";
 
 export async function GET() {
   const user = await getCurrentUser();
@@ -21,6 +22,16 @@ export async function POST(req) {
   if (!unitId || !["not_started", "in_progress", "completed"].includes(status)) {
     return NextResponse.json({ error: "Invalid payload" }, { status: 400 });
   }
+
+  const cls = getClass(user.classLevel);
+  const ownsUnit = cls?.units.some((u) => u.id === unitId);
+  if (!ownsUnit) {
+    return NextResponse.json(
+      { error: "You can only update progress for units in your own class" },
+      { status: 403 },
+    );
+  }
+
   const entry = setProgress({ userId: user.id, unitId, status });
   return NextResponse.json({ progress: entry });
 }

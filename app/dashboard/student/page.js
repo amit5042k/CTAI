@@ -1,15 +1,18 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
-import { getProgressForUser } from "@/lib/db";
+import { getProgressForUser, findSectionById } from "@/lib/db";
 import { getClass } from "@/data/curriculum";
 
 export default async function StudentDashboard() {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
-  if (user.role !== "student") redirect("/dashboard/teacher");
+  if (user.role !== "student") {
+    redirect(user.role === "admin" ? "/admin" : "/dashboard/teacher");
+  }
 
   const cls = getClass(user.classLevel);
+  const section = user.sectionId ? findSectionById(user.sectionId) : null;
   const progress = getProgressForUser(user.id);
   const progressMap = Object.fromEntries(
     progress.map((p) => [p.unitId, p.status]),
@@ -30,7 +33,8 @@ export default async function StudentDashboard() {
           Welcome, {user.name} 👋
         </h1>
         <p className="mt-1 text-slate-600">
-          Class {user.classLevel} · {cls?.title}
+          Class {user.classLevel}
+          {section ? ` - ${section.name}` : ""} · {cls?.title}
         </p>
       </header>
 

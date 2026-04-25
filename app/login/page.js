@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -23,7 +22,11 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Login failed");
       const dest =
-        data.user.role === "teacher" ? "/dashboard/teacher" : "/dashboard/student";
+        data.user.role === "admin"
+          ? "/admin"
+          : data.user.role === "teacher"
+            ? "/dashboard/teacher"
+            : "/dashboard/student";
       router.replace(dest);
       router.refresh();
     } catch (err) {
@@ -38,7 +41,7 @@ export default function LoginPage() {
       <div className="card">
         <h1 className="text-2xl font-bold text-slate-900">Sign in</h1>
         <p className="mt-1 text-sm text-slate-600">
-          Use your school account to continue.
+          Use the school account given to you by your administrator.
         </p>
         <form onSubmit={onSubmit} className="mt-6 space-y-4">
           <div>
@@ -74,12 +77,6 @@ export default function LoginPage() {
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
-        <p className="mt-4 text-sm text-slate-600">
-          New here?{" "}
-          <Link href="/register" className="font-medium text-brand-700">
-            Create an account
-          </Link>
-        </p>
       </div>
     </div>
   );

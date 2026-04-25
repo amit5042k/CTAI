@@ -25,17 +25,19 @@ export default async function HomePage() {
             {user ? (
               <Link
                 href={
-                  user.role === "teacher"
-                    ? "/dashboard/teacher"
-                    : "/dashboard/student"
+                  user.role === "admin"
+                    ? "/admin"
+                    : user.role === "teacher"
+                      ? "/dashboard/teacher"
+                      : "/dashboard/student"
                 }
                 className="btn-outline"
               >
                 Go to my dashboard
               </Link>
             ) : (
-              <Link href="/register" className="btn-outline">
-                Create an account
+              <Link href="/login" className="btn-outline">
+                Sign in
               </Link>
             )}
           </div>

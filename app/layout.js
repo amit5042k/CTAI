@@ -32,9 +32,11 @@ export default async function RootLayout({ children }) {
                 <>
                   <Link
                     href={
-                      user.role === "teacher"
-                        ? "/dashboard/teacher"
-                        : "/dashboard/student"
+                      user.role === "admin"
+                        ? "/admin"
+                        : user.role === "teacher"
+                          ? "/dashboard/teacher"
+                          : "/dashboard/student"
                     }
                     className="hover:text-brand-700"
                   >
@@ -47,14 +49,9 @@ export default async function RootLayout({ children }) {
                   <LogoutButton />
                 </>
               ) : (
-                <>
-                  <Link href="/login" className="hover:text-brand-700">
-                    Login
-                  </Link>
-                  <Link href="/register" className="btn-primary">
-                    Sign up
-                  </Link>
-                </>
+                <Link href="/login" className="btn-primary">
+                  Sign in
+                </Link>
               )}
             </nav>
           </div>

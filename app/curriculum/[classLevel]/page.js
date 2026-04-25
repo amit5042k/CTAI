@@ -46,7 +46,13 @@ export default async function ClassPage({ params }) {
           <Link href="/login" className="font-medium underline">
             Sign in
           </Link>{" "}
-          to track which units you've completed.
+          with your school account to track progress.
+        </div>
+      )}
+      {user?.role === "student" && user.classLevel !== cls.classLevel && (
+        <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
+          You are enrolled in Class {user.classLevel}. You can browse this
+          class but progress can only be tracked in your own class.
         </div>
       )}
 
@@ -57,7 +63,9 @@ export default async function ClassPage({ params }) {
             unit={u}
             index={i + 1}
             initialStatus={progressMap[u.id] || "not_started"}
-            canTrack={user?.role === "student"}
+            canTrack={
+              user?.role === "student" && user.classLevel === cls.classLevel
+            }
           />
         ))}
       </section>

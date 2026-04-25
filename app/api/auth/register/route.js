@@ -1,36 +1,30 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { createUser, findUserByEmail } from "@/lib/db";
+import { createUser, findUserByEmail, countByRole } from "@/lib/db";
 import { signSession, setSessionCookie } from "@/lib/auth";
 
+// Bootstraps the very first admin account.
+// Disabled once an admin already exists — after that, all users
+// are enrolled by an admin from /admin/users.
 export async function POST(req) {
   try {
-    const { name, email, password, role, classLevel } = await req.json();
+    if (countByRole("admin") > 0) {
+      return NextResponse.json(
+        { error: "Sign-up is disabled. Ask an administrator to enrol you." },
+        { status: 403 },
+      );
+    }
 
-    if (!name || !email || !password || !role) {
+    const { name, email, password } = await req.json();
+    if (!name || !email || !password) {
       return NextResponse.json(
-        { error: "name, email, password and role are required" },
+        { error: "Name, email and password are required" },
         { status: 400 },
       );
     }
-    if (!["student", "teacher"].includes(role)) {
+    if (String(password).length < 8) {
       return NextResponse.json(
-        { error: "role must be 'student' or 'teacher'" },
-        { status: 400 },
-      );
-    }
-    if (role === "student") {
-      const cl = Number(classLevel);
-      if (!Number.isInteger(cl) || cl < 3 || cl > 8) {
-        return NextResponse.json(
-          { error: "Students must select a class between 3 and 8" },
-          { status: 400 },
-        );
-      }
-    }
-    if (String(password).length < 6) {
-      return NextResponse.json(
-        { error: "Password must be at least 6 characters" },
+        { error: "Admin password must be at least 8 characters" },
         { status: 400 },
       );
     }
@@ -45,20 +39,24 @@ export async function POST(req) {
     const user = createUser({
       name,
       email,
-      role,
-      classLevel: role === "student" ? Number(classLevel) : null,
+      role: "admin",
+      classLevel: null,
+      sectionId: null,
       passwordHash,
     });
-
     const token = await signSession({ uid: user.id, role: user.role });
     await setSessionCookie(token);
 
     const { passwordHash: _ph, ...safe } = user;
     return NextResponse.json({ user: safe });
-  } catch (e) {
+  } catch {
     return NextResponse.json(
-      { error: "Unable to register at this time" },
+      { error: "Unable to bootstrap admin account" },
       { status: 500 },
     );
   }
+}
+
+export async function GET() {
+  return NextResponse.json({ adminExists: countByRole("admin") > 0 });
 }

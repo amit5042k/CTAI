@@ -1,20 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export default function RegisterPage() {
+export default function BootstrapAdminPage() {
   const router = useRouter();
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    password: "",
-    role: "student",
-    classLevel: 3,
-  });
+  const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const [adminExists, setAdminExists] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/auth/register")
+      .then((r) => r.json())
+      .then((d) => setAdminExists(!!d.adminExists))
+      .catch(() => setAdminExists(false));
+  }, []);
 
   async function onSubmit(e) {
     e.preventDefault();
@@ -27,10 +29,8 @@ export default function RegisterPage() {
         body: JSON.stringify(form),
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Registration failed");
-      const dest =
-        data.user.role === "teacher" ? "/dashboard/teacher" : "/dashboard/student";
-      router.replace(dest);
+      if (!res.ok) throw new Error(data.error || "Bootstrap failed");
+      router.replace("/admin");
       router.refresh();
     } catch (err) {
       setError(err.message);
@@ -39,12 +39,39 @@ export default function RegisterPage() {
     }
   }
 
+  if (adminExists === null) {
+    return (
+      <div className="mx-auto max-w-md card">
+        <p className="text-sm text-slate-600">Loading…</p>
+      </div>
+    );
+  }
+
+  if (adminExists) {
+    return (
+      <div className="mx-auto max-w-md card">
+        <h1 className="text-2xl font-bold text-slate-900">Sign-up disabled</h1>
+        <p className="mt-2 text-sm text-slate-600">
+          This portal is enrolment-only. An administrator already exists; ask
+          them to add your account.
+        </p>
+        <Link href="/login" className="btn-primary mt-4 inline-flex">
+          Go to sign in
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="mx-auto max-w-md">
       <div className="card">
-        <h1 className="text-2xl font-bold text-slate-900">Create your account</h1>
+        <span className="tag">First-time setup</span>
+        <h1 className="mt-2 text-2xl font-bold text-slate-900">
+          Create the administrator account
+        </h1>
         <p className="mt-1 text-sm text-slate-600">
-          Join as a student or as a teacher.
+          This page works only once — for setting up the first admin who will
+          then enrol teachers and students.
         </p>
         <form onSubmit={onSubmit} className="mt-6 space-y-4">
           <div>
@@ -67,53 +94,16 @@ export default function RegisterPage() {
             />
           </div>
           <div>
-            <label className="label">Password (min 6 chars)</label>
+            <label className="label">Password (min 8 chars)</label>
             <input
               type="password"
               required
-              minLength={6}
+              minLength={8}
               className="input"
               value={form.password}
               onChange={(e) => setForm({ ...form, password: e.target.value })}
             />
           </div>
-          <div>
-            <label className="label">I am a…</label>
-            <div className="grid grid-cols-2 gap-2">
-              {["student", "teacher"].map((r) => (
-                <button
-                  type="button"
-                  key={r}
-                  onClick={() => setForm({ ...form, role: r })}
-                  className={`btn ${
-                    form.role === r
-                      ? "bg-brand-600 text-white"
-                      : "border border-slate-300 bg-white"
-                  }`}
-                >
-                  {r === "student" ? "Student" : "Teacher"}
-                </button>
-              ))}
-            </div>
-          </div>
-          {form.role === "student" && (
-            <div>
-              <label className="label">Class</label>
-              <select
-                className="input"
-                value={form.classLevel}
-                onChange={(e) =>
-                  setForm({ ...form, classLevel: Number(e.target.value) })
-                }
-              >
-                {[3, 4, 5, 6, 7, 8].map((c) => (
-                  <option key={c} value={c}>
-                    Class {c}
-                  </option>
-                ))}
-              </select>
-            </div>
-          )}
           {error && (
             <p className="rounded-md bg-red-50 px-3 py-2 text-sm text-red-700">
               {error}
@@ -124,15 +114,9 @@ export default function RegisterPage() {
             type="submit"
             className="btn-primary w-full"
           >
-            {loading ? "Creating..." : "Create account"}
+            {loading ? "Creating..." : "Create admin & continue"}
           </button>
         </form>
-        <p className="mt-4 text-sm text-slate-600">
-          Already a member?{" "}
-          <Link href="/login" className="font-medium text-brand-700">
-            Sign in
-          </Link>
-        </p>
       </div>
     </div>
   );
