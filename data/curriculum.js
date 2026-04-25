@@ -81,6 +81,49 @@ export const curriculum = [
           "Count faces, edges and corners of solids",
         ],
         activities: ["Match a shape to its top view", "Build & count faces of a paper solid"],
+        intro:
+          "Solid shapes look different from different sides. The top view, front view and side view together describe the shape. Faces, edges and corners are also useful ways to compare solids.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Top view of a cube",
+            problem: "Lakshmi looks straight down at a wooden cube. What shape does she see?",
+            solution:
+              "The top of a cube is a flat square, so the top view is a square.",
+          },
+          {
+            id: "ex-2",
+            title: "Counting parts of a cube",
+            problem: "How many faces, edges and corners does a cube have?",
+            solution:
+              "A cube has 6 faces, 12 edges and 8 corners.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Which of these solids has a circle as its top view?",
+            options: ["Cube", "Cylinder", "Pyramid", "Cuboid"],
+            answerIndex: 1,
+            explanation: "Looking straight down a cylinder, you see its round top — a circle.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "How many corners does a cube have?",
+            answer: "8",
+            explanation: "A cube has 8 corners (also called vertices).",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: A ball has flat faces.",
+            answer: false,
+            explanation: "A ball is a sphere — it has one curved surface and no flat faces.",
+          },
+        ],
       },
       {
         id: "c3-ct-3",
@@ -91,6 +134,53 @@ export const curriculum = [
           "Spot patterns in number sequences",
         ],
         activities: ["Number-name search puzzles", "Skip-count puzzle strips"],
+        intro:
+          "Every number can be broken into hundreds, tens and ones. Spotting place value helps us read, write and compare numbers, and seeing patterns helps us predict what comes next.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Place value of 137",
+            problem: "How many hundreds, tens and ones are in the number 137?",
+            solution: "1 hundred, 3 tens and 7 ones. So 137 = 100 + 30 + 7.",
+          },
+          {
+            id: "ex-2",
+            title: "Skip counting",
+            problem: "What comes next? 95, 100, 105, 110, ?",
+            solution:
+              "The pattern adds 5 each step. Next number = 110 + 5 = 115.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "How would you write the number 184 using place value?",
+            options: [
+              "100 + 80 + 4",
+              "100 + 8 + 4",
+              "10 + 80 + 4",
+              "100 + 4 + 80",
+            ],
+            answerIndex: 0,
+            explanation: "1 hundred (100) + 8 tens (80) + 4 ones (4) = 184.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "What number comes after 199?",
+            answer: "200",
+            explanation: "After 199 comes 200.",
+          },
+          {
+            id: "q3",
+            type: "mcq",
+            prompt: "Which number is the largest?",
+            options: ["119", "191", "129", "109"],
+            answerIndex: 1,
+            explanation: "Compare hundreds, then tens. 191 has the highest tens digit (9).",
+          },
+        ],
       },
       {
         id: "c3-ct-4",
@@ -101,6 +191,58 @@ export const curriculum = [
           "Apply addition and subtraction to story problems",
         ],
         activities: ["Step-by-step trip plan", "Pocket-money story sums"],
+        intro:
+          "Many real-life tasks become easier when we break them into a sequence of small steps. Story problems with money or distance can be solved the same way: read, plan, compute, check.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "A simple plan",
+            problem:
+              "List the first three steps to pack a bag for a 2-day trip to your grandmother's house.",
+            solution:
+              "1) Decide what you need each day. 2) Take out the items. 3) Pack them in your bag. (Other orders are fine — the key idea is breaking the task into steps.)",
+          },
+          {
+            id: "ex-2",
+            title: "Story sum",
+            problem:
+              "Aman had ₹50. He spent ₹18 on a snack and ₹12 on a bus ticket. How much money is left?",
+            solution: "Total spent = 18 + 12 = ₹30. Money left = 50 − 30 = ₹20.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "Riya had 25 sweets. She gave 8 to her brother. How many are left?",
+            answer: "17",
+            explanation: "25 − 8 = 17.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which step usually comes FIRST when planning a journey?",
+            options: [
+              "Pack the bag",
+              "Decide where you are going",
+              "Buy snacks",
+              "Wave goodbye",
+            ],
+            answerIndex: 1,
+            explanation:
+              "You need to know the destination first; everything else follows from that.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Solving a story problem becomes easier if you break it into smaller steps.",
+            answer: true,
+            explanation:
+              "Yes — breaking a problem into steps is a key idea in computational thinking.",
+          },
+        ],
       },
       {
         id: "c3-ct-5",
@@ -111,6 +253,46 @@ export const curriculum = [
           "Continue and complete shape patterns",
         ],
         activities: ["Tangram puzzle", "Pattern-completion grid"],
+        intro:
+          "We can recognise 2D shapes by counting their sides and corners. A triangle has 3, a square 4, a pentagon 5, and so on.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Naming a shape",
+            problem: "A flat shape has 5 sides and 5 corners. What is it called?",
+            solution: "A 5-sided polygon is called a pentagon.",
+          },
+          {
+            id: "ex-2",
+            title: "Continue the pattern",
+            problem: "▲ ● ▲ ● ▲ ?  What comes next?",
+            solution: "The pattern alternates triangle and circle, so the next shape is ●.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many sides does a hexagon have?",
+            answer: "6",
+            explanation: "A hexagon has 6 sides.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which shape has exactly 4 equal sides?",
+            options: ["Triangle", "Rectangle", "Square", "Circle"],
+            answerIndex: 2,
+            explanation: "A square has 4 sides of equal length.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: A circle has corners.",
+            answer: false,
+            explanation: "A circle is a smooth curve — it has no corners.",
+          },
+        ],
       },
       {
         id: "c3-ct-6",
@@ -121,6 +303,48 @@ export const curriculum = [
           "Compare and order numbers up to 999",
         ],
         activities: ["Place-value flats/longs/units puzzle"],
+        intro:
+          "Three-digit numbers are made of hundreds, tens and ones. To compare two numbers, look at the hundreds digit first; if they match, look at the tens; then the ones.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Compare 357 and 375",
+            problem: "Which number is larger: 357 or 375?",
+            solution:
+              "Hundreds match (3 = 3). Tens: 5 < 7, so 375 is larger.",
+          },
+          {
+            id: "ex-2",
+            title: "Write in words",
+            problem: "How do you read 408 in words?",
+            solution: "Four hundred eight.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "Which number is the smallest?",
+            options: ["632", "623", "263", "326"],
+            answerIndex: 2,
+            explanation: "263 has the smallest hundreds digit (2), so it's smallest.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "What is the value of the digit 5 in 152?",
+            answer: "50",
+            explanation: "The 5 is in the tens place, so it stands for 5 × 10 = 50.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: 999 is the largest three-digit number.",
+            answer: true,
+            explanation:
+              "Yes — 999 is the biggest three-digit number; the next number, 1000, has four digits.",
+          },
+        ],
       },
       {
         id: "c3-ct-7",
@@ -131,6 +355,51 @@ export const curriculum = [
           "Decompose problems into smaller steps",
         ],
         activities: ["Plan a rakhi-making list with quantities"],
+        intro:
+          "Festivals are full of counting and adding. We can add bigger numbers more easily by breaking them into tens and ones, or by adding the easier parts first.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Add the easy way",
+            problem: "Find 27 + 38 quickly.",
+            solution:
+              "Add tens: 20 + 30 = 50. Add ones: 7 + 8 = 15. Total: 50 + 15 = 65.",
+          },
+          {
+            id: "ex-2",
+            title: "Plan and add",
+            problem:
+              "Meera made 24 rakhis on Saturday and 18 on Sunday. How many rakhis in all?",
+            solution: "24 + 18 = 42 rakhis.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is 35 + 27?",
+            answer: "62",
+            explanation: "30 + 20 = 50; 5 + 7 = 12; 50 + 12 = 62.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "A box has 45 sweets. Mother adds 30 more. How many sweets are in the box?",
+            options: ["65", "70", "75", "85"],
+            answerIndex: 2,
+            explanation: "45 + 30 = 75.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Adding tens first and then ones is one good way to add numbers.",
+            answer: true,
+            explanation:
+              "Yes — splitting into tens and ones is a common addition strategy.",
+          },
+        ],
       },
       {
         id: "c3-ct-8",
@@ -141,6 +410,49 @@ export const curriculum = [
           "Connect 'equal sharing' to early division",
         ],
         activities: ["Share sweets fairly between friends"],
+        intro:
+          "Sharing things equally is the same idea as dividing. If something does not share evenly, what is left over is called the remainder.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Equal share",
+            problem: "Share 12 chocolates equally between 4 friends. How many does each get?",
+            solution: "12 ÷ 4 = 3. Each friend gets 3 chocolates.",
+          },
+          {
+            id: "ex-2",
+            title: "Sharing with leftovers",
+            problem: "Share 10 toffees equally among 3 friends. How many each, and what is left over?",
+            solution:
+              "Each friend can get 3 toffees (3 × 3 = 9). 10 − 9 = 1 toffee is left over.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "Share 20 marbles equally among 5 children. How many marbles does each get?",
+            answer: "4",
+            explanation: "20 ÷ 5 = 4 marbles each.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "If 14 sweets are shared equally among 4 friends, how many are left over?",
+            options: ["0", "1", "2", "3"],
+            answerIndex: 2,
+            explanation: "Each friend gets 3 (4 × 3 = 12). 14 − 12 = 2 left over.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: Equal sharing is another name for dividing.",
+            answer: true,
+            explanation: "Yes — sharing into equal groups is the everyday meaning of division.",
+          },
+        ],
       },
       {
         id: "c3-ct-9",
@@ -151,6 +463,48 @@ export const curriculum = [
           "Estimate before computing",
         ],
         activities: ["Estimate-then-check sums"],
+        intro:
+          "When ones or tens add up to 10 or more, we 'carry' to the next column. Estimating first gives a rough answer so you can check whether the exact answer makes sense.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Estimate then add",
+            problem: "Estimate 198 + 305 by rounding to the nearest hundred. Then find the exact sum.",
+            solution:
+              "Rounded: 200 + 300 = 500. Exact: 198 + 305 = 503. The estimate is close.",
+          },
+          {
+            id: "ex-2",
+            title: "Subtract with regrouping",
+            problem: "Find 405 − 178.",
+            solution:
+              "Borrow from the tens, then from the hundreds. 405 − 178 = 227.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Find 256 + 187.",
+            answer: "443",
+            explanation: "256 + 187 = 443.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Estimate 297 + 198 by rounding to the nearest hundred.",
+            options: ["400", "500", "600", "700"],
+            answerIndex: 1,
+            explanation: "300 + 200 = 500.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt: "Find 600 − 245.",
+            answer: "355",
+            explanation: "600 − 245 = 355.",
+          },
+        ],
       },
       {
         id: "c3-ct-10",
@@ -161,6 +515,50 @@ export const curriculum = [
           "Read simple tables of items and quantities",
         ],
         activities: ["Plan items needed for a class party"],
+        intro:
+          "When we have equal groups, repeated addition can be replaced by multiplication. Tables help us list the items we need and the quantity per group.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Equal groups",
+            problem:
+              "There are 6 tables in a hall and each table has 4 plates. How many plates in all?",
+            solution: "6 × 4 = 24 plates.",
+          },
+          {
+            id: "ex-2",
+            title: "Reading a list",
+            problem:
+              "A teacher needs 5 packets of biscuits and each packet has 8 biscuits. How many biscuits in total?",
+            solution: "5 × 8 = 40 biscuits.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "There are 4 boxes and each box has 7 balloons. How many balloons in all?",
+            answer: "28",
+            explanation: "4 × 7 = 28.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which of these is the same as 3 + 3 + 3 + 3 + 3?",
+            options: ["3 × 4", "5 × 3", "3 × 6", "5 + 3"],
+            answerIndex: 1,
+            explanation: "Adding 3 five times = 5 × 3 = 15.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Multiplication is just a shorter way to write repeated addition of the same number.",
+            answer: true,
+            explanation: "Yes — that is the basic idea of multiplication.",
+          },
+        ],
       },
       {
         id: "c3-ct-11",
@@ -171,6 +569,49 @@ export const curriculum = [
           "Compare weights using balances",
         ],
         activities: ["Capacity-ranking activity", "Balance-the-scale puzzle"],
+        intro:
+          "Capacity tells us how much liquid a container can hold. Weight tells us how heavy something is. We use a balance to compare the weights of two things.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Comparing capacities",
+            problem:
+              "A bottle holds 1 litre of water. A glass holds 200 millilitres. How many glasses fill the bottle?",
+            solution: "1 litre = 1000 ml. 1000 ÷ 200 = 5 glasses.",
+          },
+          {
+            id: "ex-2",
+            title: "Balance scale",
+            problem:
+              "A balance has 3 oranges on one side and 1 mango on the other. The mango side goes down. Which is heavier?",
+            solution: "The mango is heavier than 3 oranges put together.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "Which unit is best for measuring a glass of milk?",
+            options: ["Kilometres", "Millilitres", "Kilograms", "Hours"],
+            answerIndex: 1,
+            explanation: "A glass of milk is a small amount of liquid — millilitres fit best.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "How many millilitres are there in 1 litre?",
+            answer: "1000",
+            explanation: "1 litre = 1000 ml.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A balance scale shows which of two objects is heavier.",
+            answer: true,
+            explanation: "Yes — the heavier side goes down.",
+          },
+        ],
       },
       {
         id: "c3-ct-12",
@@ -181,6 +622,51 @@ export const curriculum = [
           "Use money values for change-making",
         ],
         activities: ["Shop role-play with notes & coins"],
+        intro:
+          "When we buy or sell things, we use addition for the total cost and subtraction for the change. Reading a problem carefully helps us pick the right operation.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Total cost",
+            problem:
+              "A pencil costs ₹8 and an eraser costs ₹5. What do they cost together?",
+            solution: "8 + 5 = ₹13.",
+          },
+          {
+            id: "ex-2",
+            title: "Change",
+            problem:
+              "Karan paid ₹50 for a notebook that costs ₹35. How much change does he get back?",
+            solution: "50 − 35 = ₹15 change.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "A toy costs ₹95. Tara pays ₹100. How much change should she get?",
+            answer: "5",
+            explanation: "100 − 95 = ₹5.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "An apple costs ₹12 and a banana costs ₹7. How much do 1 apple and 1 banana cost together?",
+            options: ["₹15", "₹17", "₹19", "₹21"],
+            answerIndex: 2,
+            explanation: "12 + 7 = ₹19.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: To find the change you got back, you subtract the cost from what you paid.",
+            answer: true,
+            explanation: "Yes — change = amount paid − cost.",
+          },
+        ],
       },
       {
         id: "c3-ct-13",
@@ -191,6 +677,49 @@ export const curriculum = [
           "Sequence events in days, weeks and months",
         ],
         activities: ["Build a daily timeline"],
+        intro:
+          "Clocks help us read the time. There are 60 minutes in an hour, 24 hours in a day, 7 days in a week. Putting events in the right order is part of computational thinking too.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Reading a clock",
+            problem:
+              "The hour hand is on 3 and the minute hand is on 12. What time is it?",
+            solution: "3 o'clock (or 3:00).",
+          },
+          {
+            id: "ex-2",
+            title: "Order the events",
+            problem:
+              "Put these in the right order: 'eat lunch', 'wake up', 'go to school', 'go to bed'.",
+            solution:
+              "Wake up → go to school → eat lunch → go to bed.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many minutes are there in 1 hour?",
+            answer: "60",
+            explanation: "There are 60 minutes in an hour.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which day comes right after Wednesday?",
+            options: ["Tuesday", "Thursday", "Friday", "Sunday"],
+            answerIndex: 1,
+            explanation: "After Wednesday comes Thursday.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: There are 7 days in a week.",
+            answer: true,
+            explanation: "Yes — Sunday to Saturday makes 7 days.",
+          },
+        ],
       },
       {
         id: "c3-ct-14",
@@ -201,6 +730,51 @@ export const curriculum = [
           "Answer questions from picture-based data",
         ],
         activities: ["Survey & pictograph for favourite fair items"],
+        intro:
+          "Pictographs and bar charts use pictures or bars to show how much of something there is. Tall bars mean bigger numbers; short bars mean smaller numbers.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Reading a pictograph",
+            problem:
+              "Each ★ stands for 5 visitors. A row has 4 stars. How many visitors does it show?",
+            solution: "4 × 5 = 20 visitors.",
+          },
+          {
+            id: "ex-2",
+            title: "Tallest bar",
+            problem:
+              "A bar chart shows: Toys 12, Sweets 18, Books 9, Clothes 15. Which item was bought the most?",
+            solution: "Sweets, with 18.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Each picture in a chart stands for 10 fair visitors. A row has 7 pictures. How many visitors?",
+            options: ["17", "70", "100", "700"],
+            answerIndex: 1,
+            explanation: "7 × 10 = 70 visitors.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt:
+              "In a chart, Day 1 has 25 visitors and Day 2 has 40. How many more visitors on Day 2?",
+            answer: "15",
+            explanation: "40 − 25 = 15.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A taller bar in a bar chart usually means a larger number.",
+            answer: true,
+            explanation: "Yes — bar height is proportional to the value.",
+          },
+        ],
       },
     ],
   },
