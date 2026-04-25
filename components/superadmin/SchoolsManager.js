@@ -219,6 +219,14 @@ function SchoolRow({ school, onSave, onDelete }) {
           value={code}
           onChange={(e) => setCode(e.target.value)}
         />
+        <a
+          href={`/${school.code}`}
+          target="_blank"
+          rel="noreferrer"
+          className="mt-1 block text-xs text-brand-700 hover:underline"
+        >
+          /{school.code}
+        </a>
       </td>
       <td className="py-2 pr-4">{school.adminCount}</td>
       <td className="py-2 pr-4">{school.teacherCount}</td>
