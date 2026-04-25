@@ -3890,6 +3890,20 @@ export const curriculum = [
           "Use Indian and international place value",
         ],
         activities: ["Reading-large-numbers relay"],
+        teacherNotes: {
+          overview:
+            "Large numbers test fluency with both Indian and international comma placement. Reading aloud is the fastest path to confidence.",
+          lessonPlan: [
+            { stage: "Comma practice", minutes: 10, detail: "Whole class places commas in 6 large numbers under both systems." },
+            { stage: "Read aloud relay", minutes: 13, detail: "Pairs take turns reading large numbers; teacher times the relay." },
+            { stage: "Convert", minutes: 12, detail: "Convert between lakhs/crores and millions/billions." },
+            { stage: "Connect", minutes: 5, detail: "Where do we meet large numbers in news (population, budgets)?" },
+          ],
+          ctSkills: ["Decomposition", "Pattern recognition", "Generalisation"],
+          misconceptions: ["Mixing comma styles in one number.", "Confusing 1 lakh with 1 million."],
+          assessmentIdeas: ["Place commas in 12345678 (Indian).", "How many lakhs in a crore?"],
+          differentiation: ["Support: comma-template card.", "Stretch: convert 7.5 crore to millions."],
+        },
         intro:
           "In the Indian system we group digits as lakhs and crores; in the international system we use thousands, millions and billions. Commas help us read large numbers correctly.",
         examples: [
@@ -3942,6 +3956,20 @@ export const curriculum = [
           "Translate word problems into expressions",
         ],
         activities: ["BODMAS station puzzles"],
+        teacherNotes: {
+          overview:
+            "BODMAS errors are common because mixed operations are abstract. Pair short focused practice with a 'why does order matter' discussion.",
+          lessonPlan: [
+            { stage: "Predict", minutes: 8, detail: "Show 8 + 2 × 5 — students predict the value, then debate." },
+            { stage: "Practice", minutes: 13, detail: "Whole-class flash drill: 5 mixed expressions on the board." },
+            { stage: "Brackets", minutes: 14, detail: "Compare (8 + 2) × 5 vs 8 + 2 × 5; students rewrite expressions to change the answer using brackets." },
+            { stage: "Connect", minutes: 5, detail: "Calculators with no brackets — what happens?" },
+          ],
+          ctSkills: ["Algorithmic thinking", "Decomposition", "Evaluation"],
+          misconceptions: ["Reading left-to-right, ignoring precedence.", "Treating addition and subtraction as different priorities."],
+          assessmentIdeas: ["12 − 3 × 2 = ?", "24 ÷ (4 + 2) = ?"],
+          differentiation: ["Support: highlight × and ÷ in red.", "Stretch: build an expression that equals 7 using each digit 1-4 once."],
+        },
         intro:
           "When several operations are mixed, we follow the BODMAS order: Brackets, Of, Division, Multiplication, Addition, Subtraction.",
         examples: [
@@ -3993,6 +4021,20 @@ export const curriculum = [
           "Add and subtract decimals",
         ],
         activities: ["Bill-and-change decimal tasks"],
+        teacherNotes: {
+          overview:
+            "Decimals are place value carried beyond the units column. The classic error is misalignment of decimal points.",
+          lessonPlan: [
+            { stage: "Place value", minutes: 8, detail: "Show 3.45; identify tenths and hundredths. Connect to ₹ and paise." },
+            { stage: "Compute", minutes: 14, detail: "Whole-class addition and subtraction with mixed decimal places, lining up points." },
+            { stage: "Compare", minutes: 13, detail: "Order 6 decimals from least to greatest; discuss zero-padding (0.5 = 0.50)." },
+            { stage: "Connect", minutes: 5, detail: "Why are bills written to two decimal places?" },
+          ],
+          ctSkills: ["Algorithmic thinking", "Pattern recognition", "Generalisation"],
+          misconceptions: ["Believing more digits after the point means a bigger number.", "Forgetting to align decimal points."],
+          assessmentIdeas: ["5.2 + 1.85 = ?", "Order 0.5, 0.55, 0.05."],
+          differentiation: ["Support: decimal-place mat.", "Stretch: convert decimals to fractions and back."],
+        },
         intro:
           "Decimals extend place value to the right of the decimal point: tenths, hundredths, thousandths. Line up the decimal points before adding or subtracting.",
         examples: [
@@ -4046,6 +4088,20 @@ export const curriculum = [
           "Form and simplify simple algebraic expressions",
         ],
         activities: ["Variable-as-bag concrete tasks"],
+        teacherNotes: {
+          overview:
+            "First steps in algebra. Variables stand for numbers we don't know yet. Avoid mystifying the letter — it is just a placeholder.",
+          lessonPlan: [
+            { stage: "Bag of n", minutes: 10, detail: "Show a bag with an unknown number of marbles n; pose 'add 3 more' as n + 3." },
+            { stage: "Translate", minutes: 12, detail: "Convert 5 word phrases into expressions in pairs." },
+            { stage: "Simplify", minutes: 13, detail: "Combine like terms: 3a + 2a, 4x + 5x − 2x. Stress: only same letters combine." },
+            { stage: "Substitute", minutes: 5, detail: "Evaluate 2n + 3 for n = 4." },
+          ],
+          ctSkills: ["Abstraction", "Generalisation", "Pattern recognition"],
+          misconceptions: ["Adding the letter to the number (3 + n = 3n).", "Combining unlike terms (5a + 5b = 10ab)."],
+          assessmentIdeas: ["Simplify 4x + 3x.", "Evaluate 2n + 3 for n = 4."],
+          differentiation: ["Support: bags & counters as a model.", "Stretch: write an expression for 'thrice my age plus 5'."],
+        },
         intro:
           "A letter like x or n can stand for an unknown number. We can write expressions with it: 3n means '3 times n'. Like terms — terms with the same letter — can be combined.",
         examples: [
@@ -4097,6 +4153,20 @@ export const curriculum = [
           "Use angle properties to solve problems",
         ],
         activities: ["Geo-board angle exploration"],
+        teacherNotes: {
+          overview:
+            "Angle relationships make a network of facts. Once students see them as 'rules to apply', missing-angle problems become routine.",
+          lessonPlan: [
+            { stage: "Demo", minutes: 8, detail: "Mark two intersecting lines on the board; identify vertically opposite and linear pairs." },
+            { stage: "Practice", minutes: 13, detail: "Six missing-angle problems; pairs solve and justify each step." },
+            { stage: "Transversal", minutes: 14, detail: "Introduce parallel lines + transversal: corresponding, alternate, co-interior. Spot which are equal vs supplementary." },
+            { stage: "Connect", minutes: 5, detail: "Where do these come up in carpentry / map making?" },
+          ],
+          ctSkills: ["Pattern recognition", "Algorithmic thinking", "Generalisation"],
+          misconceptions: ["Calling alternate angles 'opposite'.", "Forgetting that the angle relationships need parallel lines."],
+          assessmentIdeas: ["Vertically opposite of 70° = ?", "Co-interior pair sum?"],
+          differentiation: ["Support: colour-coded angle pairs.", "Stretch: prove that vertically opposite angles are equal."],
+        },
         intro:
           "Two lines are parallel if they never meet. They intersect if they cross. When a transversal cuts two parallel lines, it makes pairs of equal angles (corresponding) and pairs that add to 180° (co-interior).",
         examples: [
@@ -4156,6 +4226,20 @@ export const curriculum = [
           "Reason about even/odd and prime properties",
         ],
         activities: ["Divisibility-rule conjecture lab"],
+        teacherNotes: {
+          overview:
+            "Divisibility rules sharpen mental arithmetic. The 'why' is more interesting than the 'how' — pattern-spot first, justify after.",
+          lessonPlan: [
+            { stage: "Test", minutes: 10, detail: "Whole-class checks divisibility of 432, 525, 729 by 2, 3, 5, 9." },
+            { stage: "Discover", minutes: 14, detail: "Pairs collect 5 numbers divisible by 9; conjecture the rule from sum-of-digits." },
+            { stage: "Justify", minutes: 11, detail: "Why does the rule for 9 work? Sketch the place-value argument together." },
+            { stage: "Connect", minutes: 5, detail: "Computers use divisibility checks for fast factoring." },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Evaluation"],
+          misconceptions: ["Treating 'rule for 3' and 'rule for 9' as identical.", "Believing all even numbers are also divisible by 4."],
+          assessmentIdeas: ["Is 765 divisible by 5?", "Sum of digits of 4536 = ?"],
+          differentiation: ["Support: pre-checked numbers to spot the pattern.", "Stretch: discover a divisibility rule for 11."],
+        },
         intro:
           "Quick divisibility checks: by 2 if last digit is even; by 3 if sum of digits divisible by 3; by 5 if last digit is 0 or 5; by 9 if sum of digits divisible by 9.",
         examples: [
@@ -4206,6 +4290,20 @@ export const curriculum = [
           "Apply the angle-sum property of triangles",
         ],
         activities: ["Cut-and-paste angle-sum proof"],
+        teacherNotes: {
+          overview:
+            "Build the angle-sum 'fact' by tearing and rearranging triangle corners — a memorable hands-on proof.",
+          lessonPlan: [
+            { stage: "Tear & arrange", minutes: 12, detail: "Each student draws a triangle, tears off the three corners, lines them up — they form a straight line (180°)." },
+            { stage: "Compute", minutes: 13, detail: "Six missing-angle problems with mixed triangle types." },
+            { stage: "Classify", minutes: 10, detail: "Sort 8 triangles by sides (equilateral/isosceles/scalene) and by angles (acute/right/obtuse)." },
+            { stage: "Connect", minutes: 5, detail: "Why is there no 'two right angles' triangle?" },
+          ],
+          ctSkills: ["Generalisation", "Pattern recognition", "Algorithmic thinking"],
+          misconceptions: ["Believing all triangles' angles add to 360°.", "Thinking equilateral triangles can be obtuse."],
+          assessmentIdeas: ["Two angles 40° and 60°; third?", "All-different-sides triangle is called?"],
+          differentiation: ["Support: pre-cut triangles.", "Stretch: prove the angle-sum using parallel-line transversals."],
+        },
         intro:
           "The three angles of any triangle add up to 180°. Triangles can be classified by sides (scalene, isosceles, equilateral) or by angles (acute, right, obtuse).",
         examples: [
@@ -4259,6 +4357,20 @@ export const curriculum = [
           "Solve word problems with fractional quantities",
         ],
         activities: ["Recipe-scaling with fractional servings"],
+        teacherNotes: {
+          overview:
+            "Fraction multiplication is mechanical — the 'why' is the harder lesson. Use area models to make it visible. Division by a fraction is best taught as 'multiply by the reciprocal'.",
+          lessonPlan: [
+            { stage: "Area model", minutes: 12, detail: "Draw 1×1 square, shade 2/3 horizontally, 3/4 vertically; the overlap = 2/3 × 3/4." },
+            { stage: "Practice", minutes: 13, detail: "Six multiplications and three divisions; emphasise simplifying." },
+            { stage: "Recipe", minutes: 12, detail: "Scale a recipe by 3/4 of original; pairs compute new quantities." },
+            { stage: "Connect", minutes: 5, detail: "Why does dividing by a fraction give a bigger answer?" },
+          ],
+          ctSkills: ["Algorithmic thinking", "Pattern recognition", "Generalisation"],
+          misconceptions: ["Adding tops/bottoms when the rule is multiply.", "Forgetting to flip the divisor."],
+          assessmentIdeas: ["1/2 × 1/3 = ?", "4/5 ÷ 2/5 = ?"],
+          differentiation: ["Support: area diagrams.", "Stretch: scale a recipe by a mixed fraction."],
+        },
         intro:
           "To multiply fractions, multiply the tops and the bottoms separately. To divide by a fraction, multiply by its reciprocal (flip it over).",
         examples: [
@@ -4311,6 +4423,20 @@ export const curriculum = [
           "Match real applications to the right AI domain",
         ],
         activities: ["Match-the-app to its AI domain card sort"],
+        teacherNotes: {
+          overview:
+            "Different AI domains use different kinds of data. Use the Data Science / Computer Vision / NLP split as a thinking tool, not as exclusive boxes.",
+          lessonPlan: [
+            { stage: "Domains", minutes: 10, detail: "Define the three domains using simple examples; what input does each work on?" },
+            { stage: "Card sort", minutes: 13, detail: "Pairs sort 12 application cards into the three domains; reflect on borderline cases." },
+            { stage: "Why", minutes: 12, detail: "What kind of data does each domain need? Numbers, images, text/audio." },
+            { stage: "Connect", minutes: 5, detail: "Many real apps use more than one domain. Example: smart speakers." },
+          ],
+          ctSkills: ["Classification", "Abstraction", "Evaluation"],
+          misconceptions: ["Assigning every AI to one domain only.", "Confusing 'computer vision' with 'screen reading'."],
+          assessmentIdeas: ["Domain for face unlock?", "Music recommendation falls under?"],
+          differentiation: ["Support: pre-grouped easier cards.", "Stretch: list applications that span 2 domains."],
+        },
         intro:
           "AI is not one big thing — it is a collection of domains. The three most common are Data Science (working with numbers and tables), Computer Vision (working with images and video), and Natural Language Processing (working with text and speech).",
         examples: [
@@ -4369,6 +4495,20 @@ export const curriculum = [
           "Discuss benefits and risks of AI in each industry",
         ],
         activities: ["Industry case-study presentation in pairs"],
+        teacherNotes: {
+          overview:
+            "Industry stories make AI tangible. Pair every benefit with a risk so students don't end up with an only-good or only-bad picture.",
+          lessonPlan: [
+            { stage: "Stories", minutes: 10, detail: "Three short case examples (healthcare, finance, food delivery); class lists the benefits." },
+            { stage: "Risks", minutes: 12, detail: "Same three cases — what could go wrong? Bring up bad data, bias, dependency." },
+            { stage: "Pair pitch", minutes: 13, detail: "Pairs prepare a 1-minute pitch on AI in an industry of their choice; benefits + risks + recommendation." },
+            { stage: "Connect", minutes: 5, detail: "Discuss: who is responsible when an AI tool harms a user?" },
+          ],
+          ctSkills: ["Evaluation", "Abstraction", "Decomposition"],
+          misconceptions: ["Believing AI is always faster and better.", "Thinking risks only matter for big AI systems."],
+          assessmentIdeas: ["Name one AI in healthcare and a related risk.", "Industry where AI predicts delivery time?"],
+          differentiation: ["Support: cue cards with talking points.", "Stretch: invite students to research one regulated industry (banking)."],
+        },
         intro:
           "AI is being used in many industries — from spotting diseases in medical scans to detecting fraud in banks and recommending products in shops. Each use brings benefits but also risks like bias and over-reliance.",
         examples: [
@@ -4434,6 +4574,20 @@ export const curriculum = [
           "Read insights from line, bar and pie charts",
         ],
         activities: ["Build charts from a small school dataset"],
+        teacherNotes: {
+          overview:
+            "Two skills here: choosing the right chart and computing a quick summary statistic (mean / median / mode). Keep datasets small enough to compute by hand.",
+          lessonPlan: [
+            { stage: "Pick a chart", minutes: 10, detail: "Show 3 questions; pairs match each to bar / line / pie." },
+            { stage: "Build", minutes: 12, detail: "Pairs render a small school dataset as the chosen chart on grid paper." },
+            { stage: "Summarise", minutes: 13, detail: "Whole class computes mean, median and mode for the same dataset; discuss differences." },
+            { stage: "Connect", minutes: 5, detail: "When does the median tell a more honest story than the mean?" },
+          ],
+          ctSkills: ["Abstraction", "Evaluation", "Algorithmic thinking"],
+          misconceptions: ["Treating mean as 'typical' when there are outliers.", "Choosing a pie chart for a non-whole dataset."],
+          assessmentIdeas: ["Mean of 5, 7, 9.", "Mode of 3, 5, 5, 7, 9, 5, 2."],
+          differentiation: ["Support: provide small ordered datasets.", "Stretch: introduce range and reach toward standard deviation conceptually."],
+        },
         intro:
           "Charts make patterns easy to see. Bar charts compare categories; line charts show trends over time; pie charts show parts of a whole. Mean, median and mode summarise a dataset.",
         examples: [
@@ -4487,6 +4641,20 @@ export const curriculum = [
           "Suggest steps to make AI use responsible",
         ],
         activities: ["Spot-the-bias scenario discussion"],
+        teacherNotes: {
+          overview:
+            "Bias awareness is a habit, not a topic. Repeatedly ask 'whose data is missing?' and 'who is harmed if this fails?' across many small scenarios.",
+          lessonPlan: [
+            { stage: "Scenarios", minutes: 12, detail: "Read 3 short scenarios where AI behaves unfairly; class names what's missing in the data." },
+            { stage: "Fix", minutes: 12, detail: "Pairs propose how to improve the data and the system." },
+            { stage: "Personal data check", minutes: 11, detail: "Discuss what data students give apps and what could go wrong." },
+            { stage: "Connect", minutes: 5, detail: "Ethical AI is everyone's job — designer, user, regulator." },
+          ],
+          ctSkills: ["Evaluation", "Abstraction", "Decomposition"],
+          misconceptions: ["Believing 'AI is neutral'.", "Thinking only the engineer is responsible."],
+          assessmentIdeas: ["Why might an AI work better for adults than for kids?", "List one step to make AI fairer."],
+          differentiation: ["Support: scenario cards with prompts.", "Stretch: write a short charter of AI fairness rules."],
+        },
         intro:
           "AI learns patterns from data. If the data only represents one group of people, the AI will work poorly for everyone else. This is called bias, and avoiding it is part of using AI responsibly.",
         examples: [
