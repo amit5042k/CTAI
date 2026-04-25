@@ -129,6 +129,20 @@ export const curriculum = [
           "Count faces, edges and corners of solids",
         ],
         activities: ["Match a shape to its top view", "Build & count faces of a paper solid"],
+        teacherNotes: {
+          overview:
+            "Anchor 3D solids in things students already touch — pencil boxes, dice, cans. The aim is to move from naming shapes to describing them by faces, edges and corners.",
+          lessonPlan: [
+            { stage: "Hook", minutes: 5, detail: "Hold up a tin and a brick. Ask what is alike and different. Collect words on the board." },
+            { stage: "Investigate", minutes: 15, detail: "Pairs hunt for cubes, cuboids, cylinders, spheres in the classroom and tally findings." },
+            { stage: "Top view game", minutes: 15, detail: "Place real solids in a row and have one student describe only the top view; the partner names the solid." },
+            { stage: "Connect", minutes: 5, detail: "Draw a table on the board: faces, edges, corners — fill in for cube, cuboid, cylinder, sphere." },
+          ],
+          ctSkills: ["Pattern recognition", "Abstraction (top view ignores depth)", "Generalisation across solids"],
+          misconceptions: ["Calling any 3D shape a 'cube'.", "Confusing faces with edges."],
+          assessmentIdeas: ["Show 3 objects; students sort into 'rolls' / 'slides only' piles.", "Quick draw: top view of a cuboid."],
+          differentiation: ["Support: provide pre-printed shape templates to compare.", "Stretch: ask how many top views a cylinder can have."],
+        },
         intro:
           "Solid shapes look different from different sides. The top view, front view and side view together describe the shape. Faces, edges and corners are also useful ways to compare solids.",
         examples: [
@@ -182,6 +196,20 @@ export const curriculum = [
           "Spot patterns in number sequences",
         ],
         activities: ["Number-name search puzzles", "Skip-count puzzle strips"],
+        teacherNotes: {
+          overview:
+            "Strengthen the place-value mental model. Students should be fluent moving between a number, its expanded form, and its name in words.",
+          lessonPlan: [
+            { stage: "Hook", minutes: 5, detail: "Show '137' on flashcards and ask: how many hundred-rupee notes, ten-rupee notes, one-rupee coins?" },
+            { stage: "Build", minutes: 15, detail: "Use bundles of 10 sticks plus loose sticks to physically build numbers up to 200." },
+            { stage: "Skip-count", minutes: 15, detail: "Pairs build a counting strip from 95 to 200 in steps of 5; circle the patterns they spot." },
+            { stage: "Connect", minutes: 5, detail: "Quick reflection: which digits change when adding 10? When adding 100?" },
+          ],
+          ctSkills: ["Pattern recognition (counting in steps)", "Abstraction (one bundle = ten)", "Decomposition into hundreds, tens, ones"],
+          misconceptions: ["Reading '107' as 'seventeen' (zero ignored).", "Believing larger digit means larger value, regardless of place."],
+          assessmentIdeas: ["Exit slip: write 184 in expanded form.", "True/false: 199 + 1 has no hundreds."],
+          differentiation: ["Support: place-value mat with labelled columns.", "Stretch: ask which 3-digit numbers read the same backwards (palindromes)."],
+        },
         intro:
           "Every number can be broken into hundreds, tens and ones. Spotting place value helps us read, write and compare numbers, and seeing patterns helps us predict what comes next.",
         examples: [
@@ -239,6 +267,20 @@ export const curriculum = [
           "Apply addition and subtraction to story problems",
         ],
         activities: ["Step-by-step trip plan", "Pocket-money story sums"],
+        teacherNotes: {
+          overview:
+            "Connect everyday journeys to two CT habits: sequencing (do things in order) and decomposition (break a big task into small ones). Story sums then practise reading a problem and choosing the right operation.",
+          lessonPlan: [
+            { stage: "Hook", minutes: 5, detail: "Ask: 'How would you pack for a 2-day trip?' Capture steps in any order, then re-order them as a class." },
+            { stage: "Plan", minutes: 10, detail: "Pairs draft a 5-step plan for travelling from home to a relative's house." },
+            { stage: "Story sums", minutes: 15, detail: "Three short money problems on the board; students annotate which operation is needed and why." },
+            { stage: "Reflect", minutes: 5, detail: "What changes if you add a stop on the way? Discuss how the plan adapts." },
+          ],
+          ctSkills: ["Sequencing", "Decomposition", "Algorithmic thinking"],
+          misconceptions: ["Doing a step out of order and not noticing the impact.", "Adding when 'altogether' actually requires totalling and then subtracting change."],
+          assessmentIdeas: ["Number the steps for making a sandwich in order.", "Two-step word problem: total cost then change."],
+          differentiation: ["Support: provide step-cards already written, just arrange them.", "Stretch: write a 6-step plan with a missing step for a friend to find."],
+        },
         intro:
           "Many real-life tasks become easier when we break them into a sequence of small steps. Story problems with money or distance can be solved the same way: read, plan, compute, check.",
         examples: [
@@ -301,6 +343,20 @@ export const curriculum = [
           "Continue and complete shape patterns",
         ],
         activities: ["Tangram puzzle", "Pattern-completion grid"],
+        teacherNotes: {
+          overview:
+            "Move beyond shape names to descriptions: how many sides, how many corners, are sides equal? Patterns of shapes practise prediction.",
+          lessonPlan: [
+            { stage: "Sort", minutes: 8, detail: "Hand each pair a bag of paper shapes. They sort by number of sides without telling each other the rule." },
+            { stage: "Tangram", minutes: 17, detail: "Students assemble a simple tangram cat; review sides and corners as they fit pieces." },
+            { stage: "Patterns", minutes: 10, detail: "Show shape sequences on the board (▲ ● ▲ ● ?) and ask for the rule, not just the next shape." },
+            { stage: "Reflect", minutes: 5, detail: "Which shape was the trickiest to describe? Why?" },
+          ],
+          ctSkills: ["Classification", "Pattern recognition", "Generalisation"],
+          misconceptions: ["Counting a corner twice when shapes share a vertex.", "Believing a tilted square is a 'diamond', not a square."],
+          assessmentIdeas: ["Quick draw: any shape with exactly 5 corners.", "Continue the pattern ★ ◆ ★ ◆ ★ ?"],
+          differentiation: ["Support: pre-grouped shape sets (triangles only, quads only).", "Stretch: invent a 3-symbol pattern that repeats every 4 steps."],
+        },
         intro:
           "We can recognise 2D shapes by counting their sides and corners. A triangle has 3, a square 4, a pentagon 5, and so on.",
         examples: [
@@ -351,6 +407,20 @@ export const curriculum = [
           "Compare and order numbers up to 999",
         ],
         activities: ["Place-value flats/longs/units puzzle"],
+        teacherNotes: {
+          overview:
+            "Use base-ten material (flats, longs, units) so children can see place value as 'how big each pile is' before they manipulate digits abstractly.",
+          lessonPlan: [
+            { stage: "Build", minutes: 10, detail: "Each pair is given a number card; they build it with flats/longs/units and read it aloud." },
+            { stage: "Compare", minutes: 10, detail: "Pairs swap built numbers and decide which is bigger by comparing piles, not digits." },
+            { stage: "Order", minutes: 15, detail: "Whole class lines up holding number cards in ascending order; resolve disagreements at hundreds first, then tens, then ones." },
+            { stage: "Connect", minutes: 5, detail: "Ask: when comparing 320 vs 287 do we ever need to look at ones? Why not?" },
+          ],
+          ctSkills: ["Decomposition", "Abstraction", "Algorithmic thinking (compare digit by digit)"],
+          misconceptions: ["Comparing only the rightmost digits.", "Thinking 100 has 'two zeros' so it's equal to '20'."],
+          assessmentIdeas: ["Order four numbers smallest to largest.", "True/False: 999 is the largest 3-digit number."],
+          differentiation: ["Support: physical place-value cards (200 + 50 + 7).", "Stretch: how many 3-digit numbers have all different digits?"],
+        },
         intro:
           "Three-digit numbers are made of hundreds, tens and ones. To compare two numbers, look at the hundreds digit first; if they match, look at the tens; then the ones.",
         examples: [
@@ -403,6 +473,20 @@ export const curriculum = [
           "Decompose problems into smaller steps",
         ],
         activities: ["Plan a rakhi-making list with quantities"],
+        teacherNotes: {
+          overview:
+            "Use the festival as a friendly context to compare different mental-addition strategies — split into tens & ones, friendly numbers, doubles.",
+          lessonPlan: [
+            { stage: "Story", minutes: 5, detail: "Read a short scenario about preparing rakhis; pull out the numbers." },
+            { stage: "Strategy share", minutes: 12, detail: "Pose 27 + 38 and let three students show three different strategies on the board." },
+            { stage: "Plan", minutes: 15, detail: "Pairs plan items + quantities for a class celebration; total each row." },
+            { stage: "Reflect", minutes: 8, detail: "Vote on the strategy that felt easiest; ask why that may not be best for every problem." },
+          ],
+          ctSkills: ["Decomposition", "Pattern recognition (fact families)", "Generalisation"],
+          misconceptions: ["Forgetting to carry when ones exceed 9.", "Lining up digits incorrectly when numbers have different lengths."],
+          assessmentIdeas: ["Solve 45 + 30 mentally and explain the trick.", "Two-step sum: 24 + 18 + 7."],
+          differentiation: ["Support: 100-square to count on.", "Stretch: write three sums all equal to 50."],
+        },
         intro:
           "Festivals are full of counting and adding. We can add bigger numbers more easily by breaking them into tens and ones, or by adding the easier parts first.",
         examples: [
@@ -458,6 +542,20 @@ export const curriculum = [
           "Connect 'equal sharing' to early division",
         ],
         activities: ["Share sweets fairly between friends"],
+        teacherNotes: {
+          overview:
+            "Build the meaning of division as equal sharing. Surface remainders naturally — most real shares don't divide evenly.",
+          lessonPlan: [
+            { stage: "Hook", minutes: 5, detail: "Place 12 counters and 4 children. How many each? Now try 13 counters." },
+            { stage: "Share", minutes: 15, detail: "Pairs use counters to share quantities the teacher calls out: 18 ÷ 3, 20 ÷ 4, 17 ÷ 5." },
+            { stage: "Record", minutes: 12, detail: "Students draw a quick picture for each share, writing 'each gets ___, left over ___'." },
+            { stage: "Connect", minutes: 8, detail: "Discuss: when remainders matter (sharing money) vs when they don't (forming teams)." },
+          ],
+          ctSkills: ["Decomposition", "Abstraction (sharing → division)", "Generalisation"],
+          misconceptions: ["Believing every division has remainder 0.", "Sharing 'one for me, one for you' but losing track for larger sets."],
+          assessmentIdeas: ["Share 14 toffees among 4 children — each? leftover?", "True/False: equal sharing is another name for division."],
+          differentiation: ["Support: provide physical counters.", "Stretch: pose a 2-step share — share 30 sweets among 5, then double the share."],
+        },
         intro:
           "Sharing things equally is the same idea as dividing. If something does not share evenly, what is left over is called the remainder.",
         examples: [
@@ -511,6 +609,20 @@ export const curriculum = [
           "Estimate before computing",
         ],
         activities: ["Estimate-then-check sums"],
+        teacherNotes: {
+          overview:
+            "Make the carrying rule explicit before drilling vertical addition. Estimating first builds number sense and gives a quick check.",
+          lessonPlan: [
+            { stage: "Estimate", minutes: 8, detail: "On the board: 198 + 305. Students round to the nearest hundred and predict the answer." },
+            { stage: "Compute", minutes: 12, detail: "Whole class works the exact sum on whiteboards; teacher highlights when carrying is needed." },
+            { stage: "Subtract with regrouping", minutes: 12, detail: "Show 405 − 178; introduce 'borrowing' from the tens, then from the hundreds." },
+            { stage: "Check", minutes: 8, detail: "Pairs check each other's answers using estimation as a sanity test." },
+          ],
+          ctSkills: ["Algorithmic thinking", "Evaluation (estimation as a check)", "Decomposition"],
+          misconceptions: ["Forgetting to bring down a carry.", "Subtracting the smaller-from-larger digit even when borrowing is needed."],
+          assessmentIdeas: ["Quick row of 5 vertical sums with mixed regrouping.", "Pose: estimate 297 + 198."],
+          differentiation: ["Support: place-value mat to keep columns aligned.", "Stretch: write a 3-digit sum that requires carrying twice."],
+        },
         intro:
           "When ones or tens add up to 10 or more, we 'carry' to the next column. Estimating first gives a rough answer so you can check whether the exact answer makes sense.",
         examples: [
@@ -563,6 +675,20 @@ export const curriculum = [
           "Read simple tables of items and quantities",
         ],
         activities: ["Plan items needed for a class party"],
+        teacherNotes: {
+          overview:
+            "Anchor multiplication as 'equal groups'. Tables and arrays make the structure visible before students rely on memorised facts.",
+          lessonPlan: [
+            { stage: "Hook", minutes: 5, detail: "Stack chairs in 4 rows of 5. Ask for the count without counting one by one." },
+            { stage: "Build arrays", minutes: 12, detail: "Pairs build arrays with counters for 3×6, 4×5, 6×4 and notice 4×5 = 5×4." },
+            { stage: "Plan", minutes: 15, detail: "Students plan items for a party using a small table (item × quantity per group × groups)." },
+            { stage: "Reflect", minutes: 8, detail: "Why is multiplication faster than adding? When isn't it useful?" },
+          ],
+          ctSkills: ["Pattern recognition", "Abstraction", "Generalisation"],
+          misconceptions: ["Adding instead of multiplying when groups look small.", "Believing 4×3 ≠ 3×4."],
+          assessmentIdeas: ["6 boxes × 7 balloons each — total?", "Write 5+5+5+5 as a multiplication."],
+          differentiation: ["Support: dot arrays printed on grid paper.", "Stretch: find a number that can be made with two different arrays."],
+        },
         intro:
           "When we have equal groups, repeated addition can be replaced by multiplication. Tables help us list the items we need and the quantity per group.",
         examples: [
@@ -617,6 +743,20 @@ export const curriculum = [
           "Compare weights using balances",
         ],
         activities: ["Capacity-ranking activity", "Balance-the-scale puzzle"],
+        teacherNotes: {
+          overview:
+            "Make capacity and weight tangible. The big idea: estimate first, then measure, then check.",
+          lessonPlan: [
+            { stage: "Estimate", minutes: 8, detail: "Show three containers; pairs predict which holds the most." },
+            { stage: "Measure", minutes: 15, detail: "Pour using a marked cup; record actual capacities; rank in order." },
+            { stage: "Balance", minutes: 12, detail: "Use a simple balance to decide which of two objects is heavier; bring in a third object and place all three in order." },
+            { stage: "Connect", minutes: 5, detail: "When did your estimate match? When was it surprising?" },
+          ],
+          ctSkills: ["Estimation", "Comparison", "Algorithmic thinking (sort by repeated comparison)"],
+          misconceptions: ["Confusing tall containers with high capacity.", "Believing big objects must be heavy."],
+          assessmentIdeas: ["Order three containers by capacity from least to most.", "True/False: 1 litre = 1000 ml."],
+          differentiation: ["Support: pre-marked cups with 100 ml steps.", "Stretch: find two containers that look different but hold the same."],
+        },
         intro:
           "Capacity tells us how much liquid a container can hold. Weight tells us how heavy something is. We use a balance to compare the weights of two things.",
         examples: [
@@ -670,6 +810,20 @@ export const curriculum = [
           "Use money values for change-making",
         ],
         activities: ["Shop role-play with notes & coins"],
+        teacherNotes: {
+          overview:
+            "Money links naturally to addition (cost) and subtraction (change). Role-play makes the operations meaningful.",
+          lessonPlan: [
+            { stage: "Set up", minutes: 5, detail: "Tag classroom items with prices in rupees." },
+            { stage: "Shop", minutes: 18, detail: "Pairs alternate as shopkeeper and buyer; transactions must include both total and change." },
+            { stage: "Ledger", minutes: 12, detail: "Each pair records four transactions; teacher checks for total = price + change pattern." },
+            { stage: "Reflect", minutes: 5, detail: "Why does the shopkeeper's mental subtraction matter?" },
+          ],
+          ctSkills: ["Decomposition", "Algorithmic thinking", "Evaluation"],
+          misconceptions: ["Adding the change instead of subtracting it.", "Confusing 'change' with 'total cost'."],
+          assessmentIdeas: ["A toy is ₹95; you pay ₹100. Change?", "List three items from the room and compute total."],
+          differentiation: ["Support: provide play-money to manipulate.", "Stretch: introduce two-item bills and a discount of ₹5."],
+        },
         intro:
           "When we buy or sell things, we use addition for the total cost and subtraction for the change. Reading a problem carefully helps us pick the right operation.",
         examples: [
@@ -725,6 +879,20 @@ export const curriculum = [
           "Sequence events in days, weeks and months",
         ],
         activities: ["Build a daily timeline"],
+        teacherNotes: {
+          overview:
+            "Time is harder than it looks because it mixes two number systems (60 and 12) and two displays. Practise reading and ordering across both.",
+          lessonPlan: [
+            { stage: "Demo", minutes: 7, detail: "Show a real analog clock; ask which hand moves faster." },
+            { stage: "Read", minutes: 13, detail: "Pairs match analog clock pictures to digital times on cards." },
+            { stage: "Sequence", minutes: 15, detail: "Build a timeline of a school day from arrival to dismissal, labelling start time of each block." },
+            { stage: "Connect", minutes: 5, detail: "Ask: how much time was spent on lunch?" },
+          ],
+          ctSkills: ["Sequencing", "Pattern recognition (clock face)", "Decomposition (hours vs minutes)"],
+          misconceptions: ["Reading the minute hand as 'minutes-past' for the wrong hour.", "Thinking 1 hour = 100 minutes."],
+          assessmentIdeas: ["Draw the hands for 3:45.", "What time is 30 minutes after 7:50?"],
+          differentiation: ["Support: use a clock with bold minute markings.", "Stretch: how many minutes from 9:15 to 11:00?"],
+        },
         intro:
           "Clocks help us read the time. There are 60 minutes in an hour, 24 hours in a day, 7 days in a week. Putting events in the right order is part of computational thinking too.",
         examples: [
@@ -778,6 +946,20 @@ export const curriculum = [
           "Answer questions from picture-based data",
         ],
         activities: ["Survey & pictograph for favourite fair items"],
+        teacherNotes: {
+          overview:
+            "Pictographs introduce the idea that one symbol can stand for many. Students learn to read both 'one-to-one' and 'one-to-many' representations.",
+          lessonPlan: [
+            { stage: "Survey", minutes: 8, detail: "Quick poll: favourite fair item; tally on the board." },
+            { stage: "Build", minutes: 15, detail: "Decide a key (1 picture = 2 children). Pairs draw the pictograph." },
+            { stage: "Read", minutes: 12, detail: "Swap pictographs and answer: which item is most popular? By how much?" },
+            { stage: "Connect", minutes: 5, detail: "If we used 1 picture = 5 children, would the chart still work? Why simpler?" },
+          ],
+          ctSkills: ["Abstraction (symbol stands for value)", "Pattern recognition", "Evaluation"],
+          misconceptions: ["Counting half-symbols as full ones.", "Forgetting to multiply by the key."],
+          assessmentIdeas: ["1 ★ = 5 visitors; 4 stars in a row → how many?", "Which item is least popular?"],
+          differentiation: ["Support: provide squared paper and an example pictograph.", "Stretch: introduce a key of 1 picture = 10 with halves."],
+        },
         intro:
           "Pictographs and bar charts use pictures or bars to show how much of something there is. Tall bars mean bigger numbers; short bars mean smaller numbers.",
         examples: [
