@@ -144,15 +144,74 @@ export default function SchoolsManager({ initialSchools }) {
 function SchoolRow({ school, onSave, onDelete }) {
   const [name, setName] = useState(school.name);
   const [code, setCode] = useState(school.code);
+  const [logoVer, setLogoVer] = useState(0); // bust cache after upload
+  const [logoBusy, setLogoBusy] = useState(false);
   const dirty = name !== school.name || code !== school.code;
+
+  async function uploadLogo(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    setLogoBusy(true);
+    const fd = new FormData();
+    fd.append("logo", file);
+    const res = await fetch(`/api/superadmin/schools/${school.id}/logo`, {
+      method: "POST",
+      body: fd,
+    });
+    setLogoBusy(false);
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      alert(data.error || "Upload failed");
+      return;
+    }
+    setLogoVer(logoVer + 1);
+  }
+
+  async function removeLogo() {
+    if (!confirm("Remove logo?")) return;
+    const res = await fetch(`/api/superadmin/schools/${school.id}/logo`, {
+      method: "DELETE",
+    });
+    if (res.ok) setLogoVer(logoVer + 1);
+  }
+
   return (
     <tr className="border-b border-slate-100 align-top">
       <td className="py-2 pr-4">
-        <input
-          className="input"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
+        <div className="flex items-center gap-3">
+          <img
+            src={`/api/schools/${school.id}/logo?v=${logoVer}`}
+            alt=""
+            className="h-10 w-10 rounded-md bg-slate-100 object-contain ring-1 ring-slate-200"
+            onError={(e) => {
+              e.currentTarget.style.visibility = "hidden";
+            }}
+          />
+          <input
+            className="input"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className="mt-2 flex items-center gap-2 text-xs">
+          <label className="cursor-pointer text-brand-700 hover:underline">
+            <input
+              type="file"
+              accept="image/png,image/jpeg,image/webp,image/svg+xml"
+              className="hidden"
+              onChange={uploadLogo}
+              disabled={logoBusy}
+            />
+            {logoBusy ? "Uploading…" : "Upload logo"}
+          </label>
+          <button
+            type="button"
+            onClick={removeLogo}
+            className="text-slate-500 hover:underline"
+          >
+            Remove
+          </button>
+        </div>
       </td>
       <td className="py-2 pr-4">
         <input
