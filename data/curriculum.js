@@ -3742,6 +3742,46 @@ export const curriculum = [
           "Reason about perfect squares and cubes",
         ],
         activities: ["Square-tile and cube-stack investigation"],
+        intro:
+          "The square of a number n is n × n; the cube is n × n × n. The square root undoes squaring, and the cube root undoes cubing. Numbers like 1, 4, 9, 16 are perfect squares; 1, 8, 27, 64 are perfect cubes.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Find the square root",
+            problem: "What is the square root of 81?",
+            solution: "9 × 9 = 81, so √81 = 9.",
+          },
+          {
+            id: "ex-2",
+            title: "Find the cube",
+            problem: "What is 4³?",
+            solution: "4 × 4 × 4 = 64.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is √144?",
+            answer: "12",
+            explanation: "12 × 12 = 144.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which is a perfect square?",
+            options: ["50", "60", "64", "72"],
+            answerIndex: 2,
+            explanation: "64 = 8 × 8.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt: "What is the cube root of 27?",
+            answer: "3",
+            explanation: "3 × 3 × 3 = 27.",
+          },
+        ],
       },
       {
         id: "c8-ct-2",
@@ -3752,6 +3792,46 @@ export const curriculum = [
           "Express large/small numbers in standard form",
         ],
         activities: ["Powers-of-ten timeline of distances"],
+        intro:
+          "Exponents are a short way to write repeated multiplication. Laws: aᵐ × aⁿ = aᵐ⁺ⁿ; aᵐ ÷ aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ; a⁰ = 1.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Multiply powers",
+            problem: "Simplify 2³ × 2⁴.",
+            solution: "Add exponents: 2³⁺⁴ = 2⁷ = 128.",
+          },
+          {
+            id: "ex-2",
+            title: "Standard form",
+            problem: "Write 3000 in standard form.",
+            solution: "3000 = 3 × 10³.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is 2⁵?",
+            answer: "32",
+            explanation: "2 × 2 × 2 × 2 × 2 = 32.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Simplify 5⁶ ÷ 5².",
+            options: ["5²", "5³", "5⁴", "5⁵"],
+            answerIndex: 2,
+            explanation: "Subtract exponents: 5⁶⁻² = 5⁴.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: Any non-zero number raised to the power 0 is 1.",
+            answer: true,
+            explanation: "Yes — a⁰ = 1 for any a ≠ 0.",
+          },
+        ],
       },
       {
         id: "c8-ct-3",
@@ -3762,6 +3842,54 @@ export const curriculum = [
           "Compare positional vs non-positional systems",
         ],
         activities: ["Mini-poster on number systems"],
+        intro:
+          "Different cultures invented different number systems. Roman numerals (I, V, X, L, C, D, M) are non-positional. Our everyday system is positional with base 10 — the value of a digit depends on its place.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Roman to decimal",
+            problem: "What number is XIV?",
+            solution: "X is 10, IV is 4 (5 − 1). XIV = 14.",
+          },
+          {
+            id: "ex-2",
+            title: "Place value",
+            problem: "In the number 4567, what is the place value of the digit 5?",
+            solution: "5 is in the hundreds place: 5 × 100 = 500.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Convert XL to a decimal number.",
+            answer: "40",
+            explanation: "X (10) before L (50) means 50 − 10 = 40.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "Which of these systems is positional?",
+            options: [
+              "Roman numerals",
+              "Egyptian hieroglyphic numbers",
+              "Hindu-Arabic decimal system",
+              "Tally marks",
+            ],
+            answerIndex: 2,
+            explanation:
+              "Our common decimal (Hindu-Arabic) system is positional — place determines value.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: The digit 0 was a major invention in number systems.",
+            answer: true,
+            explanation:
+              "Yes — zero allowed positional notation and made arithmetic far easier.",
+          },
+        ],
       },
       {
         id: "c8-ct-4",
@@ -3772,6 +3900,49 @@ export const curriculum = [
           "Apply angle-sum and side properties",
         ],
         activities: ["Construct & classify with paper folds"],
+        intro:
+          "A quadrilateral has 4 sides. The 4 interior angles always sum to 360°. Common kinds include square, rectangle, rhombus, parallelogram and trapezium.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Find the missing angle",
+            problem: "Three angles of a quadrilateral are 90°, 100° and 80°. What is the fourth?",
+            solution: "360 − (90 + 100 + 80) = 90°.",
+          },
+          {
+            id: "ex-2",
+            title: "Classify it",
+            problem:
+              "A quadrilateral has both pairs of opposite sides parallel and all angles 90°. What is it?",
+            solution: "A rectangle.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "Three angles of a quadrilateral are 70°, 110° and 60°. What is the fourth?",
+            answer: "120",
+            explanation: "360 − (70 + 110 + 60) = 120°.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which quadrilateral has all four sides equal?",
+            options: ["Trapezium", "Rectangle", "Rhombus", "Kite"],
+            answerIndex: 2,
+            explanation: "A rhombus has all four sides of equal length.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A square is also a rectangle.",
+            answer: true,
+            explanation: "A square has all the properties of a rectangle (and more).",
+          },
+        ],
       },
       {
         id: "c8-ct-5",
@@ -3782,6 +3953,51 @@ export const curriculum = [
           "Form and test conjectures with examples",
         ],
         activities: ["Conjecture-and-test number lab"],
+        intro:
+          "A conjecture is a guess based on patterns we see. We test it with examples; one counter-example is enough to disprove it.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Conjecture and test",
+            problem:
+              "Conjecture: 'The sum of two even numbers is always even.' Test with 6 and 10.",
+            solution: "6 + 10 = 16, which is even. Try more examples — they all work, so the conjecture seems true.",
+          },
+          {
+            id: "ex-2",
+            title: "Find a counter-example",
+            problem:
+              "Conjecture: 'Every odd number greater than 1 is prime.' Find a counter-example.",
+            solution:
+              "9 is odd and greater than 1, but 9 = 3 × 3, so it is not prime. The conjecture is false.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "tf",
+            prompt: "True or False: One counter-example is enough to disprove a conjecture.",
+            answer: true,
+            explanation: "Yes — a single counter-example breaks a 'for all' claim.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "Which is a counter-example to 'all multiples of 3 are even'?",
+            options: ["6", "12", "9", "30"],
+            answerIndex: 2,
+            explanation: "9 is a multiple of 3 but is odd, disproving the claim.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt:
+              "What is the smallest prime number greater than 20?",
+            answer: "23",
+            explanation: "21 = 3×7, 22 = 2×11, 23 is prime.",
+          },
+        ],
       },
       {
         id: "c8-ct-6",
@@ -3792,6 +4008,47 @@ export const curriculum = [
           "Use it to simplify expressions and computations",
         ],
         activities: ["Mental-math distributive shortcuts"],
+        intro:
+          "The distributive property: a × (b + c) = a × b + a × c. We can use it to break tricky multiplications into easier pieces.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Mental shortcut",
+            problem: "Compute 7 × 102 quickly.",
+            solution: "7 × (100 + 2) = 700 + 14 = 714.",
+          },
+          {
+            id: "ex-2",
+            title: "Algebra use",
+            problem: "Expand 3(x + 4).",
+            solution: "3 × x + 3 × 4 = 3x + 12.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Compute 6 × 99 using the distributive property.",
+            answer: "594",
+            explanation: "6 × (100 − 1) = 600 − 6 = 594.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Expand 5(2x + 3).",
+            options: ["10x + 15", "5x + 15", "10x + 3", "7x + 15"],
+            answerIndex: 0,
+            explanation: "5 × 2x + 5 × 3 = 10x + 15.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: a × (b + c) is always equal to a × b + a × c.",
+            answer: true,
+            explanation: "Yes — that is the distributive property.",
+          },
+        ],
       },
       {
         id: "c8-ct-7",
@@ -3802,6 +4059,51 @@ export const curriculum = [
           "Solve direct and inverse proportion problems",
         ],
         activities: ["Recipe & map-scale proportion tasks"],
+        intro:
+          "A ratio compares two quantities (like 2:3). A proportion is two equal ratios. In direct proportion, both quantities grow together; in inverse proportion, one grows as the other shrinks.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Direct proportion",
+            problem:
+              "If 4 pens cost ₹60, what do 7 pens cost at the same rate?",
+            solution: "Cost per pen = 60 ÷ 4 = ₹15. So 7 pens cost 7 × 15 = ₹105.",
+          },
+          {
+            id: "ex-2",
+            title: "Inverse proportion",
+            problem:
+              "If 5 workers take 12 days to finish a job, how long for 10 workers (same speed)?",
+            solution:
+              "Doubling workers halves the time: 12 ÷ 2 = 6 days.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "If 3 books cost ₹120, what do 5 books cost?",
+            answer: "200",
+            explanation: "Per book = 40; 5 × 40 = 200.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "8 taps fill a tank in 6 hours. How long for 4 taps at the same rate?",
+            options: ["3 h", "6 h", "12 h", "16 h"],
+            answerIndex: 2,
+            explanation: "Halving the taps doubles the time: 12 hours.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: In a direct proportion, doubling one quantity doubles the other.",
+            answer: true,
+            explanation: "Yes — that is the meaning of direct proportion.",
+          },
+        ],
       },
       {
         id: "c8-ai-1",
@@ -3883,6 +4185,59 @@ export const curriculum = [
           "Map AI applications to daily-life examples",
         ],
         activities: ["Daily-life AI inventory worksheet"],
+        intro:
+          "AI systems usually do four things: analyse data, recognise patterns, learn from experience, and make predictions or decisions. We meet AI in maps, search, photos, voice assistants and many other apps.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "What is AI doing?",
+            problem:
+              "When a music app suggests a new song you might like, which AI step is it doing?",
+            solution:
+              "It is making a prediction based on patterns in what you (and similar users) have listened to.",
+          },
+          {
+            id: "ex-2",
+            title: "Daily-life AI",
+            problem: "Name two AI features in a smartphone.",
+            solution:
+              "Examples: face unlock, voice assistant, autocorrect, photo search, predictive text, smart camera modes.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "An AI app translates spoken words from English to Hindi. Which AI step is most prominent?",
+            options: [
+              "Building hardware",
+              "Pattern recognition in language",
+              "Drawing pictures",
+              "Counting people",
+            ],
+            answerIndex: 1,
+            explanation:
+              "Translation depends on recognising language patterns and producing equivalent ones in another language.",
+          },
+          {
+            id: "q2",
+            type: "tf",
+            prompt:
+              "True or False: A maps app suggesting a faster route is an example of AI making a prediction.",
+            answer: true,
+            explanation:
+              "Yes — it predicts travel time using current and past traffic data.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt:
+              "What do we call the data that an AI uses to learn? (one word)",
+            answer: "training",
+            explanation: "Data used to teach the model is called training data.",
+          },
+        ],
       },
       {
         id: "c8-ai-3",
@@ -3893,6 +4248,59 @@ export const curriculum = [
           "Reason about fairness and representativeness",
         ],
         activities: ["Audit a sample dataset for fairness"],
+        intro:
+          "An AI is only as good as its data. Data should be accurate, complete and representative of all the groups who will use the system. Otherwise the AI may give bad or unfair results.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Spot the issue",
+            problem:
+              "An AI for selecting school cricket captains is trained only on past men's-team data. Why is this a problem if girls' teams use it too?",
+            solution:
+              "The data does not represent girls' play, so the AI's choices may be unfair to them.",
+          },
+          {
+            id: "ex-2",
+            title: "Improve the data",
+            problem: "What could improve the AI from Example 1?",
+            solution:
+              "Train it on a balanced dataset that includes both boys' and girls' teams, plus diverse playing styles.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "tf",
+            prompt:
+              "True or False: A small, one-sided dataset is likely to make an AI unfair.",
+            answer: true,
+            explanation: "Yes — narrow data leads to narrow learning.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "Which is the BEST way to make an AI fairer?",
+            options: [
+              "Use less data",
+              "Use more representative data and check outcomes for all groups",
+              "Hide the AI's predictions",
+              "Stop using AI altogether",
+            ],
+            answerIndex: 1,
+            explanation:
+              "Better data + ongoing checks across groups is the standard recipe for fairness.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Fairness only matters before an AI is deployed.",
+            answer: false,
+            explanation:
+              "Fairness must be monitored continually after deployment too.",
+          },
+        ],
       },
       {
         id: "c8-ai-4",
@@ -3903,6 +4311,56 @@ export const curriculum = [
           "Apply them to evaluate a real AI tool",
         ],
         activities: ["Class debate: 'Should AI grade homework?'"],
+        intro:
+          "Responsible AI follows principles such as fairness, transparency, privacy, accountability and human oversight. Anyone building or using AI should ask: who benefits, who could be harmed, and how can we keep humans in the loop?",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Privacy first",
+            problem:
+              "An app records every voice command for marketing. Is this likely to respect privacy?",
+            solution:
+              "No — recording personal data without clear consent and a need is a privacy concern.",
+          },
+          {
+            id: "ex-2",
+            title: "Human in the loop",
+            problem:
+              "Should an AI alone decide whether a student passes or fails?",
+            solution:
+              "No — important decisions about people should keep a human reviewer in the loop.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Which of these is NOT a principle of responsible AI?",
+            options: ["Fairness", "Transparency", "Maximum profit", "Privacy"],
+            answerIndex: 2,
+            explanation:
+              "'Maximum profit' is not an ethics principle. Responsible AI focuses on fairness, transparency, privacy, accountability and oversight.",
+          },
+          {
+            id: "q2",
+            type: "tf",
+            prompt:
+              "True or False: Telling users that an AI is making decisions about them is part of being transparent.",
+            answer: true,
+            explanation:
+              "Yes — transparency means being open about what the AI is doing.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt:
+              "What is the principle of keeping a person involved in important AI decisions called? (3 words)",
+            answer: "human in the loop",
+            explanation:
+              "Human-in-the-loop means a person reviews or approves the AI's decision.",
+          },
+        ],
       },
     ],
   },
