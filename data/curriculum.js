@@ -25,6 +25,54 @@ export const curriculum = [
           "Caesar-cipher encoding game with shift keys",
           "Find hidden number-names inside letter grids",
         ],
+        teacherNotes: {
+          overview:
+            "Use this chapter to introduce the idea that information sometimes needs to be hidden, and that hiding follows a rule (a key). The Caesar cipher gives a concrete, hands-on rule that students can apply, undo and even break by trying all shifts.",
+          lessonPlan: [
+            {
+              stage: "Hook",
+              minutes: 5,
+              detail:
+                "Write a short ciphered word on the board (e.g. CBU for shift 1) and invite students to guess what the word should be. Connect to ATM PINs and online passwords.",
+            },
+            {
+              stage: "Demo & Make",
+              minutes: 15,
+              detail:
+                "Show how a Caesar wheel works for shift 1, 2 and 3. Students cut and paste two paper strips to build a personal cipher wheel; they encode their first name with a chosen shift.",
+            },
+            {
+              stage: "Pair practice",
+              minutes: 15,
+              detail:
+                "In pairs students swap encoded words and a shift hint. Each child decodes their partner's message. Discuss what happens when the shift is wrong.",
+            },
+            {
+              stage: "Discuss & connect",
+              minutes: 5,
+              detail:
+                "Ask: how many shifts are possible (25)? Why is that not very secure? Bridge to the idea that real online encryption uses much larger keys.",
+            },
+          ],
+          ctSkills: [
+            "Algorithmic thinking — applying a step-by-step rule",
+            "Pattern recognition — letters always move by the same amount",
+            "Generalisation — the rule works for any message",
+            "Evaluation — judging when the cipher is strong enough",
+          ],
+          misconceptions: [
+            "Some students confuse shifting forward with shifting backward when decoding.",
+            "Students may forget to wrap around at Z back to A.",
+          ],
+          assessmentIdeas: [
+            "Exit ticket: encode the word HELP with shift 2.",
+            "Quick poll: with only 25 shifts to try, can a friend always guess your message? Why?",
+          ],
+          differentiation: [
+            "Support: provide a printed alphabet strip and let learners physically slide a marker.",
+            "Stretch: ask learners to invent their own non-shift cipher and explain the rule.",
+          ],
+        },
         intro:
           "A cipher is a way to scramble a message so only someone with the right key can read it. The Caesar cipher shifts every letter forward by a fixed number of places.",
         examples: [
