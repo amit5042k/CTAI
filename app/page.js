@@ -9,12 +9,12 @@ export default async function HomePage() {
     <div className="space-y-12">
       <section className="grid gap-8 md:grid-cols-2 md:items-center">
         <div>
-          <p className="tag">CBSE Academic · 2026-27</p>
+          <p className="tag">Class 3 – 8 · 2026-27</p>
           <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
             Coding, Computational Thinking & AI for Class 3 – 8
           </h1>
           <p className="mt-4 text-lg text-slate-600">
-            A guided curriculum portal for the new CBSE CTAI subject. Students
+            A guided curriculum portal for the CTAI subject. Students
             learn step-by-step with hands-on activities; teachers track
             progress and assign units.
           </p>

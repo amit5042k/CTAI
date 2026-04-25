@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { listClasses } from "@/data/curriculum";
 
-export const metadata = { title: "Curriculum · CBSE CTAI Portal" };
+export const metadata = { title: "Curriculum · CTAI Portal" };
 
 export default function CurriculumIndex() {
   const classes = listClasses();

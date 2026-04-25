@@ -1,6 +1,5 @@
-// CBSE CTAI (Coding, Computational Thinking & Artificial Intelligence) Curriculum
-// Reference: CBSE Academic — CTAI Primary/Middle Stage 2026-27
-// Content adapted for educational purposes; mapped across Classes 3-8.
+// CTAI (Coding, Computational Thinking & Artificial Intelligence) Curriculum
+// Mapped across Classes 3-8 for educational use.
 
 export const curriculum = [
   {

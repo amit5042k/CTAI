@@ -4,9 +4,9 @@ import { getCurrentUser } from "@/lib/auth";
 import LogoutButton from "@/components/LogoutButton";
 
 export const metadata = {
-  title: "CBSE CTAI — Coding, Computational Thinking & AI (Class 3-8)",
+  title: "CTAI Portal — Coding, Computational Thinking & AI (Class 3-8)",
   description:
-    "An interactive curriculum portal for CBSE's CTAI subject for Classes 3 to 8, with separate logins for students and teachers.",
+    "An interactive curriculum portal for the CTAI subject (Coding, Computational Thinking & AI) for Classes 3 to 8, with separate logins for students and teachers.",
 };
 
 export default async function RootLayout({ children }) {
@@ -21,7 +21,7 @@ export default async function RootLayout({ children }) {
                 C
               </span>
               <span className="font-semibold text-slate-800">
-                CBSE CTAI Portal
+                CTAI Portal
               </span>
             </Link>
             <nav className="flex items-center gap-4 text-sm">
@@ -59,8 +59,7 @@ export default async function RootLayout({ children }) {
         <main className="mx-auto max-w-6xl px-4 py-8">{children}</main>
         <footer className="mt-16 border-t border-slate-200 bg-white">
           <div className="mx-auto max-w-6xl px-4 py-6 text-sm text-slate-500">
-            Curriculum mapped from CBSE Academic — CTAI 2026-27. For educational
-            use.
+            CTAI curriculum portal — Classes 3 to 8. For educational use.
           </div>
         </footer>
       </body>
