@@ -3072,6 +3072,48 @@ export const curriculum = [
           "Use Indian and international place value",
         ],
         activities: ["Reading-large-numbers relay"],
+        intro:
+          "In the Indian system we group digits as lakhs and crores; in the international system we use thousands, millions and billions. Commas help us read large numbers correctly.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Place a comma",
+            problem:
+              "Insert commas in 12345678 using the Indian system.",
+            solution: "1,23,45,678 (one crore twenty-three lakh forty-five thousand six hundred seventy-eight).",
+          },
+          {
+            id: "ex-2",
+            title: "How many lakhs in a crore?",
+            problem: "1 crore is how many lakhs?",
+            solution: "100 lakhs.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many zeros are there in 1 crore?",
+            answer: "7",
+            explanation: "1 crore = 1,00,00,000 (seven zeros).",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which is the same as 50 lakhs?",
+            options: ["5,00,000", "50,00,000", "5,00,00,000", "50,000"],
+            answerIndex: 1,
+            explanation: "50 lakhs = 50,00,000.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: 1 million is the same as 10 lakhs.",
+            answer: true,
+            explanation: "Yes — 1 million = 10,00,000 = 10 lakhs.",
+          },
+        ],
       },
       {
         id: "c7-ct-2",
@@ -3082,6 +3124,47 @@ export const curriculum = [
           "Translate word problems into expressions",
         ],
         activities: ["BODMAS station puzzles"],
+        intro:
+          "When several operations are mixed, we follow the BODMAS order: Brackets, Of, Division, Multiplication, Addition, Subtraction.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "BODMAS in action",
+            problem: "Evaluate 8 + 2 × 5.",
+            solution: "Multiply first: 2 × 5 = 10. Then add: 8 + 10 = 18.",
+          },
+          {
+            id: "ex-2",
+            title: "Brackets matter",
+            problem: "Evaluate (8 + 2) × 5.",
+            solution: "Brackets first: 8 + 2 = 10. Then 10 × 5 = 50.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Evaluate 12 − 3 × 2.",
+            answer: "6",
+            explanation: "Multiply first: 3 × 2 = 6. Then 12 − 6 = 6.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Evaluate 24 ÷ (4 + 2).",
+            options: ["2", "3", "4", "6"],
+            answerIndex: 2,
+            explanation: "Brackets: 4 + 2 = 6. Then 24 ÷ 6 = 4.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: In BODMAS, multiplication is done before addition.",
+            answer: true,
+            explanation: "Yes — multiplication comes before addition in BODMAS.",
+          },
+        ],
       },
       {
         id: "c7-ct-3",
@@ -3092,6 +3175,49 @@ export const curriculum = [
           "Add and subtract decimals",
         ],
         activities: ["Bill-and-change decimal tasks"],
+        intro:
+          "Decimals extend place value to the right of the decimal point: tenths, hundredths, thousandths. Line up the decimal points before adding or subtracting.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Add decimals",
+            problem: "Add 3.45 and 2.7.",
+            solution:
+              "Line up the points: 3.45 + 2.70 = 6.15.",
+          },
+          {
+            id: "ex-2",
+            title: "Compare decimals",
+            problem: "Which is bigger: 0.6 or 0.59?",
+            solution:
+              "0.6 = 0.60. 0.60 > 0.59, so 0.6 is bigger.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is 5.2 + 1.85?",
+            answer: "7.05",
+            explanation: "5.20 + 1.85 = 7.05.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which is the smallest?",
+            options: ["0.5", "0.55", "0.05", "0.5005"],
+            answerIndex: 2,
+            explanation: "0.05 has only 5 hundredths — smallest.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: 0.50 is equal to 0.5.",
+            answer: true,
+            explanation: "Yes — trailing zeros after the decimal point don't change the value.",
+          },
+        ],
       },
       {
         id: "c7-ct-4",
@@ -3102,6 +3228,47 @@ export const curriculum = [
           "Form and simplify simple algebraic expressions",
         ],
         activities: ["Variable-as-bag concrete tasks"],
+        intro:
+          "A letter like x or n can stand for an unknown number. We can write expressions with it: 3n means '3 times n'. Like terms — terms with the same letter — can be combined.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Write the expression",
+            problem: "I think of a number n. I add 5 to it. Write the expression.",
+            solution: "n + 5.",
+          },
+          {
+            id: "ex-2",
+            title: "Combine like terms",
+            problem: "Simplify 3a + 2a + 4.",
+            solution: "3a + 2a = 5a, so the expression is 5a + 4.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Simplify 4x + 3x. (write like 5x)",
+            answer: "7x",
+            explanation: "4x + 3x = 7x.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "If n = 4, what is 2n + 3?",
+            options: ["7", "9", "11", "12"],
+            answerIndex: 2,
+            explanation: "2(4) + 3 = 8 + 3 = 11.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: 5a and 5b can be combined into one term.",
+            answer: false,
+            explanation: "They are not like terms — different letters.",
+          },
+        ],
       },
       {
         id: "c7-ct-5",
@@ -3112,6 +3279,55 @@ export const curriculum = [
           "Use angle properties to solve problems",
         ],
         activities: ["Geo-board angle exploration"],
+        intro:
+          "Two lines are parallel if they never meet. They intersect if they cross. When a transversal cuts two parallel lines, it makes pairs of equal angles (corresponding) and pairs that add to 180° (co-interior).",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Vertically opposite",
+            problem:
+              "Two lines cross. One angle is 70°. What is its vertically opposite angle?",
+            solution: "Vertically opposite angles are equal: 70°.",
+          },
+          {
+            id: "ex-2",
+            title: "Linear pair",
+            problem:
+              "Two angles on a straight line add to 180°. One is 65°. What is the other?",
+            solution: "180 − 65 = 115°.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "Two lines meet. One angle is 40°. What is the vertically opposite angle?",
+            answer: "40",
+            explanation: "Vertically opposite angles are equal.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Parallel lines:",
+            options: [
+              "Always meet at one point",
+              "Never meet",
+              "Meet at infinity only",
+              "Cross at right angles",
+            ],
+            answerIndex: 1,
+            explanation: "Parallel lines never meet.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Co-interior angles between two parallel lines and a transversal add to 180°.",
+            answer: true,
+            explanation: "Yes — co-interior (same-side interior) angles are supplementary.",
+          },
+        ],
       },
       {
         id: "c7-ct-6",
@@ -3122,6 +3338,46 @@ export const curriculum = [
           "Reason about even/odd and prime properties",
         ],
         activities: ["Divisibility-rule conjecture lab"],
+        intro:
+          "Quick divisibility checks: by 2 if last digit is even; by 3 if sum of digits divisible by 3; by 5 if last digit is 0 or 5; by 9 if sum of digits divisible by 9.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Divisible by 3?",
+            problem: "Is 432 divisible by 3?",
+            solution: "Sum of digits 4+3+2 = 9, which is divisible by 3. Yes.",
+          },
+          {
+            id: "ex-2",
+            title: "Divisible by 9?",
+            problem: "Is 459 divisible by 9?",
+            solution: "Sum 4+5+9 = 18, which is divisible by 9. Yes.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "tf",
+            prompt: "True or False: 765 is divisible by 5.",
+            answer: true,
+            explanation: "Last digit is 5, so yes.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which number is divisible by 9?",
+            options: ["123", "234", "345", "729"],
+            answerIndex: 3,
+            explanation: "Sum 7+2+9 = 18, divisible by 9.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt: "Sum of digits of 4536 is?",
+            answer: "18",
+            explanation: "4+5+3+6 = 18.",
+          },
+        ],
       },
       {
         id: "c7-ct-7",
@@ -3132,6 +3388,49 @@ export const curriculum = [
           "Apply the angle-sum property of triangles",
         ],
         activities: ["Cut-and-paste angle-sum proof"],
+        intro:
+          "The three angles of any triangle add up to 180°. Triangles can be classified by sides (scalene, isosceles, equilateral) or by angles (acute, right, obtuse).",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Find the missing angle",
+            problem: "A triangle has angles 50° and 70°. What is the third angle?",
+            solution: "180 − (50 + 70) = 60°.",
+          },
+          {
+            id: "ex-2",
+            title: "Classify by sides",
+            problem:
+              "A triangle has sides 5, 5 and 7 cm. By sides, what is it called?",
+            solution: "Two sides equal — isosceles.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "Two angles of a triangle are 40° and 60°. What is the third?",
+            answer: "80",
+            explanation: "180 − (40 + 60) = 80°.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "A triangle with all sides different is called:",
+            options: ["Equilateral", "Isosceles", "Scalene", "Right"],
+            answerIndex: 2,
+            explanation: "All-different-sides → scalene.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: A triangle's angles always sum to 180°.",
+            answer: true,
+            explanation: "Yes — this is the angle-sum property.",
+          },
+        ],
       },
       {
         id: "c7-ct-8",
@@ -3142,6 +3441,48 @@ export const curriculum = [
           "Solve word problems with fractional quantities",
         ],
         activities: ["Recipe-scaling with fractional servings"],
+        intro:
+          "To multiply fractions, multiply the tops and the bottoms separately. To divide by a fraction, multiply by its reciprocal (flip it over).",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Multiply fractions",
+            problem: "Find 2/3 × 3/4.",
+            solution: "(2 × 3) / (3 × 4) = 6/12 = 1/2.",
+          },
+          {
+            id: "ex-2",
+            title: "Divide fractions",
+            problem: "Find 3/4 ÷ 1/2.",
+            solution: "Flip the second: 3/4 × 2/1 = 6/4 = 3/2.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "What is 1/2 × 1/3? (write like 1/6)",
+            answer: "1/6",
+            explanation: "(1 × 1) / (2 × 3) = 1/6.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "What is 4/5 ÷ 2/5?",
+            options: ["2/25", "1/2", "2", "8/25"],
+            answerIndex: 2,
+            explanation: "4/5 ÷ 2/5 = 4/5 × 5/2 = 20/10 = 2.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: To divide by a fraction, you multiply by its reciprocal.",
+            answer: true,
+            explanation: "Yes — flip the divisor and multiply.",
+          },
+        ],
       },
       {
         id: "c7-ai-1",
@@ -3210,6 +3551,61 @@ export const curriculum = [
           "Discuss benefits and risks of AI in each industry",
         ],
         activities: ["Industry case-study presentation in pairs"],
+        intro:
+          "AI is being used in many industries — from spotting diseases in medical scans to detecting fraud in banks and recommending products in shops. Each use brings benefits but also risks like bias and over-reliance.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "AI in healthcare",
+            problem:
+              "Name one way AI helps doctors.",
+            solution:
+              "AI can analyse medical images (X-rays, scans) and flag possible problems faster than a human reading every image.",
+          },
+          {
+            id: "ex-2",
+            title: "AI risk",
+            problem:
+              "Name one risk if a bank uses AI to decide loans without checking the data.",
+            solution:
+              "If the training data is biased (e.g. against certain groups), the AI may unfairly reject some applicants.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "A food-delivery app predicts how long an order will take. Which industry is this AI in?",
+            options: ["Healthcare", "Finance", "Food delivery", "Education"],
+            answerIndex: 2,
+            explanation: "Food delivery uses AI to estimate prep + delivery times.",
+          },
+          {
+            id: "q2",
+            type: "tf",
+            prompt:
+              "True or False: AI can be useful in finance for spotting unusual transactions.",
+            answer: true,
+            explanation:
+              "Yes — banks use AI to flag possibly fraudulent transactions.",
+          },
+          {
+            id: "q3",
+            type: "mcq",
+            prompt:
+              "A risk of using AI in a hospital is:",
+            options: [
+              "Patients can't be helped at all",
+              "AI may give wrong advice if data is bad",
+              "AI is always perfect",
+              "Doctors stop being needed",
+            ],
+            answerIndex: 1,
+            explanation:
+              "AI is only as good as its data; bad or biased data leads to bad advice.",
+          },
+        ],
       },
       {
         id: "c7-ai-3",
@@ -3220,6 +3616,49 @@ export const curriculum = [
           "Read insights from line, bar and pie charts",
         ],
         activities: ["Build charts from a small school dataset"],
+        intro:
+          "Charts make patterns easy to see. Bar charts compare categories; line charts show trends over time; pie charts show parts of a whole. Mean, median and mode summarise a dataset.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Find the mean",
+            problem: "Find the mean of 4, 6, 8, 10.",
+            solution: "Sum = 28; count = 4; mean = 28 ÷ 4 = 7.",
+          },
+          {
+            id: "ex-2",
+            title: "Best chart",
+            problem:
+              "You want to show the share of total marks scored by 4 subjects. Which chart is best?",
+            solution: "A pie chart — each slice shows a fraction of the total.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Find the mean of 5, 7, 9.",
+            answer: "7",
+            explanation: "(5 + 7 + 9) ÷ 3 = 21 ÷ 3 = 7.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "Which chart is best for trend over time?",
+            options: ["Bar chart", "Pie chart", "Line chart", "Pictograph"],
+            answerIndex: 2,
+            explanation: "Line charts show how a value changes over time.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt:
+              "What is the mode of 3, 5, 5, 7, 9, 5, 2?",
+            answer: "5",
+            explanation: "5 appears most often.",
+          },
+        ],
       },
       {
         id: "c7-ai-4",
@@ -3230,6 +3669,60 @@ export const curriculum = [
           "Suggest steps to make AI use responsible",
         ],
         activities: ["Spot-the-bias scenario discussion"],
+        intro:
+          "AI learns patterns from data. If the data only represents one group of people, the AI will work poorly for everyone else. This is called bias, and avoiding it is part of using AI responsibly.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Spot the bias",
+            problem:
+              "A face-recognition AI is trained only on photos of adults. Why might it work poorly on children?",
+            solution:
+              "Children's faces look different from adults' and were never shown to the model, so it cannot recognise them well.",
+          },
+          {
+            id: "ex-2",
+            title: "Fix the bias",
+            problem: "How could we improve the model in Example 1?",
+            solution:
+              "Add many photos of children of different ages, lighting and backgrounds to the training data, then retrain.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "tf",
+            prompt:
+              "True or False: An AI is fair if its training data represents all the people who will use it.",
+            answer: true,
+            explanation:
+              "Representative data is one of the most important steps toward fairness.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "A medical AI works well for adults but poorly for teenagers. Most likely cause:",
+            options: [
+              "Too many doctors used it",
+              "Training data had few teenage cases",
+              "The colour of the screen",
+              "It was used at night",
+            ],
+            answerIndex: 1,
+            explanation:
+              "Bias most often comes from underrepresented groups in the training data.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Once an AI is deployed, fairness no longer matters.",
+            answer: false,
+            explanation:
+              "Fairness must be monitored throughout the AI's lifetime as data and people change.",
+          },
+        ],
       },
     ],
   },
