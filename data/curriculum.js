@@ -1966,6 +1966,20 @@ export const curriculum = [
           "Use distances and times in problem solving",
         ],
         activities: ["Plan a town tour with stops and timings"],
+        teacherNotes: {
+          overview:
+            "Use journey planning to weave together distance, time and decomposition. Real travel data — bus, train, walking — keeps it grounded.",
+          lessonPlan: [
+            { stage: "Map the route", minutes: 8, detail: "On a board map mark home, two stops and a destination; class names the legs." },
+            { stage: "Add up", minutes: 12, detail: "Pairs add the leg distances; check by estimating the total first." },
+            { stage: "Time it", minutes: 15, detail: "Pairs compute departure & arrival times for each leg using a timetable card." },
+            { stage: "Reflect", minutes: 5, detail: "What changes if traffic doubles the second leg's time?" },
+          ],
+          ctSkills: ["Decomposition", "Algorithmic thinking", "Estimation"],
+          misconceptions: ["Adding times like decimals (e.g. 1.45 + 1.30 = 2.75).", "Forgetting to add waiting time at stops."],
+          assessmentIdeas: ["Total distance for 25 + 18 + 32 km.", "If a journey starts at 7:00 and takes 2 h 30 min, when does it arrive?"],
+          differentiation: ["Support: number-line for time addition.", "Stretch: introduce a return journey with a different route."],
+        },
         intro:
           "Planning a journey means deciding the route, the stops and how long each part takes. Adding distances and times needs careful arithmetic.",
         examples: [
@@ -2022,6 +2036,20 @@ export const curriculum = [
           "Compare and add like fractions",
         ],
         activities: ["Fraction strips & matching cards"],
+        teacherNotes: {
+          overview:
+            "Move from sharing-of-objects to fractions on a number line. Comparison is the right place to surface the role of the denominator.",
+          lessonPlan: [
+            { stage: "Strips", minutes: 12, detail: "Pairs cut paper strips into halves, thirds, quarters, sixths; align to compare sizes." },
+            { stage: "Number line", minutes: 12, detail: "Mark 0 and 1; add 1/2, 1/4, 3/4, 1/3, 2/3 in the right places." },
+            { stage: "Match", minutes: 11, detail: "Card-match game: equivalent fractions (1/2 = 2/4 = 3/6)." },
+            { stage: "Connect", minutes: 5, detail: "When the denominator gets bigger, what happens to each piece?" },
+          ],
+          ctSkills: ["Abstraction", "Pattern recognition (equivalence)", "Comparison"],
+          misconceptions: ["Believing 1/3 > 1/2 because 3 > 2.", "Adding fractions with different denominators by adding tops and bottoms."],
+          assessmentIdeas: ["Order 1/2, 1/3, 1/6 on a line.", "1/4 + 1/4 = ? (with the same denominator)"],
+          differentiation: ["Support: pre-printed fraction strips.", "Stretch: find three fractions equivalent to 2/3."],
+        },
         intro:
           "A fraction has a top number (numerator) and a bottom number (denominator). The bottom tells how many equal parts the whole is split into; the top tells how many parts we have.",
         examples: [
@@ -2073,6 +2101,20 @@ export const curriculum = [
           "Identify right, acute and obtuse angles",
         ],
         activities: ["Turn-the-arrow direction game"],
+        teacherNotes: {
+          overview:
+            "Angles are easier to grasp through movement than through static pictures. Connect quarter, half and full turns to 90°, 180° and 360°.",
+          lessonPlan: [
+            { stage: "Body turns", minutes: 8, detail: "Whole class faces front. 'Quarter turn right' — students rotate; teacher checks angles." },
+            { stage: "Estimate", minutes: 10, detail: "Show 4 angles drawn on the board; pairs estimate then measure with a paper protractor." },
+            { stage: "Classify", minutes: 14, detail: "Sort 8 angle cards into acute / right / obtuse." },
+            { stage: "Connect", minutes: 8, detail: "How many right angles in a square? In a triangle?" },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Algorithmic thinking (procedure for measuring)"],
+          misconceptions: ["Reading the wrong scale on a protractor.", "Believing the size of arms changes the angle."],
+          assessmentIdeas: ["Is 45° acute or obtuse?", "Quarter turn = how many degrees?"],
+          differentiation: ["Support: paper protractors with bold marks.", "Stretch: find a real-life right angle and a real-life obtuse angle."],
+        },
         intro:
           "An angle is the amount of turn between two rays. A quarter turn is 90° (a right angle), a half turn is 180°, and a full turn is 360°. Angles smaller than 90° are acute; between 90° and 180° they are obtuse.",
         examples: [
@@ -2124,6 +2166,20 @@ export const curriculum = [
           "Reason about distance and direction",
         ],
         activities: ["Treasure-hunt with grid coordinates"],
+        teacherNotes: {
+          overview:
+            "Grid references and direction language make navigation precise. Students should be able to give and follow short route instructions.",
+          lessonPlan: [
+            { stage: "Hunt", minutes: 12, detail: "Treasure-hunt game: hidden objects placed on a grid; pairs follow grid clues to find them." },
+            { stage: "Directions", minutes: 12, detail: "Practice N/S/E/W and right/left turns by walking simple routes from a starting square." },
+            { stage: "Write", minutes: 11, detail: "Pairs write a 5-step route for a partner using compass directions." },
+            { stage: "Connect", minutes: 5, detail: "Why are grid references unique?" },
+          ],
+          ctSkills: ["Algorithmic thinking", "Decomposition", "Abstraction"],
+          misconceptions: ["Confusing rows and columns when reading grid references.", "Mixing left/right with East/West."],
+          assessmentIdeas: ["Where is point B5 on the grid?", "Facing North, turn right twice — which direction?"],
+          differentiation: ["Support: use only N/S/E/W; skip diagonal turns.", "Stretch: introduce NE, SE etc."],
+        },
         intro:
           "On a grid map, places are described by columns (letters) and rows (numbers). Directions like North, South, East and West help us find our way.",
         examples: [
@@ -2177,6 +2233,20 @@ export const curriculum = [
           "Use scaling on simple maps",
         ],
         activities: ["Pace-out distances and graph"],
+        teacherNotes: {
+          overview:
+            "Estimation skills extend from cm/m to km. Map scales are an early form of proportional reasoning.",
+          lessonPlan: [
+            { stage: "Pace", minutes: 10, detail: "Each child counts paces along a 10 m line; calibrate average pace length." },
+            { stage: "Estimate", minutes: 10, detail: "Pairs estimate distances from classroom to library, gate, hall — record." },
+            { stage: "Map scale", minutes: 15, detail: "Paper map of the school; each cm = 5 m. Pairs use scale to read real distances." },
+            { stage: "Reflect", minutes: 5, detail: "When was the estimate close? When far off?" },
+          ],
+          ctSkills: ["Estimation", "Proportional reasoning", "Algorithmic thinking"],
+          misconceptions: ["Forgetting to multiply when using a scale.", "Believing tall things are far things."],
+          assessmentIdeas: ["1 cm = 200 m. 4 cm on map = ?", "Estimate the height of a typical adult."],
+          differentiation: ["Support: pre-marked map with one scaled distance shown.", "Stretch: design a 1 cm = 100 m map of a known route."],
+        },
         intro:
           "Estimating means making a sensible guess before measuring. On a map, a scale tells us how a small distance on paper stands for a real distance.",
         examples: [
@@ -2231,6 +2301,20 @@ export const curriculum = [
           "Reason with rates (litres per cow)",
         ],
         activities: ["Plan daily milk supply for a school"],
+        teacherNotes: {
+          overview:
+            "Rates are the bridge from multiplication/division to proportional thinking. Use 'per' language explicitly.",
+          lessonPlan: [
+            { stage: "Per", minutes: 8, detail: "Discuss 'rupees per kilogram', 'litres per cow', 'pages per minute'. What does 'per' mean?" },
+            { stage: "Compute", minutes: 14, detail: "Word-problem set with rates: total milk for N cows; per-cow when total and N are given." },
+            { stage: "Plan", minutes: 13, detail: "Pairs plan daily milk for a school of 200 children at 200 ml per child; how many litres?" },
+            { stage: "Connect", minutes: 5, detail: "Where else do rates help in real life (speed, fuel, pay)?" },
+          ],
+          ctSkills: ["Proportional reasoning", "Decomposition", "Algorithmic thinking"],
+          misconceptions: ["Confusing 'per' with 'plus'.", "Multiplying when division is needed for unit rate."],
+          assessmentIdeas: ["A cow gives 8 l/day; 6 cows give?", "60 l from 5 cows; per cow?"],
+          differentiation: ["Support: provide a worked example.", "Stretch: ask for milk per week (multiply by 7)."],
+        },
         intro:
           "Rates compare two quantities — like litres of milk per cow per day. With a rate we can scale up (more cows, more milk) or scale down (fewer cows, less milk).",
         examples: [
@@ -2286,6 +2370,20 @@ export const curriculum = [
           "Generate patterns from a rule",
         ],
         activities: ["Tessellation craft with paper polygons"],
+        teacherNotes: {
+          overview:
+            "Polygons and tilings practise classification and pattern. Discover which shapes tile and which don't.",
+          lessonPlan: [
+            { stage: "Name", minutes: 8, detail: "Pairs match polygon names (triangle, quadrilateral, pentagon, hexagon, octagon) to shape cards." },
+            { stage: "Tile", minutes: 17, detail: "Try to tile A4 paper with one shape at a time: square, equilateral triangle, regular pentagon, regular hexagon. Which fail?" },
+            { stage: "Generalise", minutes: 10, detail: "Why do squares and hexagons tile? Discuss interior angles fitting around a point." },
+            { stage: "Connect", minutes: 5, detail: "Find tilings in real life (floor tiles, beehive)." },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Classification"],
+          misconceptions: ["Counting curves as polygon sides.", "Believing all polygons tile."],
+          assessmentIdeas: ["Name a polygon with 8 sides.", "Does a regular pentagon tile a plane?"],
+          differentiation: ["Support: pre-cut paper polygons.", "Stretch: design a tiling with two different shapes."],
+        },
         intro:
           "Polygons are flat shapes with straight sides. Some polygons fit together with no gaps to cover a surface — that is called a tiling or tessellation.",
         examples: [
@@ -2338,6 +2436,20 @@ export const curriculum = [
           "Solve word problems with measures",
         ],
         activities: ["Kitchen recipe scaling"],
+        teacherNotes: {
+          overview:
+            "Conversion fluency comes from repeated short practice paired with real referents. Mistakes here often appear as 'forgot to multiply by 1000'.",
+          lessonPlan: [
+            { stage: "Anchor", minutes: 6, detail: "Quick estimation: how heavy is a 1 l water bottle? About a kg." },
+            { stage: "Convert", minutes: 12, detail: "Whole-class mental conversions: 2 kg → g, 3500 ml → l, 0.5 kg → g." },
+            { stage: "Recipe", minutes: 17, detail: "Pairs scale a 4-person recipe to 1 person and to 8 people." },
+            { stage: "Connect", minutes: 5, detail: "When converting up the unit, the number gets smaller. Why?" },
+          ],
+          ctSkills: ["Proportional reasoning", "Algorithmic thinking", "Generalisation"],
+          misconceptions: ["Multiplying when division is needed (g → kg).", "Mixing up ml and g (different things measured)."],
+          assessmentIdeas: ["Convert 2.5 l to ml.", "Half of 800 g."],
+          differentiation: ["Support: conversion poster on wall.", "Stretch: scale a recipe by 1.5×."],
+        },
         intro:
           "We weigh things in grams (g) and kilograms (kg), and measure liquids in millilitres (ml) and litres (l). The big units are 1000 times the small ones: 1 kg = 1000 g, 1 l = 1000 ml.",
         examples: [
@@ -2389,6 +2501,20 @@ export const curriculum = [
           "Estimate and verify totals",
         ],
         activities: ["Yield-per-tree estimation puzzle"],
+        teacherNotes: {
+          overview:
+            "Farm contexts give a strong reason to use multiplication and division together. Students should notice that 'per tree' answers division and 'all trees' answers multiplication.",
+          lessonPlan: [
+            { stage: "Estimate", minutes: 8, detail: "Show a picture with 5 trees and ~12 coconuts each; pairs estimate the total." },
+            { stage: "Compute", minutes: 14, detail: "Three problems: total when given per-tree; per-tree when given total; baskets needed for a fixed pack size." },
+            { stage: "Plan", minutes: 13, detail: "Pairs plan a one-week harvest: total coconuts and how many baskets." },
+            { stage: "Reflect", minutes: 5, detail: "If yield drops by half, what happens to baskets needed?" },
+          ],
+          ctSkills: ["Proportional reasoning", "Decomposition", "Algorithmic thinking"],
+          misconceptions: ["Adding when multiplying is needed for equal groups.", "Ignoring units in the answer."],
+          assessmentIdeas: ["15 trees × 20 coconuts each.", "144 coconuts ÷ 12 per basket."],
+          differentiation: ["Support: array drawings.", "Stretch: introduce a varying yield (some trees give 10, others 15)."],
+        },
         intro:
           "On a farm we use multiplication to find totals (trees × fruit per tree) and division to share or to find the average per tree.",
         examples: [
@@ -2443,6 +2569,20 @@ export const curriculum = [
           "Design rangoli using symmetry rules",
         ],
         activities: ["Make a symmetric rangoli on paper"],
+        teacherNotes: {
+          overview:
+            "Add rotational symmetry to the line-symmetry vocabulary. Use traditional designs (rangoli, kolam) so the maths links to art.",
+          lessonPlan: [
+            { stage: "Spot", minutes: 8, detail: "Show 4 traditional designs; class names line and rotational symmetries they see." },
+            { stage: "Build", minutes: 17, detail: "Each child designs a 4-petal rangoli on dotted paper with at least 2 lines of symmetry." },
+            { stage: "Order", minutes: 10, detail: "Match shapes to their order of rotational symmetry (1, 2, 3, 4, 6)." },
+            { stage: "Connect", minutes: 5, detail: "Why do regular polygons have rotational symmetry equal to their sides?" },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Abstraction"],
+          misconceptions: ["Counting a 360° turn as rotational symmetry of order > 1.", "Mixing line and rotational symmetry."],
+          assessmentIdeas: ["Order of rotational symmetry of a regular hexagon.", "Letter with rotational symmetry of order 2."],
+          differentiation: ["Support: tracing-paper rotation aid.", "Stretch: design a logo with rotational order 3 and no line symmetry."],
+        },
         intro:
           "A figure has rotational symmetry if it looks the same after a turn. The order of symmetry counts how many times it matches in one full turn.",
         examples: [
@@ -2496,6 +2636,20 @@ export const curriculum = [
           "Reason about area through tiles",
         ],
         activities: ["Design a 4x4 quilt with two colours"],
+        teacherNotes: {
+          overview:
+            "Tile patterns let students see fractions of a whole and area as 'count of unit tiles' before formulas.",
+          lessonPlan: [
+            { stage: "Design", minutes: 12, detail: "Each pair colours a 4×4 grid using two colours so each colour covers exactly half the grid." },
+            { stage: "Compare", minutes: 12, detail: "Swap and write the fraction of each colour; simplify (8/16 = 1/2)." },
+            { stage: "Area", minutes: 11, detail: "Three rectangles drawn on grid paper; pairs count tiles to find area; compare to length × width." },
+            { stage: "Connect", minutes: 5, detail: "Why does counting tiles equal length × width?" },
+          ],
+          ctSkills: ["Pattern recognition", "Abstraction", "Generalisation"],
+          misconceptions: ["Forgetting to simplify fractions.", "Mixing perimeter and area."],
+          assessmentIdeas: ["5/20 in simplest form.", "Tiles in a 6×4 rectangle."],
+          differentiation: ["Support: pre-printed grids.", "Stretch: design a 6×6 quilt with three colours in 1/3 each."],
+        },
         intro:
           "A quilt is made of tiles. Counting tiles helps us see fractions of the whole and to reason about area.",
         examples: [
@@ -2550,6 +2704,20 @@ export const curriculum = [
           "Compute durations and order events",
         ],
         activities: ["Stopwatch relay & timeline"],
+        teacherNotes: {
+          overview:
+            "Time arithmetic across seconds/minutes/hours is a frequent error source. Build fluency through races and conversion drills.",
+          lessonPlan: [
+            { stage: "Race", minutes: 10, detail: "Stopwatch: pairs time each other doing 20 jumping jacks; record results in seconds." },
+            { stage: "Compare", minutes: 8, detail: "Compute differences between race times in seconds." },
+            { stage: "Convert", minutes: 12, detail: "Whole-class conversions: 1 min = ? s; 1 h = ? s; 90 s = ? min ? s." },
+            { stage: "Connect", minutes: 10, detail: "Plan a 5-event PE schedule and total the time." },
+          ],
+          ctSkills: ["Algorithmic thinking", "Decomposition", "Estimation"],
+          misconceptions: ["Treating 1.30 as 1 hour 30 (decimal vs sexagesimal).", "Adding times like decimals."],
+          assessmentIdeas: ["1 hour = how many seconds?", "Difference between 42 s and 38 s."],
+          differentiation: ["Support: number-line for time.", "Stretch: convert 2 h 15 min to seconds."],
+        },
         intro:
           "60 seconds make a minute and 60 minutes make an hour. To find a duration, subtract the start time from the end time.",
         examples: [
@@ -2602,6 +2770,20 @@ export const curriculum = [
           "Find missing numbers from sequences",
         ],
         activities: ["Number-line jump puzzles"],
+        teacherNotes: {
+          overview:
+            "Number-line jumps make multiplication and arithmetic sequences visible. They are also early algebra in disguise.",
+          lessonPlan: [
+            { stage: "Demo", minutes: 7, detail: "On a number line 0-30 the teacher draws jumps of 4 starting from 7; ask where each lands." },
+            { stage: "Pairs", minutes: 13, detail: "Pairs draw their own jump puzzles given start/jump/count and find the landing." },
+            { stage: "Find the rule", minutes: 13, detail: "Sequences puzzle: 6, 11, 16, …; find rule and 8th term." },
+            { stage: "Connect", minutes: 7, detail: "How is this like times-tables?" },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Algorithmic thinking"],
+          misconceptions: ["Counting the start as a jump.", "Adding the jump to itself instead of to the previous term."],
+          assessmentIdeas: ["Start 12, jump 3, take 5 jumps — land?", "Missing term: 4, 9, 14, ?, 24."],
+          differentiation: ["Support: number-line printed on desk.", "Stretch: backward jumps as subtraction."],
+        },
         intro:
           "Every step on a number line is a jump of a fixed size. If we know the start, the jump and the number of jumps, we can find where we land.",
         examples: [
@@ -2653,6 +2835,20 @@ export const curriculum = [
           "Locate places on simple maps",
         ],
         activities: ["Mark school landmarks on a grid"],
+        teacherNotes: {
+          overview:
+            "Combine scale, direction and grid references in one consolidated lesson. Students should be able to plan a route on paper and follow one in real life.",
+          lessonPlan: [
+            { stage: "Map", minutes: 10, detail: "Each pair gets a school map with grid; mark library, lab, ground." },
+            { stage: "Navigate", minutes: 12, detail: "Pairs write 4-step routes between two landmarks using direction + steps." },
+            { stage: "Scale", minutes: 13, detail: "Apply scale 1 cm = 5 m; compute real distances for 3 routes." },
+            { stage: "Connect", minutes: 5, detail: "What if we changed scale to 1 cm = 10 m? Map looks half the size." },
+          ],
+          ctSkills: ["Algorithmic thinking", "Decomposition", "Proportional reasoning"],
+          misconceptions: ["Switching x and y when reading grid coordinates.", "Forgetting scale when reporting distances."],
+          assessmentIdeas: ["1 cm = 1 km; 25 cm apart on map = ?", "Facing N, turn 90° clockwise — direction?"],
+          differentiation: ["Support: simplified 5×5 grid.", "Stretch: introduce a scale of 1 cm = 1.5 m."],
+        },
         intro:
           "A map uses scale to shrink distances, directions to show which way is which, and grid references to pinpoint locations. Together they help us find places quickly.",
         examples: [
@@ -2707,6 +2903,20 @@ export const curriculum = [
           "Solve problems where each picture stands for many",
         ],
         activities: ["Build a pictograph for class library books"],
+        teacherNotes: {
+          overview:
+            "Pictographs at this level test scaling and proportional reading. Stress: one icon does not mean one item.",
+          lessonPlan: [
+            { stage: "Read", minutes: 10, detail: "Project a pictograph with key 1 = 10; students answer 3 reading questions." },
+            { stage: "Build", minutes: 15, detail: "Pairs build a pictograph of class library books by genre using key 1 = 5." },
+            { stage: "Compare", minutes: 12, detail: "Pose: how many more X than Y? Students subtract counts × key value." },
+            { stage: "Connect", minutes: 5, detail: "Why use a key bigger than 1?" },
+          ],
+          ctSkills: ["Abstraction", "Proportional reasoning", "Evaluation"],
+          misconceptions: ["Reading half-icons as full units.", "Forgetting the key when computing differences."],
+          assessmentIdeas: ["1 = 5 books; 6 icons → ?", "How many more if A has 3 icons and B has 7, with key 1 = 10?"],
+          differentiation: ["Support: pre-printed grid for icons.", "Stretch: key 1 = 25 with halves."],
+        },
         intro:
           "A pictograph uses a small picture to stand for a larger number. To read it, multiply the count of pictures by the value of one picture.",
         examples: [
