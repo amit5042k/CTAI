@@ -1,17 +1,19 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter } from "next/navigation";
 
 // `exercises` here is the SANITISED list — no answers attached.
 // Each item has at least { id, type, prompt, options? }.
 export default function Practice({ unitId, exercises, canTrack }) {
+  const router = useRouter();
   const total = exercises?.length ?? 0;
   const [idx, setIdx] = useState(0);
-  const [picked, setPicked] = useState(null); // user's choice for current question
+  const [picked, setPicked] = useState(null);
   const [shortText, setShortText] = useState("");
   const [feedback, setFeedback] = useState(null); // { correct, explanation, correctAnswer }
   const [submitting, setSubmitting] = useState(false);
-  const [results, setResults] = useState(() => new Array(total).fill(null)); // null | true | false
+  const [results, setResults] = useState(() => new Array(total).fill(null));
 
   const current = exercises[idx];
 
@@ -23,20 +25,19 @@ export default function Practice({ unitId, exercises, canTrack }) {
 
   if (!current) return null;
 
-  async function check() {
-    const response =
-      current.type === "short" ? shortText.trim() : picked;
+  // Submit a response and immediately show right/wrong feedback.
+  // For MCQ/TF this is called the moment an option is clicked, so
+  // the learner doesn't need a separate "Check answer" button.
+  async function submitAnswer(response) {
     if (response === null || response === undefined || response === "") return;
+    if (feedback || submitting) return;
+    setPicked(response);
     setSubmitting(true);
     try {
       const res = await fetch("/api/exercises/check", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          unitId,
-          exerciseId: current.id,
-          response,
-        }),
+        body: JSON.stringify({ unitId, exerciseId: current.id, response }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to check");
@@ -46,6 +47,10 @@ export default function Practice({ unitId, exercises, canTrack }) {
         next[idx] = data.correct;
         return next;
       });
+      // Refresh server components (e.g. status badge in the chapter
+      // header, dashboard counts) so the page reflects the new
+      // progress without a manual reload.
+      if (canTrack) router.refresh();
     } catch (e) {
       setFeedback({ correct: false, explanation: e.message });
     } finally {
@@ -111,15 +116,14 @@ export default function Practice({ unitId, exercises, canTrack }) {
             {current.options.map((opt, i) => {
               const chosen = picked === i;
               const isAnswered = feedback !== null;
-              const isRight =
-                isAnswered && feedback.correctAnswer === i;
+              const isRight = isAnswered && feedback.correctAnswer === i;
               const isWrongPick =
                 isAnswered && chosen && !feedback.correct;
               return (
                 <button
                   key={i}
-                  disabled={isAnswered}
-                  onClick={() => setPicked(i)}
+                  disabled={isAnswered || submitting}
+                  onClick={() => submitAnswer(i)}
                   className={`rounded-md border px-3 py-2 text-left text-sm transition ${
                     isRight
                       ? "border-emerald-400 bg-emerald-50"
@@ -140,32 +144,6 @@ export default function Practice({ unitId, exercises, canTrack }) {
           </div>
         )}
 
-        {current.type === "short" && (
-          <div className="mt-3">
-            <input
-              className="input"
-              placeholder="Type your answer"
-              value={shortText}
-              disabled={feedback !== null}
-              onChange={(e) => setShortText(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === "Enter" && shortText.trim() && !feedback) {
-                  e.preventDefault();
-                  check();
-                }
-              }}
-            />
-            {feedback && !feedback.correct && (
-              <p className="mt-2 text-sm text-slate-600">
-                Correct answer:{" "}
-                <span className="font-semibold">
-                  {String(feedback.correctAnswer)}
-                </span>
-              </p>
-            )}
-          </div>
-        )}
-
         {current.type === "tf" && (
           <div className="mt-3 flex gap-2">
             {[
@@ -180,8 +158,8 @@ export default function Practice({ unitId, exercises, canTrack }) {
               return (
                 <button
                   key={label}
-                  disabled={isAnswered}
-                  onClick={() => setPicked(v)}
+                  disabled={isAnswered || submitting}
+                  onClick={() => submitAnswer(v)}
                   className={`flex-1 rounded-md border px-3 py-2 text-sm transition ${
                     isRight
                       ? "border-emerald-400 bg-emerald-50"
@@ -199,6 +177,41 @@ export default function Practice({ unitId, exercises, canTrack }) {
           </div>
         )}
 
+        {current.type === "short" && (
+          <div className="mt-3 flex gap-2">
+            <input
+              className="input"
+              placeholder="Type your answer and press Enter"
+              value={shortText}
+              disabled={feedback !== null || submitting}
+              onChange={(e) => setShortText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && shortText.trim() && !feedback) {
+                  e.preventDefault();
+                  submitAnswer(shortText.trim());
+                }
+              }}
+            />
+            {!feedback && (
+              <button
+                onClick={() => submitAnswer(shortText.trim())}
+                disabled={submitting || shortText.trim().length === 0}
+                className="btn-primary disabled:opacity-60"
+              >
+                {submitting ? "..." : "Check"}
+              </button>
+            )}
+          </div>
+        )}
+        {current.type === "short" && feedback && !feedback.correct && (
+          <p className="mt-2 text-sm text-slate-600">
+            Correct answer:{" "}
+            <span className="font-semibold">
+              {String(feedback.correctAnswer)}
+            </span>
+          </p>
+        )}
+
         {feedback && (
           <div
             className={`mt-4 rounded-md border px-3 py-3 text-sm ${
@@ -206,12 +219,25 @@ export default function Practice({ unitId, exercises, canTrack }) {
                 ? "border-emerald-300 bg-emerald-50 text-emerald-900"
                 : "border-red-300 bg-red-50 text-red-900"
             }`}
+            role="status"
           >
             <p className="font-semibold">
-              {feedback.correct ? "Correct! 🎉" : "Not quite."}
+              {feedback.correct ? "✓ Correct!" : "✗ Not quite."}
             </p>
             {feedback.explanation && (
               <p className="mt-1 text-slate-700">{feedback.explanation}</p>
+            )}
+            {feedback.progress?.status && (
+              <p className="mt-2 text-xs text-slate-600">
+                Your status for this chapter:{" "}
+                <strong>
+                  {feedback.progress.status === "completed"
+                    ? "Completed"
+                    : feedback.progress.status === "in_progress"
+                      ? "In progress"
+                      : "Not started"}
+                </strong>
+              </p>
             )}
           </div>
         )}
@@ -226,8 +252,8 @@ export default function Practice({ unitId, exercises, canTrack }) {
           >
             ← Previous
           </button>
-          {feedback ? (
-            idx < total - 1 ? (
+          {feedback &&
+            (idx < total - 1 ? (
               <button onClick={next} className="btn-primary">
                 Next →
               </button>
@@ -235,25 +261,11 @@ export default function Practice({ unitId, exercises, canTrack }) {
               <button onClick={reset} className="btn-outline">
                 Try again
               </button>
-            )
-          ) : (
-            <button
-              onClick={check}
-              disabled={
-                submitting ||
-                (current.type === "short"
-                  ? shortText.trim().length === 0
-                  : picked === null || picked === undefined)
-              }
-              className="btn-primary disabled:opacity-60"
-            >
-              {submitting ? "Checking..." : "Check answer"}
-            </button>
-          )}
+            ))}
         </div>
         {!canTrack && (
           <p className="text-xs text-slate-500">
-            Sign in as a student in this class to record your score.
+            Sign in as a student in this class to save your progress.
           </p>
         )}
         {allDone && (
