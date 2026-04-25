@@ -8,4 +8,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 data/store.json
+data/portal.db
+data/portal.db-journal
+data/portal.db-wal
+data/portal.db-shm
 data/logos/

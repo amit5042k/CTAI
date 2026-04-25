@@ -1,0 +1,137 @@
+{
+  "users": [
+    {
+      "id": "52636618-5549-400a-8d33-57d7798ba39f",
+      "name": "Root",
+      "email": "root@portal.in",
+      "role": "superadmin",
+      "classLevel": null,
+      "sectionId": null,
+      "schoolId": null,
+      "passwordHash": "$2a$10$9yTPwetzpAKpIlEnJajUfeBHpHtpVJ0OmaF8figcT9602h.XrLgUC",
+      "createdAt": "2026-04-25T17:41:30.664Z",
+      "pendingTwoFactorSecret": null,
+      "twoFactorSecret": "MJOO7PJQ2536WPM4UYBC5RGBLHVA26NQ",
+      "twoFactorEnabled": true
+    },
+    {
+      "id": "d4dbf8de-4d99-4c1f-bbc1-d9c8d3993613",
+      "name": "Principal",
+      "email": "principal@sps.in",
+      "role": "admin",
+      "classLevel": null,
+      "sectionId": null,
+      "schoolId": "73c0df78-260d-4794-bfd4-1f395aa572d0",
+      "passwordHash": "$2a$10$KENldwhtpvIwB58lR4rddO/A7VXNZ6RMJ0G7.Q0wWl7s.cVSs.lIC",
+      "createdAt": "2026-04-25T17:47:31.087Z"
+    },
+    {
+      "id": "80f231b3-d9fe-4c91-8900-08e278b8b817",
+      "name": "Ms Roy",
+      "email": "roy@sps.in",
+      "role": "teacher",
+      "classLevel": null,
+      "sectionId": null,
+      "schoolId": "73c0df78-260d-4794-bfd4-1f395aa572d0",
+      "passwordHash": "$2a$10$nd8TOOIa2yBeYMVFeUriOuNCPsVWLoTfOE/CS31fkQ8YfeIr50YIi",
+      "createdAt": "2026-04-25T17:59:30.732Z"
+    },
+    {
+      "id": "6ef4cfab-cc34-4fd0-bf6c-898d27a7e206",
+      "name": "Aarav",
+      "email": "aarav@sps.in",
+      "role": "student",
+      "classLevel": 5,
+      "sectionId": "f4fd8339-14f0-45c7-8cd9-72aca40c919a",
+      "schoolId": "73c0df78-260d-4794-bfd4-1f395aa572d0",
+      "passwordHash": "$2a$10$ryibk2JvVOUKEw/DLu6caO.XnWLs/.WpsEPH9ro9K5/uEvVO5suGy",
+      "createdAt": "2026-04-25T17:59:31.007Z"
+    }
+  ],
+  "progress": [
+    {
+      "userId": "6ef4cfab-cc34-4fd0-bf6c-898d27a7e206",
+      "unitId": "c5-ct-1",
+      "status": "completed",
+      "updatedAt": "2026-04-25T18:43:54.939Z"
+    },
+    {
+      "userId": "6ef4cfab-cc34-4fd0-bf6c-898d27a7e206",
+      "unitId": "c5-ct-2",
+      "status": "in_progress",
+      "updatedAt": "2026-04-25T18:45:33.341Z"
+    }
+  ],
+  "sections": [
+    {
+      "id": "f4fd8339-14f0-45c7-8cd9-72aca40c919a",
+      "classLevel": 5,
+      "name": "A",
+      "classTeacherId": "80f231b3-d9fe-4c91-8900-08e278b8b817",
+      "teacherIds": [],
+      "schoolId": "73c0df78-260d-4794-bfd4-1f395aa572d0",
+      "createdAt": "2026-04-25T17:59:30.825Z"
+    }
+  ],
+  "schools": [
+    {
+      "id": "73c0df78-260d-4794-bfd4-1f395aa572d0",
+      "name": "Sunrise Public School",
+      "code": "SPS-DEL",
+      "createdAt": "2026-04-25T17:45:33.022Z",
+      "logoExt": "png",
+      "logoMime": "image/png"
+    }
+  ],
+  "unlocks": [
+    {
+      "sectionId": "f4fd8339-14f0-45c7-8cd9-72aca40c919a",
+      "unitId": "c5-ct-1",
+      "unlockedBy": "80f231b3-d9fe-4c91-8900-08e278b8b817",
+      "unlockedAt": "2026-04-25T17:59:31.758Z"
+    },
+    {
+      "sectionId": "f4fd8339-14f0-45c7-8cd9-72aca40c919a",
+      "unitId": "c5-ct-2",
+      "unlockedBy": "80f231b3-d9fe-4c91-8900-08e278b8b817",
+      "unlockedAt": "2026-04-25T18:45:33.307Z"
+    }
+  ],
+  "attempts": [
+    {
+      "userId": "6ef4cfab-cc34-4fd0-bf6c-898d27a7e206",
+      "unitId": "c5-ct-1",
+      "exerciseId": "q1",
+      "correct": true,
+      "at": "2026-04-25T17:59:32.013Z"
+    },
+    {
+      "userId": "6ef4cfab-cc34-4fd0-bf6c-898d27a7e206",
+      "unitId": "c5-ct-1",
+      "exerciseId": "q2",
+      "correct": true,
+      "at": "2026-04-25T17:59:32.041Z"
+    },
+    {
+      "userId": "6ef4cfab-cc34-4fd0-bf6c-898d27a7e206",
+      "unitId": "c5-ct-1",
+      "exerciseId": "q3",
+      "correct": true,
+      "at": "2026-04-25T17:59:32.066Z"
+    },
+    {
+      "userId": "6ef4cfab-cc34-4fd0-bf6c-898d27a7e206",
+      "unitId": "c5-ct-1",
+      "exerciseId": "q1",
+      "correct": true,
+      "at": "2026-04-25T18:43:54.938Z"
+    },
+    {
+      "userId": "6ef4cfab-cc34-4fd0-bf6c-898d27a7e206",
+      "unitId": "c5-ct-2",
+      "exerciseId": "q1",
+      "correct": true,
+      "at": "2026-04-25T18:45:33.341Z"
+    }
+  ]
+}

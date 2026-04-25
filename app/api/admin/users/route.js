@@ -7,6 +7,7 @@ import {
   listUsers,
   findSectionById,
   findSchoolById,
+  publicUser,
 } from "@/lib/db";
 
 export async function GET(req) {
@@ -107,6 +108,5 @@ export async function POST(req) {
     schoolId,
     passwordHash,
   });
-  const { passwordHash: _ph, ...safe } = newUser;
-  return NextResponse.json({ user: safe });
+  return NextResponse.json({ user: publicUser(newUser) });
 }

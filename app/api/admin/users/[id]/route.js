@@ -6,6 +6,7 @@ import {
   updateUser,
   deleteUser,
   findSectionById,
+  publicUser,
 } from "@/lib/db";
 
 function canTouchUser(actor, target) {
@@ -71,8 +72,7 @@ export async function PATCH(req, { params }) {
   }
 
   const updated = updateUser(params.id, patch);
-  const { passwordHash, ...safe } = updated;
-  return NextResponse.json({ user: safe });
+  return NextResponse.json({ user: publicUser(updated) });
 }
 
 export async function DELETE(_req, { params }) {

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { createUser, findUserByEmail, countByRole } from "@/lib/db";
+import { createUser, findUserByEmail, countByRole, publicUser } from "@/lib/db";
 import { signSession, setSessionCookie } from "@/lib/auth";
 
 // One-time bootstrap to create the very first SUPERADMIN.
@@ -51,8 +51,7 @@ export async function POST(req) {
     const token = await signSession({ uid: user.id, role: user.role });
     await setSessionCookie(token);
 
-    const { passwordHash: _ph, ...safe } = user;
-    return NextResponse.json({ user: safe });
+    return NextResponse.json({ user: publicUser(user) });
   } catch {
     return NextResponse.json(
       { error: "Unable to bootstrap superadmin" },

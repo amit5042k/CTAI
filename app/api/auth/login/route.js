@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { findUserByEmail, findSchoolByCode } from "@/lib/db";
+import { findUserByEmail, findSchoolByCode, publicUser } from "@/lib/db";
 import { signSession, setSessionCookie } from "@/lib/auth";
 import { signChallenge } from "@/lib/twoFactor";
 
@@ -60,8 +60,7 @@ export async function POST(req) {
 
     const token = await signSession({ uid: user.id, role: user.role });
     await setSessionCookie(token);
-    const { passwordHash, ...safe } = user;
-    return NextResponse.json({ user: safe });
+    return NextResponse.json({ user: publicUser(user) });
   } catch {
     return NextResponse.json(
       { error: "Unable to sign in at this time" },
