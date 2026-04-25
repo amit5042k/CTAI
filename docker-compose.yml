@@ -1,0 +1,27 @@
+services:
+  ctai:
+    build: .
+    image: ctai-portal:latest
+    container_name: ctai
+    restart: unless-stopped
+    ports:
+      # host:container — change 3000 on the left to whatever port you
+      # want exposed on the NAS. The right side must stay 3000.
+      - "3000:3000"
+    environment:
+      # MUST be set to a long random string. Generate with:
+      #   openssl rand -hex 32
+      JWT_SECRET: ${JWT_SECRET:-change-me-please-use-a-long-random-string}
+      NODE_ENV: production
+      PORT: "3000"
+    volumes:
+      # SQLite database + uploaded school logos live here. Bind to a
+      # directory on the NAS (e.g. /volume1/docker/ctai/data) so they
+      # survive container rebuilds.
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 5s
+      retries: 5
+      start_period: 30s

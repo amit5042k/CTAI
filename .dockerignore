@@ -1,0 +1,21 @@
+node_modules
+.next
+.git
+.gitignore
+.env
+.env.local
+.env.*.local
+npm-debug.log*
+
+# bulky source PDFs — not needed at runtime
+data/*.pdf
+data/store.json
+data/store.json.migrated
+data/portal.db
+data/portal.db-*
+data/logos
+
+# editor / OS junk
+.DS_Store
+.vscode
+.idea
