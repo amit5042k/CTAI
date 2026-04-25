@@ -1024,6 +1024,20 @@ export const curriculum = [
           "Describe shapes by their properties",
         ],
         activities: ["Shape hunt around the classroom"],
+        teacherNotes: {
+          overview:
+            "Build the habit of describing shapes by their properties, not just their names. Move from 'a square' to 'a 4-sided shape with equal sides and right angles'.",
+          lessonPlan: [
+            { stage: "Hunt", minutes: 8, detail: "Pairs find 5 examples each of 2D and 3D shapes around the classroom." },
+            { stage: "Describe", minutes: 12, detail: "Each pair picks one find and describes it without naming it; classmates guess." },
+            { stage: "Sort", minutes: 12, detail: "Hand out a mixed-shape pack; sort first by 2D/3D, then by number of corners or faces." },
+            { stage: "Connect", minutes: 8, detail: "Discuss: which property tells you the most? Why?" },
+          ],
+          ctSkills: ["Classification", "Abstraction (property over name)", "Pattern recognition"],
+          misconceptions: ["Calling a tilted square a 'diamond'.", "Counting curved surfaces as faces."],
+          assessmentIdeas: ["Name a 3D shape with 0 vertices.", "Identify the odd one out from 4 shape pictures."],
+          differentiation: ["Support: 2D-only round before adding 3D.", "Stretch: design a riddle for a peer about a hidden shape."],
+        },
         intro:
           "Shapes are everywhere — wheels are circles, books are rectangles, dice are cubes. We can describe shapes by counting their sides, corners, or — for 3D shapes — their faces, edges and vertices.",
         examples: [
@@ -1075,6 +1089,20 @@ export const curriculum = [
           "Apply logical elimination to puzzles",
         ],
         activities: ["Number-clue 'guess who' game"],
+        teacherNotes: {
+          overview:
+            "This is logical elimination — a CT habit students will reuse for years. Make 'crossing out' an explicit action so reasoning is visible.",
+          lessonPlan: [
+            { stage: "Demo", minutes: 8, detail: "Teacher thinks of a number 1-20; gives clues one at a time. Class crosses out impossibilities on the board." },
+            { stage: "Pairs", minutes: 15, detail: "Pairs play 'Guess my number' with 1-30; each clue must rule out at least one option." },
+            { stage: "Logic puzzle", minutes: 12, detail: "Three children, three favourite colours; clues reveal who likes what." },
+            { stage: "Reflect", minutes: 5, detail: "Which clue was the most useful? Why?" },
+          ],
+          ctSkills: ["Logical reasoning", "Decomposition", "Evaluation"],
+          misconceptions: ["Stopping at the first match without checking remaining clues.", "Using a clue twice instead of taking the next one."],
+          assessmentIdeas: ["Logic mini-puzzle on exit slip with 3 clues.", "Spot the redundant clue from a list of 4."],
+          differentiation: ["Support: provide a printed grid for crossing out.", "Stretch: invent your own 3-clue puzzle for a friend."],
+        },
         intro:
           "When we have many possibilities, each clue lets us cross some out. The answer is whatever is left after all the clues are used. This careful reasoning is called logical elimination.",
         examples: [
@@ -1134,6 +1162,20 @@ export const curriculum = [
           "Reason with odd/even properties",
         ],
         activities: ["Coin-flip magic on a 5x5 grid"],
+        teacherNotes: {
+          overview:
+            "The coin-flip parity activity is a powerful demo of pattern recognition. The point is the rule, not the trick.",
+          lessonPlan: [
+            { stage: "Hook", minutes: 5, detail: "Show four numbers and ask for the rule before the next number." },
+            { stage: "Coin grid", minutes: 18, detail: "Pairs build a 5×5 grid where each row and column has an even number of black sides; teacher flips one coin and the class spots the row & column with odd counts." },
+            { stage: "Generalise", minutes: 12, detail: "What if the grid were 3×3? Would the trick still work? Try it." },
+            { stage: "Connect", minutes: 5, detail: "Computers use parity in a similar way to detect errors." },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Algorithmic thinking"],
+          misconceptions: ["Believing 0 is not even.", "Thinking the trick relies on memory, not parity."],
+          assessmentIdeas: ["Continue: 1, 3, 5, 7, ?", "Is the sum of two odd numbers odd or even?"],
+          differentiation: ["Support: smaller 3×3 grid.", "Stretch: extend the trick to 6×6 and explain why it still works."],
+        },
         intro:
           "Numbers and shapes often follow rules. If we can spot the rule, we can predict what comes next — that's the heart of computational thinking.",
         examples: [
@@ -1187,6 +1229,20 @@ export const curriculum = [
           "Compare and order four-digit numbers",
         ],
         activities: ["Place-value cards for 4-digit numbers"],
+        teacherNotes: {
+          overview:
+            "Extend place-value reasoning to thousands. Comma placement makes large numbers readable.",
+          lessonPlan: [
+            { stage: "Build", minutes: 10, detail: "Pairs use place-value cards (1000, 200, 30, 4) to build 4-digit numbers and read them aloud." },
+            { stage: "Compare", minutes: 12, detail: "Show two 4-digit numbers; class compares thousands first, then hundreds, etc." },
+            { stage: "Order", minutes: 12, detail: "Six numbers on cards; line up smallest to largest in the centre of the room." },
+            { stage: "Connect", minutes: 6, detail: "Why do we place a comma after thousands?" },
+          ],
+          ctSkills: ["Decomposition", "Algorithmic thinking (compare digit by digit)", "Generalisation"],
+          misconceptions: ["Mixing up the order when 0 is in a middle digit.", "Forgetting to compare leftmost digits first."],
+          assessmentIdeas: ["Order: 4123, 4132, 4231, 4321.", "Write 5,007 in expanded form."],
+          differentiation: ["Support: place-value mat with labelled columns.", "Stretch: largest 4-digit number with all different digits."],
+        },
         intro:
           "Four-digit numbers are made of thousands, hundreds, tens and ones. To compare them, look at the leftmost digit first.",
         examples: [
@@ -1238,6 +1294,20 @@ export const curriculum = [
           "Use simple fractions for sharing",
         ],
         activities: ["Equal-share story problems"],
+        teacherNotes: {
+          overview:
+            "Introduce fractions through fair sharing. Stress 'equal' parts — unequal parts are not fractions.",
+          lessonPlan: [
+            { stage: "Share a snack", minutes: 8, detail: "Demonstrate cutting a paper chapati into halves, then quarters; label each piece." },
+            { stage: "Partition", minutes: 14, detail: "Pairs fold paper strips into halves, thirds and quarters; mark them clearly." },
+            { stage: "Story sums", minutes: 13, detail: "Three problems: share 8 sweets among 2 / 4 / 8 friends; what fraction does each get?" },
+            { stage: "Connect", minutes: 5, detail: "Compare 1/2 vs 1/4: more pieces means smaller pieces." },
+          ],
+          ctSkills: ["Decomposition", "Abstraction", "Comparison"],
+          misconceptions: ["Believing 1/4 > 1/2 because 4 > 2.", "Cutting unequal parts and calling them fractions."],
+          assessmentIdeas: ["A pizza in 8 equal pieces; what is each called?", "Order 1/2, 1/4, 1/8 from largest to smallest."],
+          differentiation: ["Support: paper-fold with creases pre-marked.", "Stretch: how many quarters make 1 1/2?"],
+        },
         intro:
           "When a whole is split into equal parts, each part is a fraction. Half (1/2), quarter (1/4) and one-third (1/3) describe how big each share is.",
         examples: [
@@ -1288,6 +1358,20 @@ export const curriculum = [
           "Convert between units of length",
         ],
         activities: ["Estimate-then-measure relay"],
+        teacherNotes: {
+          overview:
+            "Estimation builds a feel for size. Always estimate before measuring; the gap between estimate and reality is where learning happens.",
+          lessonPlan: [
+            { stage: "Calibrate", minutes: 8, detail: "Show what 10 cm and 1 m look like using a ruler and a metre stick." },
+            { stage: "Estimate", minutes: 7, detail: "Five classroom items; pairs estimate each in cm and write the guess." },
+            { stage: "Measure", minutes: 15, detail: "Pairs measure each item with a ruler/tape; record the actual value next to the estimate." },
+            { stage: "Reflect", minutes: 5, detail: "Whose estimate was closest overall? What helped them?" },
+          ],
+          ctSkills: ["Estimation", "Algorithmic thinking (consistent procedure)", "Evaluation"],
+          misconceptions: ["Reading the ruler from 1 cm instead of 0 cm.", "Mixing cm and inches on the same ruler."],
+          assessmentIdeas: ["Estimate the height of the door in metres.", "Convert 250 cm to m."],
+          differentiation: ["Support: rulers with bold cm marks only.", "Stretch: measure perimeter of a desk and convert to metres."],
+        },
         intro:
           "We measure length using a ruler or a tape. The most common units are centimetres (cm) and metres (m). 100 cm = 1 m.",
         examples: [
@@ -1339,6 +1423,20 @@ export const curriculum = [
           "Make decisions from simple data",
         ],
         activities: ["Compare cleanliness scores across villages"],
+        teacherNotes: {
+          overview:
+            "Bar graphs are a workhorse chart for comparison. Make sure students see that bar height encodes value, not the bar itself.",
+          lessonPlan: [
+            { stage: "Read", minutes: 8, detail: "Display a sample 4-village bar graph; class answers: highest, lowest, by how much." },
+            { stage: "Build", minutes: 15, detail: "Pairs collect a quick survey (favourite snack) and draw a bar graph on grid paper." },
+            { stage: "Question", minutes: 10, detail: "Pairs swap graphs and write 3 questions; partner answers." },
+            { stage: "Connect", minutes: 7, detail: "Why does the y-axis scale matter? Show same data with different scales." },
+          ],
+          ctSkills: ["Abstraction", "Pattern recognition", "Evaluation"],
+          misconceptions: ["Inconsistent bar widths.", "Reading the wrong axis."],
+          assessmentIdeas: ["Which village scored most? By how much more than the lowest?", "Build a bar from a small data table."],
+          differentiation: ["Support: pre-printed grid with labelled axes.", "Stretch: introduce double-bar graphs for two related categories."],
+        },
         intro:
           "Bar graphs let us compare values quickly. The taller the bar, the larger the value. We can also subtract heights to find a difference.",
         examples: [
@@ -1392,6 +1490,20 @@ export const curriculum = [
           "Add/subtract values in standard units",
         ],
         activities: ["Pouring-puzzle with two jugs"],
+        teacherNotes: {
+          overview:
+            "Tie units to real referents — a notebook is about 200 g, a water bottle is about 1 l. Conversions follow naturally.",
+          lessonPlan: [
+            { stage: "Anchor", minutes: 6, detail: "Pass around objects of 100 g, 500 g, 1 kg so students feel the differences." },
+            { stage: "Measure", minutes: 14, detail: "Pairs weigh five items on a kitchen scale and record results." },
+            { stage: "Pour", minutes: 13, detail: "Two-jug pouring puzzle: how to leave exactly 1 litre in a 1.5 litre jug?" },
+            { stage: "Convert", minutes: 7, detail: "Whole class practice: 2 kg + 500 g = ?, 1 l − 350 ml = ?" },
+          ],
+          ctSkills: ["Estimation", "Decomposition", "Algorithmic thinking"],
+          misconceptions: ["Believing volume and weight are the same thing.", "Forgetting unit when adding (2 kg + 500 ≠ 502)."],
+          assessmentIdeas: ["A jug holds 1 litre; how many 250 ml glasses fill it?", "Convert 1.5 kg to g."],
+          differentiation: ["Support: provide a conversion chart 1 kg = 1000 g.", "Stretch: design your own pouring puzzle."],
+        },
         intro:
           "Weight is measured in grams (g) and kilograms (kg). Capacity is measured in millilitres (ml) and litres (l). 1 kg = 1000 g and 1 l = 1000 ml.",
         examples: [
@@ -1443,6 +1555,20 @@ export const curriculum = [
           "Form arrays for given products",
         ],
         activities: ["Array-builder dice game"],
+        teacherNotes: {
+          overview:
+            "Arrays make multiplication structural rather than memorised. Build, count, then notice the commutative property.",
+          lessonPlan: [
+            { stage: "Roll & build", minutes: 12, detail: "Dice game: roll two dice, build that array with counters, write the multiplication." },
+            { stage: "Commute", minutes: 8, detail: "Show that turning the array 90° gives the same total — 4×5 = 5×4." },
+            { stage: "Word problems", minutes: 15, detail: "Three problems where students draw the array first, then solve." },
+            { stage: "Connect", minutes: 5, detail: "Compare with repeated addition: which is faster?" },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation (commutativity)", "Abstraction"],
+          misconceptions: ["Counting border counters twice.", "Believing 3×4 ≠ 4×3."],
+          assessmentIdeas: ["Build any array with 24 counters; how many ways?", "9 rows of 3 = ?"],
+          differentiation: ["Support: counters and grid paper.", "Stretch: list all rectangle arrays for 36."],
+        },
         intro:
           "When we have many equal groups, multiplication is a quick way to count. An array is a rectangle of dots arranged in equal rows.",
         examples: [
@@ -1496,6 +1622,20 @@ export const curriculum = [
           "Interpret remainders in context",
         ],
         activities: ["Wildlife counting & sharing problems"],
+        teacherNotes: {
+          overview:
+            "Division extends sharing into formal computation. Remainders are not errors — they often carry meaning in the story.",
+          lessonPlan: [
+            { stage: "Hook", minutes: 6, detail: "Story: 23 mangoes shared among 5 friends. What does the leftover 3 mean?" },
+            { stage: "Compute", minutes: 14, detail: "Whole-class long-division-light: model 36 ÷ 4 and 25 ÷ 4 with counters." },
+            { stage: "Word problems", minutes: 15, detail: "Five sharing stories with mixed remainders; students decide what the remainder represents." },
+            { stage: "Reflect", minutes: 5, detail: "When does a remainder mean 'leftover food' vs 'one more bus needed'?" },
+          ],
+          ctSkills: ["Decomposition", "Algorithmic thinking", "Evaluation (remainder in context)"],
+          misconceptions: ["Always rounding remainder up.", "Treating remainder as just a smaller answer."],
+          assessmentIdeas: ["25 ÷ 4: quotient and remainder.", "Pose: 30 students into vans of 8 — how many vans?"],
+          differentiation: ["Support: counters & sharing mats.", "Stretch: make up a story where the remainder must round up."],
+        },
         intro:
           "Division splits a total into equal groups. Sometimes the total does not divide evenly — what is left over is the remainder.",
         examples: [
@@ -1549,6 +1689,20 @@ export const curriculum = [
           "Complete symmetric drawings",
         ],
         activities: ["Mirror-fold paper symmetry"],
+        teacherNotes: {
+          overview:
+            "Symmetry is best taught through hands and eyes, not definitions. Folding, painting and mirror-checking make the idea concrete.",
+          lessonPlan: [
+            { stage: "Fold", minutes: 8, detail: "Each child folds a paper, draws half a butterfly along the crease, cuts it out." },
+            { stage: "Mirror", minutes: 10, detail: "Use a small mirror on a printed letter to check whether each letter has a line of symmetry." },
+            { stage: "Sort", minutes: 12, detail: "Pairs sort 8 shape cards by number of lines of symmetry (0, 1, 2, more)." },
+            { stage: "Connect", minutes: 5, detail: "Why does a circle seem to have 'too many' lines of symmetry?" },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Abstraction"],
+          misconceptions: ["Confusing 'symmetric' with 'has a corner'.", "Missing the diagonal lines of symmetry of a square."],
+          assessmentIdeas: ["How many lines of symmetry does a regular triangle have?", "Mirror-test the letter H."],
+          differentiation: ["Support: pre-cut paper shapes.", "Stretch: design a flag with exactly 2 lines of symmetry."],
+        },
         intro:
           "A figure is symmetric if you can fold it along a line so the two halves match exactly. That fold-line is called a line of symmetry.",
         examples: [
@@ -1602,6 +1756,20 @@ export const curriculum = [
           "Compute durations across days and months",
         ],
         activities: ["Plan a 3-day school trip on a calendar"],
+        teacherNotes: {
+          overview:
+            "Combine clock-reading with calendar reasoning. Durations are subtraction problems, often crossing the hour or the month.",
+          lessonPlan: [
+            { stage: "Read", minutes: 8, detail: "Pairs match analog clocks to digital times for fractions of an hour (quarter past, half past)." },
+            { stage: "Compute", minutes: 10, detail: "Three duration problems: how long from 8:30 to 2:00? From 11:45 to 1:15?" },
+            { stage: "Plan", minutes: 15, detail: "Plan a 3-day school trip on a paper calendar; mark events at specific times." },
+            { stage: "Reflect", minutes: 7, detail: "Which months have 30 days? 31? Why is February different?" },
+          ],
+          ctSkills: ["Algorithmic thinking", "Decomposition (hours + minutes)", "Evaluation"],
+          misconceptions: ["Subtracting times like decimals (e.g. 1:00 − 0:45 = 0:55).", "Forgetting that a duration can cross noon."],
+          assessmentIdeas: ["How long from 9:15 to 11:00?", "How many days from 28 March to 5 April?"],
+          differentiation: ["Support: number-line on the board for time arithmetic.", "Stretch: schedule a busy day with 5 events back-to-back."],
+        },
         intro:
           "Clocks measure time in hours and minutes; calendars measure days, weeks and months. Knowing how to add and subtract time helps us plan.",
         examples: [
@@ -1653,6 +1821,20 @@ export const curriculum = [
           "Spot the most/least frequent category",
         ],
         activities: ["Tally vehicles passing the school gate"],
+        teacherNotes: {
+          overview:
+            "Tally marks teach grouping and unitising — a small but real win for counting fluency. Use a real-world tally activity if possible.",
+          lessonPlan: [
+            { stage: "Demo", minutes: 5, detail: "Show four tallies plus a slash; introduce groups of 5." },
+            { stage: "Field count", minutes: 12, detail: "From a window, tally vehicles for 5 minutes; collate as a class." },
+            { stage: "Read", minutes: 13, detail: "Build a small table; find totals, max, min." },
+            { stage: "Connect", minutes: 10, detail: "Convert tallies into a quick bar chart and discuss which is faster to read." },
+          ],
+          ctSkills: ["Pattern recognition", "Abstraction", "Decomposition"],
+          misconceptions: ["Counting tallies one by one instead of by 5.", "Drawing 5 vertical lines instead of 4 + slash."],
+          assessmentIdeas: ["Three groups of 5 tally marks — total?", "Most-common item from a tally table."],
+          differentiation: ["Support: pre-printed tally squares.", "Stretch: tally then convert to a labelled bar graph."],
+        },
         intro:
           "Tally marks (||||) help us count quickly. A table summarises the totals for each category, so we can see what was most or least common.",
         examples: [
@@ -1707,6 +1889,20 @@ export const curriculum = [
           "Read pictographs and bar graphs",
         ],
         activities: ["Class-favourite-fruit pictograph"],
+        teacherNotes: {
+          overview:
+            "Tie the data cycle together: ask a question, collect data, organise, represent, interpret. Each step is a chance for student reasoning.",
+          lessonPlan: [
+            { stage: "Ask", minutes: 5, detail: "Class agrees on a question (favourite fruit / favourite sport)." },
+            { stage: "Collect", minutes: 10, detail: "Each student records one response on a slip; tally totals." },
+            { stage: "Represent", minutes: 15, detail: "Decide a key (1 picture = 2 children). Draw a pictograph or bar graph." },
+            { stage: "Interpret", minutes: 10, detail: "Pairs answer 3 questions from each other's chart: most, least, total." },
+          ],
+          ctSkills: ["Decomposition (data → chart)", "Abstraction", "Evaluation"],
+          misconceptions: ["Counting the question line as a category.", "Choosing a key that doesn't fit the data."],
+          assessmentIdeas: ["Build a quick pictograph from 8 tallies with key 1=2.", "Which category is least?"],
+          differentiation: ["Support: pre-formatted chart frame.", "Stretch: chart same data as both bar and pictograph; compare."],
+        },
         intro:
           "We can collect data by asking questions, then organise it in a table or chart. Pictographs use pictures; bar graphs use bars. Both let us compare quickly.",
         examples: [
