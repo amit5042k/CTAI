@@ -13,3 +13,4 @@ data/portal.db-journal
 data/portal.db-wal
 data/portal.db-shm
 data/logos/
+*.migrated
