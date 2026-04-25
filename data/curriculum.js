@@ -2348,6 +2348,48 @@ export const curriculum = [
           "Predict the next term using a rule",
         ],
         activities: ["Build patterns with dot diagrams"],
+        intro:
+          "Many number sequences follow a rule — add a constant, multiply by a constant, or follow a more complex pattern (like squares or triangular numbers). Spotting the rule lets us predict what comes next.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Triangular numbers",
+            problem: "1, 3, 6, 10, 15, ? — what comes next?",
+            solution:
+              "Differences are 2, 3, 4, 5; the next difference is 6. So 15 + 6 = 21.",
+          },
+          {
+            id: "ex-2",
+            title: "Square numbers",
+            problem: "1, 4, 9, 16, ? — what is the next number?",
+            solution: "These are 1², 2², 3², 4². Next is 5² = 25.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What comes next? 2, 4, 8, 16, ?",
+            answer: "32",
+            explanation: "Each term doubles the last. 16 × 2 = 32.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which is the rule for 5, 9, 13, 17, …?",
+            options: ["Add 3", "Add 4", "Multiply by 2", "Add 5"],
+            answerIndex: 1,
+            explanation: "Each term increases by 4.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: A pattern's rule must always be 'add a fixed number'.",
+            answer: false,
+            explanation:
+              "False — patterns can use multiplication, squares, or any other rule.",
+          },
+        ],
       },
       {
         id: "c6-ct-2",
@@ -2358,6 +2400,48 @@ export const curriculum = [
           "Measure angles using a protractor",
         ],
         activities: ["Angle-hunt around the classroom"],
+        intro:
+          "Angles can be acute (<90°), right (=90°), obtuse (90°–180°), straight (=180°) or reflex (>180°). Pairs of angles on a straight line add up to 180°.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Linear pair",
+            problem:
+              "Two angles together form a straight line. One is 65°. What is the other?",
+            solution: "180° − 65° = 115°.",
+          },
+          {
+            id: "ex-2",
+            title: "Classify the angle",
+            problem: "Is 92° acute, right or obtuse?",
+            solution: "Obtuse — between 90° and 180°.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Two angles on a straight line; one is 110°. What is the other?",
+            answer: "70",
+            explanation: "180 − 110 = 70°.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which angle is acute?",
+            options: ["95°", "60°", "120°", "180°"],
+            answerIndex: 1,
+            explanation: "60° is less than 90°, so it's acute.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A right angle measures 90°.",
+            answer: true,
+            explanation: "Yes — that is the definition of a right angle.",
+          },
+        ],
       },
       {
         id: "c6-ct-3",
@@ -2368,6 +2452,47 @@ export const curriculum = [
           "Reason about properties of numbers",
         ],
         activities: ["Number-tricks investigation"],
+        intro:
+          "Numbers have rich properties — they can be even/odd, prime/composite, factors of others. Spotting these properties helps in mental maths and puzzles.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Sum of digits",
+            problem: "What is the sum of the digits of 4729?",
+            solution: "4 + 7 + 2 + 9 = 22.",
+          },
+          {
+            id: "ex-2",
+            title: "Even or odd",
+            problem: "Is the product 17 × 24 even or odd?",
+            solution:
+              "Any number times an even number is even. 24 is even, so the product is even.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is the sum of digits of 1234?",
+            answer: "10",
+            explanation: "1 + 2 + 3 + 4 = 10.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which of these is odd?",
+            options: ["12 + 14", "13 × 4", "9 × 7", "8 + 6"],
+            answerIndex: 2,
+            explanation: "9 × 7 = 63, an odd number. The others are even.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: Adding two odd numbers always gives an even number.",
+            answer: true,
+            explanation: "Yes — odd + odd = even.",
+          },
+        ],
       },
       {
         id: "c6-ct-4",
@@ -2378,6 +2503,50 @@ export const curriculum = [
           "Choose an appropriate chart for a question",
         ],
         activities: ["Survey & bar graph project"],
+        intro:
+          "Different charts answer different questions. Bar charts compare categories; line charts show change over time; pie charts show parts of a whole.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Best chart",
+            problem:
+              "You want to show how the temperature changed every hour for a day. Which chart is best?",
+            solution: "A line chart — it shows change over time.",
+          },
+          {
+            id: "ex-2",
+            title: "Find the mode",
+            problem: "In the list 4, 7, 7, 8, 9, 7, 5, what is the mode?",
+            solution: "The most frequent value is 7. So the mode is 7.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "Which chart is best for showing parts of a whole?",
+            options: ["Bar chart", "Line chart", "Pie chart", "Pictograph"],
+            answerIndex: 2,
+            explanation:
+              "Pie charts split a circle into slices that show fractions of the whole.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "What is the mode of: 2, 5, 5, 6, 7, 5, 8?",
+            answer: "5",
+            explanation: "5 appears most often.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Line charts are good for comparing things that don't change over time.",
+            answer: false,
+            explanation:
+              "Line charts work best for change-over-time data. Bar charts are better for static comparisons.",
+          },
+        ],
       },
       {
         id: "c6-ct-5",
@@ -2388,6 +2557,48 @@ export const curriculum = [
           "Apply prime factorisation",
         ],
         activities: ["Sieve of Eratosthenes hands-on"],
+        intro:
+          "A prime number is a number greater than 1 with exactly two factors: 1 and itself. Numbers that are not prime (and greater than 1) are composite. Every composite number can be written as a product of primes — its prime factorisation.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Prime or composite?",
+            problem: "Is 17 prime or composite?",
+            solution: "The only factors of 17 are 1 and 17. So 17 is prime.",
+          },
+          {
+            id: "ex-2",
+            title: "Prime factorisation",
+            problem: "Find the prime factorisation of 30.",
+            solution: "30 = 2 × 15 = 2 × 3 × 5. Answer: 2 × 3 × 5.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "Which of these is a prime number?",
+            options: ["9", "15", "21", "23"],
+            answerIndex: 3,
+            explanation:
+              "23 has only 1 and 23 as factors. The others have more.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "What is the smallest prime number?",
+            answer: "2",
+            explanation: "2 is the smallest prime — and the only even prime.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: 1 is a prime number.",
+            answer: false,
+            explanation:
+              "False — by definition, primes have exactly two distinct factors. 1 has only one.",
+          },
+        ],
       },
       {
         id: "c6-ct-6",
@@ -2398,6 +2609,48 @@ export const curriculum = [
           "Compare shapes with the same perimeter",
         ],
         activities: ["Grid-paper shape-design challenge"],
+        intro:
+          "Perimeter is the total length around a shape. Area is the space inside it. For a rectangle: perimeter = 2(l + w), area = l × w.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Rectangle area",
+            problem: "Find the area of a rectangle 8 cm long and 5 cm wide.",
+            solution: "Area = 8 × 5 = 40 cm².",
+          },
+          {
+            id: "ex-2",
+            title: "Same perimeter, different area",
+            problem:
+              "Two rectangles each have a perimeter of 16 cm. One is 5×3, the other 4×4. Which has larger area?",
+            solution: "5×3 = 15; 4×4 = 16. The square has more area.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is the perimeter of a rectangle 7 cm by 3 cm?",
+            answer: "20",
+            explanation: "2(7 + 3) = 20 cm.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "What is the area of a rectangle 9 m by 4 m?",
+            options: ["13 m²", "26 m²", "36 m²", "40 m²"],
+            answerIndex: 2,
+            explanation: "9 × 4 = 36 m².",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: For a fixed perimeter, a square has the largest area among rectangles.",
+            answer: true,
+            explanation: "Yes — among rectangles with a fixed perimeter, the square is biggest.",
+          },
+        ],
       },
       {
         id: "c6-ct-7",
@@ -2408,6 +2661,47 @@ export const curriculum = [
           "Convert between fractions and decimals",
         ],
         activities: ["Fraction-bar matching cards"],
+        intro:
+          "To add or subtract fractions with different denominators, first find a common denominator. Some fractions have neat decimal forms: 1/2 = 0.5, 1/4 = 0.25, 3/4 = 0.75.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Add unlike fractions",
+            problem: "Find 1/2 + 1/3.",
+            solution:
+              "Common denominator 6: 1/2 = 3/6 and 1/3 = 2/6. Sum = 5/6.",
+          },
+          {
+            id: "ex-2",
+            title: "Fraction to decimal",
+            problem: "Write 3/4 as a decimal.",
+            solution: "3 ÷ 4 = 0.75.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is 1/4 + 1/4? (write like 1/2)",
+            answer: "1/2",
+            explanation: "2/4 simplifies to 1/2.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which fraction is the largest?",
+            options: ["1/2", "2/5", "3/8", "5/16"],
+            answerIndex: 0,
+            explanation: "1/2 = 0.5, 2/5 = 0.4, 3/8 = 0.375, 5/16 = 0.3125. Largest: 1/2.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt: "Write 1/2 as a decimal.",
+            answer: "0.5",
+            explanation: "1 ÷ 2 = 0.5.",
+          },
+        ],
       },
       {
         id: "c6-ct-8",
@@ -2418,6 +2712,52 @@ export const curriculum = [
           "Reason about congruence",
         ],
         activities: ["Construct an equilateral triangle"],
+        intro:
+          "Using just a ruler and a compass, we can draw exact figures. Two figures that have the same shape and size are called congruent.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Equilateral triangle",
+            problem: "How many sides of an equilateral triangle are equal?",
+            solution: "All three sides are equal in length.",
+          },
+          {
+            id: "ex-2",
+            title: "Congruence test",
+            problem:
+              "Two triangles each have sides of 5 cm, 6 cm and 7 cm. Are they congruent?",
+            solution:
+              "Yes — three pairs of equal sides (SSS) means the triangles are congruent.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Which tool draws perfect circles for constructions?",
+            options: ["Ruler", "Set square", "Compass", "Protractor"],
+            answerIndex: 2,
+            explanation: "A compass is the standard tool for circles and arcs.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt:
+              "If a triangle has all sides equal, what is it called? (one word)",
+            answer: "equilateral",
+            explanation: "An equilateral triangle has three equal sides.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Two figures that look alike but differ in size are congruent.",
+            answer: false,
+            explanation:
+              "Congruent figures must have the same shape AND size.",
+          },
+        ],
       },
       {
         id: "c6-ct-9",
@@ -2428,6 +2768,49 @@ export const curriculum = [
           "Create symmetric designs",
         ],
         activities: ["Mirror-paint symmetric butterflies"],
+        intro:
+          "A figure has line symmetry if it can be folded along a line so the two halves match. It has rotational symmetry if it looks the same after a partial turn.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Lines of symmetry",
+            problem: "How many lines of symmetry does a regular pentagon have?",
+            solution: "5 — one through each vertex.",
+          },
+          {
+            id: "ex-2",
+            title: "Order of rotation",
+            problem:
+              "What is the order of rotational symmetry of a rectangle (not a square)?",
+            solution: "Order 2 — it looks the same after a 180° turn.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many lines of symmetry does a regular hexagon have?",
+            answer: "6",
+            explanation: "6 lines of symmetry in a regular hexagon.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "The order of rotational symmetry of a square is:",
+            options: ["1", "2", "3", "4"],
+            answerIndex: 3,
+            explanation: "A square matches every 90° turn, so 4.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A scalene triangle has no lines of symmetry.",
+            answer: true,
+            explanation:
+              "Yes — scalene triangles have no equal sides, so no folding line works.",
+          },
+        ],
       },
       {
         id: "c6-ct-10",
@@ -2438,6 +2821,47 @@ export const curriculum = [
           "Add and subtract positive and negative integers",
         ],
         activities: ["Temperature-change number-line tasks"],
+        intro:
+          "Integers extend the number line below zero. Negative numbers represent things like below-zero temperatures or money owed. Adding a negative is the same as subtracting.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Temperature drop",
+            problem:
+              "It is 5°C. The temperature drops by 8°C. What is the new temperature?",
+            solution: "5 − 8 = −3°C.",
+          },
+          {
+            id: "ex-2",
+            title: "Add negatives",
+            problem: "Find (−4) + (−7).",
+            solution: "Both are negative, so add magnitudes: 4 + 7 = 11. Sign stays −. Answer: −11.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is (−6) + 10?",
+            answer: "4",
+            explanation: "Going up 10 from −6 lands at 4.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "What is 3 − 9?",
+            options: ["6", "−5", "−6", "12"],
+            answerIndex: 2,
+            explanation: "3 − 9 = −6.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: −5 is greater than −2.",
+            answer: false,
+            explanation: "On the number line, −5 lies to the LEFT of −2, so −5 is smaller.",
+          },
+        ],
       },
       {
         id: "c6-ai-1",
@@ -2448,6 +2872,59 @@ export const curriculum = [
           "Spot AI in everyday tools (search, voice, recommendations)",
         ],
         activities: ["AI/non-AI sort cards", "Story: a day with smart helpers"],
+        intro:
+          "Intelligence is the ability to learn, reason and solve problems. Artificial Intelligence (AI) means making machines do tasks that need such intelligence, by learning from data instead of following only fixed rules.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "AI vs not-AI",
+            problem:
+              "Which is AI: (a) a calculator that always does 2+2=4, (b) a spam filter that learns from emails you mark as junk?",
+            solution:
+              "(b) is AI — it learns from examples. (a) just follows fixed rules.",
+          },
+          {
+            id: "ex-2",
+            title: "Where do we meet AI?",
+            problem: "Name two everyday places where you meet AI.",
+            solution:
+              "Examples: voice assistants on phones, video recommendations on a streaming app, autocorrect on a keyboard, face-unlock on a phone.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Which of these BEST describes AI?",
+            options: [
+              "Any computer program",
+              "Programs that learn from data and improve",
+              "Only robots that walk",
+              "Programs that can never be wrong",
+            ],
+            answerIndex: 1,
+            explanation:
+              "AI focuses on learning from data and improving with experience.",
+          },
+          {
+            id: "q2",
+            type: "tf",
+            prompt:
+              "True or False: A simple alarm clock is an example of AI.",
+            answer: false,
+            explanation:
+              "A simple alarm clock follows fixed instructions — it doesn't learn.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt:
+              "What is the short form for Artificial Intelligence? (two letters)",
+            answer: "AI",
+            explanation: "Artificial Intelligence is shortened to AI.",
+          },
+        ],
       },
       {
         id: "c6-ai-2",
@@ -2528,6 +3005,54 @@ export const curriculum = [
           "Use observed patterns to make simple decisions",
         ],
         activities: ["Rule-based decision tree on paper"],
+        intro:
+          "AI systems often work by spotting patterns and making decisions from them. We can practise this by hand using simple if-then rules and decision trees.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Decision rule",
+            problem:
+              "An umbrella app gets the rule: IF rain probability > 50% THEN suggest umbrella. If today's rain probability is 70%, what should it do?",
+            solution: "Suggest the umbrella, since 70% > 50%.",
+          },
+          {
+            id: "ex-2",
+            title: "Pattern in shapes",
+            problem: "★ ◆ ★ ◆ ★ ?  What comes next?",
+            solution: "The pattern alternates star and diamond, so next is ◆.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "An app uses the rule: IF battery < 20% THEN show low-battery alert. The battery is 18%. What does the app do?",
+            options: [
+              "Nothing",
+              "Show a low-battery alert",
+              "Charge the phone",
+              "Switch off",
+            ],
+            answerIndex: 1,
+            explanation: "18% < 20%, so the rule fires.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "What comes next? 5, 10, 20, 40, ?",
+            answer: "80",
+            explanation: "Each term doubles. 40 × 2 = 80.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A decision tree asks a series of yes/no questions to reach a decision.",
+            answer: true,
+            explanation: "Yes — that is exactly how decision trees work.",
+          },
+        ],
       },
     ],
   },
