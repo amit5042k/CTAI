@@ -56,19 +56,42 @@ export default async function ClassPage({ params }) {
         </div>
       )}
 
-      <section className="grid gap-4 md:grid-cols-2">
-        {cls.units.map((u, i) => (
-          <UnitCard
-            key={u.id}
-            unit={u}
-            index={i + 1}
-            initialStatus={progressMap[u.id] || "not_started"}
-            canTrack={
-              user?.role === "student" && user.classLevel === cls.classLevel
-            }
-          />
-        ))}
-      </section>
+      {(() => {
+        const ctUnits = cls.units.filter((u) => u.stream !== "AI");
+        const aiUnits = cls.units.filter((u) => u.stream === "AI");
+        const groups = [];
+        if (ctUnits.length)
+          groups.push({
+            title:
+              aiUnits.length > 0 ? "Part 1 — Computational Thinking" : "Units",
+            units: ctUnits,
+            offset: 0,
+          });
+        if (aiUnits.length)
+          groups.push({
+            title: "Part 2 — Artificial Intelligence",
+            units: aiUnits,
+            offset: 0,
+          });
+        const canTrack =
+          user?.role === "student" && user.classLevel === cls.classLevel;
+        return groups.map((g) => (
+          <section key={g.title} className="space-y-3">
+            <h2 className="text-xl font-bold text-slate-900">{g.title}</h2>
+            <div className="grid gap-4 md:grid-cols-2">
+              {g.units.map((u, i) => (
+                <UnitCard
+                  key={u.id}
+                  unit={u}
+                  index={i + 1}
+                  initialStatus={progressMap[u.id] || "not_started"}
+                  canTrack={canTrack}
+                />
+              ))}
+            </div>
+          </section>
+        ));
+      })()}
     </div>
   );
 }
