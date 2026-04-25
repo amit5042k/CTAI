@@ -1,19 +1,31 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
-import { listUsers, getAllProgress, listSections } from "@/lib/db";
+import {
+  listUsers,
+  getAllProgress,
+  listSections,
+  findSchoolById,
+} from "@/lib/db";
 import { curriculum } from "@/data/curriculum";
 
 export default async function TeacherDashboard() {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
   if (user.role !== "teacher") {
-    redirect(user.role === "admin" ? "/admin" : "/dashboard/student");
+    if (user.role === "superadmin") redirect("/superadmin");
+    if (user.role === "admin") redirect("/admin");
+    redirect("/dashboard/student");
   }
 
-  const students = listUsers({ role: "student" });
-  const progress = getAllProgress();
-  const sections = listSections();
+  const schoolId = user.schoolId;
+  const school = schoolId ? findSchoolById(schoolId) : null;
+  const filter = schoolId ? { schoolId } : {};
+  const students = listUsers({ ...filter, role: "student" });
+  const allProgress = getAllProgress();
+  const studentIds = new Set(students.map((s) => s.id));
+  const progress = allProgress.filter((p) => studentIds.has(p.userId));
+  const sections = listSections(filter);
   const sectionById = Object.fromEntries(sections.map((s) => [s.id, s]));
   const mySectionIds = new Set(
     sections.filter((s) => s.classTeacherId === user.id).map((s) => s.id),
@@ -57,7 +69,12 @@ export default async function TeacherDashboard() {
       <header className="card">
         <h1 className="text-2xl font-bold text-slate-900">Teacher dashboard</h1>
         <p className="mt-1 text-slate-600">
-          Hello, {user.name}. Here's how your students are progressing.
+          Hello, {user.name}.{" "}
+          {school && (
+            <span className="text-slate-500">
+              You teach at <strong>{school.name}</strong>.
+            </span>
+          )}
         </p>
         {mySectionIds.size > 0 && (
           <p className="mt-2 text-sm text-slate-500">

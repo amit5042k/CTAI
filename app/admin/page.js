@@ -1,11 +1,17 @@
 import Link from "next/link";
-import { listUsers, listSections } from "@/lib/db";
+import { listUsers, listSections, findSchoolById } from "@/lib/db";
+import { getCurrentUser } from "@/lib/auth";
 import { curriculum } from "@/data/curriculum";
 
-export default function AdminOverview() {
-  const students = listUsers({ role: "student" });
-  const teachers = listUsers({ role: "teacher" });
-  const sections = listSections();
+export default async function AdminOverview() {
+  const user = await getCurrentUser();
+  const schoolId = user?.schoolId;
+  const school = schoolId ? findSchoolById(schoolId) : null;
+
+  const filter = schoolId ? { schoolId } : {};
+  const students = listUsers({ ...filter, role: "student" });
+  const teachers = listUsers({ ...filter, role: "teacher" });
+  const sections = listSections(filter);
 
   const byClass = curriculum.map((c) => ({
     classLevel: c.classLevel,
@@ -19,6 +25,9 @@ export default function AdminOverview() {
       <header>
         <h1 className="text-2xl font-bold text-slate-900">Admin overview</h1>
         <p className="mt-1 text-sm text-slate-600">
+          {school
+            ? `Managing ${school.name} (code: ${school.code}).`
+            : "No school is linked to this admin account."}{" "}
           Set up classes/sections, then enrol teachers and students.
         </p>
       </header>

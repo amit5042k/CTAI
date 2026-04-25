@@ -1,17 +1,33 @@
 import { NextResponse } from "next/server";
-import { requireAdmin } from "@/lib/adminGuard";
-import { listSections, createSection } from "@/lib/db";
+import { requireAdmin, scopedSchoolId } from "@/lib/adminGuard";
+import { listSections, createSection, findSchoolById } from "@/lib/db";
 
-export async function GET() {
-  const { response } = await requireAdmin();
+export async function GET(req) {
+  const { user, response } = await requireAdmin();
   if (response) return response;
-  return NextResponse.json({ sections: listSections() });
+  const { searchParams } = new URL(req.url);
+  const schoolId = scopedSchoolId(user, searchParams.get("schoolId"));
+  const filter = schoolId ? { schoolId } : {};
+  return NextResponse.json({ sections: listSections(filter) });
 }
 
 export async function POST(req) {
-  const { response } = await requireAdmin();
+  const { user, response } = await requireAdmin();
   if (response) return response;
-  const { classLevel, name, classTeacherId } = await req.json();
+  const body = await req.json();
+  const { classLevel, name, classTeacherId, schoolId: bodySchoolId } = body;
+
+  const schoolId = scopedSchoolId(user, bodySchoolId);
+  if (!schoolId) {
+    return NextResponse.json(
+      { error: "schoolId is required" },
+      { status: 400 },
+    );
+  }
+  if (!findSchoolById(schoolId)) {
+    return NextResponse.json({ error: "Unknown school" }, { status: 400 });
+  }
+
   const cl = Number(classLevel);
   if (!Number.isInteger(cl) || cl < 3 || cl > 8) {
     return NextResponse.json(
@@ -25,9 +41,13 @@ export async function POST(req) {
       { status: 400 },
     );
   }
-  const result = createSection({ classLevel: cl, name, classTeacherId });
-  if (result.error) {
+  const result = createSection({
+    classLevel: cl,
+    name,
+    classTeacherId,
+    schoolId,
+  });
+  if (result.error)
     return NextResponse.json({ error: result.error }, { status: 409 });
-  }
   return NextResponse.json({ section: result.section });
 }

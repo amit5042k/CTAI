@@ -3,14 +3,17 @@ import bcrypt from "bcryptjs";
 import { createUser, findUserByEmail, countByRole } from "@/lib/db";
 import { signSession, setSessionCookie } from "@/lib/auth";
 
-// Bootstraps the very first admin account.
-// Disabled once an admin already exists — after that, all users
-// are enrolled by an admin from /admin/users.
+// One-time bootstrap to create the very first SUPERADMIN.
+// Disabled the moment a superadmin exists. After that all users are
+// created by the superadmin (admins) or by an admin (teachers/students).
 export async function POST(req) {
   try {
-    if (countByRole("admin") > 0) {
+    if (countByRole("superadmin") > 0) {
       return NextResponse.json(
-        { error: "Sign-up is disabled. Ask an administrator to enrol you." },
+        {
+          error:
+            "Sign-up is disabled. Ask the system administrator to enrol you.",
+        },
         { status: 403 },
       );
     }
@@ -24,7 +27,7 @@ export async function POST(req) {
     }
     if (String(password).length < 8) {
       return NextResponse.json(
-        { error: "Admin password must be at least 8 characters" },
+        { error: "Superadmin password must be at least 8 characters" },
         { status: 400 },
       );
     }
@@ -39,9 +42,10 @@ export async function POST(req) {
     const user = createUser({
       name,
       email,
-      role: "admin",
+      role: "superadmin",
       classLevel: null,
       sectionId: null,
+      schoolId: null,
       passwordHash,
     });
     const token = await signSession({ uid: user.id, role: user.role });
@@ -51,12 +55,14 @@ export async function POST(req) {
     return NextResponse.json({ user: safe });
   } catch {
     return NextResponse.json(
-      { error: "Unable to bootstrap admin account" },
+      { error: "Unable to bootstrap superadmin" },
       { status: 500 },
     );
   }
 }
 
 export async function GET() {
-  return NextResponse.json({ adminExists: countByRole("admin") > 0 });
+  return NextResponse.json({
+    superadminExists: countByRole("superadmin") > 0,
+  });
 }

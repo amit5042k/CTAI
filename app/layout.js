@@ -1,6 +1,7 @@
 import "./globals.css";
 import Link from "next/link";
 import { getCurrentUser } from "@/lib/auth";
+import { findSchoolById } from "@/lib/db";
 import LogoutButton from "@/components/LogoutButton";
 
 export const metadata = {
@@ -11,6 +12,7 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const user = await getCurrentUser();
+  const school = user?.schoolId ? findSchoolById(user.schoolId) : null;
   return (
     <html lang="en">
       <body>
@@ -32,11 +34,13 @@ export default async function RootLayout({ children }) {
                 <>
                   <Link
                     href={
-                      user.role === "admin"
-                        ? "/admin"
-                        : user.role === "teacher"
-                          ? "/dashboard/teacher"
-                          : "/dashboard/student"
+                      user.role === "superadmin"
+                        ? "/superadmin"
+                        : user.role === "admin"
+                          ? "/admin"
+                          : user.role === "teacher"
+                            ? "/dashboard/teacher"
+                            : "/dashboard/student"
                     }
                     className="hover:text-brand-700"
                   >
@@ -45,6 +49,11 @@ export default async function RootLayout({ children }) {
                   <span className="text-slate-500">
                     {user.name}{" "}
                     <span className="tag ml-1">{user.role}</span>
+                    {school && (
+                      <span className="ml-1 text-xs text-slate-400">
+                        · {school.name}
+                      </span>
+                    )}
                   </span>
                   <LogoutButton />
                 </>

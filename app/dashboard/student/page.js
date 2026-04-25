@@ -1,18 +1,25 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentUser } from "@/lib/auth";
-import { getProgressForUser, findSectionById } from "@/lib/db";
+import {
+  getProgressForUser,
+  findSectionById,
+  findSchoolById,
+} from "@/lib/db";
 import { getClass } from "@/data/curriculum";
 
 export default async function StudentDashboard() {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
   if (user.role !== "student") {
-    redirect(user.role === "admin" ? "/admin" : "/dashboard/teacher");
+    if (user.role === "superadmin") redirect("/superadmin");
+    if (user.role === "admin") redirect("/admin");
+    redirect("/dashboard/teacher");
   }
 
   const cls = getClass(user.classLevel);
   const section = user.sectionId ? findSectionById(user.sectionId) : null;
+  const school = user.schoolId ? findSchoolById(user.schoolId) : null;
   const progress = getProgressForUser(user.id);
   const progressMap = Object.fromEntries(
     progress.map((p) => [p.unitId, p.status]),
@@ -36,6 +43,9 @@ export default async function StudentDashboard() {
           Class {user.classLevel}
           {section ? ` - ${section.name}` : ""} · {cls?.title}
         </p>
+        {school && (
+          <p className="mt-1 text-xs text-slate-500">{school.name}</p>
+        )}
       </header>
 
       <section className="grid gap-4 sm:grid-cols-3">

@@ -22,11 +22,13 @@ export default function LoginPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Login failed");
       const dest =
-        data.user.role === "admin"
-          ? "/admin"
-          : data.user.role === "teacher"
-            ? "/dashboard/teacher"
-            : "/dashboard/student";
+        data.user.role === "superadmin"
+          ? "/superadmin"
+          : data.user.role === "admin"
+            ? "/admin"
+            : data.user.role === "teacher"
+              ? "/dashboard/teacher"
+              : "/dashboard/student";
       router.replace(dest);
       router.refresh();
     } catch (err) {

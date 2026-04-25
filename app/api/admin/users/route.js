@@ -1,26 +1,38 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { requireAdmin } from "@/lib/adminGuard";
+import { requireAdmin, scopedSchoolId } from "@/lib/adminGuard";
 import {
   createUser,
   findUserByEmail,
   listUsers,
   findSectionById,
+  findSchoolById,
 } from "@/lib/db";
 
 export async function GET(req) {
-  const { response } = await requireAdmin();
+  const { user, response } = await requireAdmin();
   if (response) return response;
   const { searchParams } = new URL(req.url);
   const role = searchParams.get("role") || undefined;
-  return NextResponse.json({ users: listUsers(role ? { role } : {}) });
+  const schoolId = scopedSchoolId(user, searchParams.get("schoolId"));
+  const filter = {};
+  if (role) filter.role = role;
+  if (schoolId) filter.schoolId = schoolId;
+  return NextResponse.json({ users: listUsers(filter) });
 }
 
 export async function POST(req) {
-  const { response } = await requireAdmin();
+  const { user, response } = await requireAdmin();
   if (response) return response;
-  const { name, email, password, role, classLevel, sectionId } =
-    await req.json();
+  const {
+    name,
+    email,
+    password,
+    role,
+    classLevel,
+    sectionId,
+    schoolId: bodySchoolId,
+  } = await req.json();
 
   if (!name || !email || !password || !role) {
     return NextResponse.json(
@@ -40,6 +52,18 @@ export async function POST(req) {
       { status: 400 },
     );
   }
+
+  const schoolId = scopedSchoolId(user, bodySchoolId);
+  if (!schoolId) {
+    return NextResponse.json(
+      { error: "schoolId is required" },
+      { status: 400 },
+    );
+  }
+  if (!findSchoolById(schoolId)) {
+    return NextResponse.json({ error: "Unknown school" }, { status: 400 });
+  }
+
   if (findUserByEmail(email)) {
     return NextResponse.json(
       { error: "An account with this email already exists" },
@@ -59,9 +83,13 @@ export async function POST(req) {
     }
     if (sectionId) {
       const section = findSectionById(sectionId);
-      if (!section || section.classLevel !== cl) {
+      if (
+        !section ||
+        section.classLevel !== cl ||
+        section.schoolId !== schoolId
+      ) {
         return NextResponse.json(
-          { error: "Section does not belong to the chosen class" },
+          { error: "Section does not belong to this school + class" },
           { status: 400 },
         );
       }
@@ -70,14 +98,15 @@ export async function POST(req) {
   }
 
   const passwordHash = await bcrypt.hash(password, 10);
-  const user = createUser({
+  const newUser = createUser({
     name,
     email,
     role,
     classLevel: cl,
     sectionId: sec,
+    schoolId,
     passwordHash,
   });
-  const { passwordHash: _ph, ...safe } = user;
+  const { passwordHash: _ph, ...safe } = newUser;
   return NextResponse.json({ user: safe });
 }

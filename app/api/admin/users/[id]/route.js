@@ -8,12 +8,22 @@ import {
   findSectionById,
 } from "@/lib/db";
 
+function canTouchUser(actor, target) {
+  if (!target) return false;
+  if (actor.role === "superadmin") return true;
+  // Admin can only manage teachers/students of their own school.
+  if (target.role === "admin" || target.role === "superadmin") return false;
+  return actor.schoolId && actor.schoolId === target.schoolId;
+}
+
 export async function PATCH(req, { params }) {
   const { user: admin, response } = await requireAdmin();
   if (response) return response;
   const target = findUserById(params.id);
   if (!target)
     return NextResponse.json({ error: "User not found" }, { status: 404 });
+  if (!canTouchUser(admin, target))
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
 
   const body = await req.json();
   const patch = {};
@@ -41,6 +51,12 @@ export async function PATCH(req, { params }) {
           { status: 400 },
         );
       }
+      if (section.schoolId !== target.schoolId) {
+        return NextResponse.json(
+          { error: "Section is in a different school" },
+          { status: 400 },
+        );
+      }
       patch.sectionId = section.id;
     }
   }
@@ -62,13 +78,17 @@ export async function PATCH(req, { params }) {
 export async function DELETE(_req, { params }) {
   const { user: admin, response } = await requireAdmin();
   if (response) return response;
+  const target = findUserById(params.id);
+  if (!target)
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
   if (admin.id === params.id) {
     return NextResponse.json(
       { error: "You cannot delete yourself" },
       { status: 400 },
     );
   }
-  const ok = deleteUser(params.id);
-  if (!ok) return NextResponse.json({ error: "Not found" }, { status: 404 });
+  if (!canTouchUser(admin, target))
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  deleteUser(params.id);
   return NextResponse.json({ ok: true });
 }

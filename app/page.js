@@ -25,11 +25,13 @@ export default async function HomePage() {
             {user ? (
               <Link
                 href={
-                  user.role === "admin"
-                    ? "/admin"
-                    : user.role === "teacher"
-                      ? "/dashboard/teacher"
-                      : "/dashboard/student"
+                  user.role === "superadmin"
+                    ? "/superadmin"
+                    : user.role === "admin"
+                      ? "/admin"
+                      : user.role === "teacher"
+                        ? "/dashboard/teacher"
+                        : "/dashboard/student"
                 }
                 className="btn-outline"
               >

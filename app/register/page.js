@@ -4,18 +4,18 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
-export default function BootstrapAdminPage() {
+export default function BootstrapSuperadminPage() {
   const router = useRouter();
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [adminExists, setAdminExists] = useState(null);
+  const [exists, setExists] = useState(null);
 
   useEffect(() => {
     fetch("/api/auth/register")
       .then((r) => r.json())
-      .then((d) => setAdminExists(!!d.adminExists))
-      .catch(() => setAdminExists(false));
+      .then((d) => setExists(!!d.superadminExists))
+      .catch(() => setExists(false));
   }, []);
 
   async function onSubmit(e) {
@@ -30,7 +30,7 @@ export default function BootstrapAdminPage() {
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Bootstrap failed");
-      router.replace("/admin");
+      router.replace("/superadmin");
       router.refresh();
     } catch (err) {
       setError(err.message);
@@ -39,7 +39,7 @@ export default function BootstrapAdminPage() {
     }
   }
 
-  if (adminExists === null) {
+  if (exists === null) {
     return (
       <div className="mx-auto max-w-md card">
         <p className="text-sm text-slate-600">Loading…</p>
@@ -47,13 +47,13 @@ export default function BootstrapAdminPage() {
     );
   }
 
-  if (adminExists) {
+  if (exists) {
     return (
       <div className="mx-auto max-w-md card">
         <h1 className="text-2xl font-bold text-slate-900">Sign-up disabled</h1>
         <p className="mt-2 text-sm text-slate-600">
-          This portal is enrolment-only. An administrator already exists; ask
-          them to add your account.
+          A superadmin already exists. Ask them (or your school administrator)
+          to enrol your account.
         </p>
         <Link href="/login" className="btn-primary mt-4 inline-flex">
           Go to sign in
@@ -67,11 +67,11 @@ export default function BootstrapAdminPage() {
       <div className="card">
         <span className="tag">First-time setup</span>
         <h1 className="mt-2 text-2xl font-bold text-slate-900">
-          Create the administrator account
+          Create the superadmin account
         </h1>
         <p className="mt-1 text-sm text-slate-600">
-          This page works only once — for setting up the first admin who will
-          then enrol teachers and students.
+          The superadmin manages all schools on this portal. This page works
+          only once — the moment a superadmin exists, sign-up is disabled.
         </p>
         <form onSubmit={onSubmit} className="mt-6 space-y-4">
           <div>
@@ -114,7 +114,7 @@ export default function BootstrapAdminPage() {
             type="submit"
             className="btn-primary w-full"
           >
-            {loading ? "Creating..." : "Create admin & continue"}
+            {loading ? "Creating..." : "Create superadmin & continue"}
           </button>
         </form>
       </div>
