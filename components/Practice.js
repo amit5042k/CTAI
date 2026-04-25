@@ -8,6 +8,7 @@ export default function Practice({ unitId, exercises, canTrack }) {
   const total = exercises?.length ?? 0;
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState(null); // user's choice for current question
+  const [shortText, setShortText] = useState("");
   const [feedback, setFeedback] = useState(null); // { correct, explanation, correctAnswer }
   const [submitting, setSubmitting] = useState(false);
   const [results, setResults] = useState(() => new Array(total).fill(null)); // null | true | false
@@ -23,7 +24,9 @@ export default function Practice({ unitId, exercises, canTrack }) {
   if (!current) return null;
 
   async function check() {
-    if (picked === null || picked === undefined) return;
+    const response =
+      current.type === "short" ? shortText.trim() : picked;
+    if (response === null || response === undefined || response === "") return;
     setSubmitting(true);
     try {
       const res = await fetch("/api/exercises/check", {
@@ -32,7 +35,7 @@ export default function Practice({ unitId, exercises, canTrack }) {
         body: JSON.stringify({
           unitId,
           exerciseId: current.id,
-          response: picked,
+          response,
         }),
       });
       const data = await res.json();
@@ -52,18 +55,21 @@ export default function Practice({ unitId, exercises, canTrack }) {
 
   function next() {
     setPicked(null);
+    setShortText("");
     setFeedback(null);
     setIdx((i) => Math.min(i + 1, total - 1));
   }
 
   function prev() {
     setPicked(null);
+    setShortText("");
     setFeedback(null);
     setIdx((i) => Math.max(i - 1, 0));
   }
 
   function reset() {
     setPicked(null);
+    setShortText("");
     setFeedback(null);
     setIdx(0);
     setResults(new Array(total).fill(null));
@@ -131,6 +137,32 @@ export default function Practice({ unitId, exercises, canTrack }) {
                 </button>
               );
             })}
+          </div>
+        )}
+
+        {current.type === "short" && (
+          <div className="mt-3">
+            <input
+              className="input"
+              placeholder="Type your answer"
+              value={shortText}
+              disabled={feedback !== null}
+              onChange={(e) => setShortText(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" && shortText.trim() && !feedback) {
+                  e.preventDefault();
+                  check();
+                }
+              }}
+            />
+            {feedback && !feedback.correct && (
+              <p className="mt-2 text-sm text-slate-600">
+                Correct answer:{" "}
+                <span className="font-semibold">
+                  {String(feedback.correctAnswer)}
+                </span>
+              </p>
+            )}
           </div>
         )}
 
@@ -207,7 +239,12 @@ export default function Practice({ unitId, exercises, canTrack }) {
           ) : (
             <button
               onClick={check}
-              disabled={submitting || picked === null || picked === undefined}
+              disabled={
+                submitting ||
+                (current.type === "short"
+                  ? shortText.trim().length === 0
+                  : picked === null || picked === undefined)
+              }
               className="btn-primary disabled:opacity-60"
             >
               {submitting ? "Checking..." : "Check answer"}
