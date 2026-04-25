@@ -4728,6 +4728,20 @@ export const curriculum = [
           "Reason about perfect squares and cubes",
         ],
         activities: ["Square-tile and cube-stack investigation"],
+        teacherNotes: {
+          overview:
+            "Anchor squares and cubes geometrically before treating them algebraically. The 'why' is that the names come from real area and volume.",
+          lessonPlan: [
+            { stage: "Build squares", minutes: 10, detail: "Pairs build square arrays for 1², 2², 3², 4²; tabulate side and area." },
+            { stage: "Build cubes", minutes: 10, detail: "Stack unit cubes for 1³, 2³, 3³; record edge and volume." },
+            { stage: "Roots", minutes: 13, detail: "Whole-class drill: square roots and cube roots up to 12² and 6³." },
+            { stage: "Connect", minutes: 5, detail: "Why is √(−4) not a real number? Quick sneak peek." },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Decomposition"],
+          misconceptions: ["Believing √16 = ±4 is not 4 alone (depends on context).", "Confusing 4² with 4 × 2."],
+          assessmentIdeas: ["√144 = ?", "Cube root of 27 = ?"],
+          differentiation: ["Support: physical unit cubes.", "Stretch: estimate √50 between two integers."],
+        },
         intro:
           "The square of a number n is n × n; the cube is n × n × n. The square root undoes squaring, and the cube root undoes cubing. Numbers like 1, 4, 9, 16 are perfect squares; 1, 8, 27, 64 are perfect cubes.",
         examples: [
@@ -4778,6 +4792,20 @@ export const curriculum = [
           "Express large/small numbers in standard form",
         ],
         activities: ["Powers-of-ten timeline of distances"],
+        teacherNotes: {
+          overview:
+            "Exponents tame very large and very small numbers. The laws of exponents are pattern-spotting in disguise.",
+          lessonPlan: [
+            { stage: "Discover laws", minutes: 12, detail: "Pairs compute 2³ × 2⁴ and 2⁷; spot that exponents add. Repeat for division and power-of-power." },
+            { stage: "Standard form", minutes: 12, detail: "Convert between standard form and ordinary form for 6 numbers." },
+            { stage: "Powers of 10", minutes: 11, detail: "Class lays out a timeline of distances (atom → galaxy) using powers of 10." },
+            { stage: "Connect", minutes: 5, detail: "Why is a⁰ = 1? Discuss the pattern leading down." },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Algorithmic thinking"],
+          misconceptions: ["Multiplying bases when laws apply only to exponents.", "Believing a⁰ = 0."],
+          assessmentIdeas: ["2⁵ = ?", "5⁶ ÷ 5² = ?"],
+          differentiation: ["Support: exponent table to 2¹⁰.", "Stretch: write tiny lengths in standard form (10⁻⁹ m)."],
+        },
         intro:
           "Exponents are a short way to write repeated multiplication. Laws: aᵐ × aⁿ = aᵐ⁺ⁿ; aᵐ ÷ aⁿ = aᵐ⁻ⁿ; (aᵐ)ⁿ = aᵐⁿ; a⁰ = 1.",
         examples: [
@@ -4828,6 +4856,20 @@ export const curriculum = [
           "Compare positional vs non-positional systems",
         ],
         activities: ["Mini-poster on number systems"],
+        teacherNotes: {
+          overview:
+            "A short history of how humans wrote numbers shows why our positional system was such a leap. Connect to base concepts in computing.",
+          lessonPlan: [
+            { stage: "Compare", minutes: 12, detail: "Show Roman, Egyptian and Hindu-Arabic numerals for 12, 50, 99 side by side." },
+            { stage: "Convert", minutes: 12, detail: "Pairs convert 5 numbers to/from Roman numerals." },
+            { stage: "Poster", minutes: 13, detail: "Pairs sketch a mini-poster: timeline of number systems with 3 milestones." },
+            { stage: "Connect", minutes: 5, detail: "Computers use base 2 — why?" },
+          ],
+          ctSkills: ["Abstraction", "Generalisation", "Pattern recognition"],
+          misconceptions: ["Treating IIII as a valid Roman numeral when context rejects it.", "Believing 0 has no use."],
+          assessmentIdeas: ["XL = ?", "Which system is positional?"],
+          differentiation: ["Support: Roman numeral chart.", "Stretch: convert 1999 to Roman numerals."],
+        },
         intro:
           "Different cultures invented different number systems. Roman numerals (I, V, X, L, C, D, M) are non-positional. Our everyday system is positional with base 10 — the value of a digit depends on its place.",
         examples: [
@@ -4886,6 +4928,20 @@ export const curriculum = [
           "Apply angle-sum and side properties",
         ],
         activities: ["Construct & classify with paper folds"],
+        teacherNotes: {
+          overview:
+            "Use a properties checklist (sides equal? parallel? right angles?) to drive classification — names follow from properties.",
+          lessonPlan: [
+            { stage: "Property check", minutes: 12, detail: "Print 6 quadrilaterals; pairs tick which properties each has." },
+            { stage: "Classify", minutes: 13, detail: "Build a hierarchy: square ⊂ rectangle ⊂ parallelogram ⊂ quadrilateral." },
+            { stage: "Compute", minutes: 10, detail: "Three missing-angle problems using sum = 360°." },
+            { stage: "Connect", minutes: 5, detail: "Why is every square a rectangle but not every rectangle a square?" },
+          ],
+          ctSkills: ["Classification", "Pattern recognition", "Generalisation"],
+          misconceptions: ["Refusing 'square is a rectangle'.", "Forgetting the 360° angle sum."],
+          assessmentIdeas: ["Three angles 70°, 110°, 60°; fourth?", "Quadrilateral with all sides equal?"],
+          differentiation: ["Support: property checklist printed.", "Stretch: prove a parallelogram's diagonals bisect each other."],
+        },
         intro:
           "A quadrilateral has 4 sides. The 4 interior angles always sum to 360°. Common kinds include square, rectangle, rhombus, parallelogram and trapezium.",
         examples: [
@@ -4939,6 +4995,20 @@ export const curriculum = [
           "Form and test conjectures with examples",
         ],
         activities: ["Conjecture-and-test number lab"],
+        teacherNotes: {
+          overview:
+            "Conjecture-and-test is mathematical thinking in miniature. Make 'find a counter-example' a routine response.",
+          lessonPlan: [
+            { stage: "Pose", minutes: 8, detail: "Teacher poses 3 conjectures (true and false). Class predicts." },
+            { stage: "Test", minutes: 14, detail: "Pairs test each conjecture with examples; find counter-examples for the false ones." },
+            { stage: "Invent", minutes: 13, detail: "Each pair invents a conjecture about integers/primes; partner pair tries to break it." },
+            { stage: "Reflect", minutes: 5, detail: "Why is a single counter-example enough? Why aren't 100 examples a proof?" },
+          ],
+          ctSkills: ["Generalisation", "Evaluation", "Pattern recognition"],
+          misconceptions: ["Believing 'tested 5 cases' = proven.", "Confusing conjecture with definition."],
+          assessmentIdeas: ["Counter-example to 'all multiples of 3 are even'.", "Smallest prime > 20."],
+          differentiation: ["Support: 'try at least 3 cases' card.", "Stretch: prove or disprove 'sum of three odd numbers is odd'."],
+        },
         intro:
           "A conjecture is a guess based on patterns we see. We test it with examples; one counter-example is enough to disprove it.",
         examples: [
@@ -4994,6 +5064,20 @@ export const curriculum = [
           "Use it to simplify expressions and computations",
         ],
         activities: ["Mental-math distributive shortcuts"],
+        teacherNotes: {
+          overview:
+            "The distributive property is the workhorse of algebra. Show that it's both a computation shortcut and the rule that lets us expand expressions.",
+          lessonPlan: [
+            { stage: "Mental shortcut", minutes: 10, detail: "Whole class computes 7 × 102, 6 × 99, 8 × 25 using distribution." },
+            { stage: "Algebra", minutes: 12, detail: "Pairs expand 5(2x + 3), 4(3a − 2), 6(x + y + 1)." },
+            { stage: "Reverse", minutes: 13, detail: "Factor common terms out: 6x + 12 = 6(x + 2)." },
+            { stage: "Connect", minutes: 5, detail: "Why is distribution true? Show area-rectangle proof." },
+          ],
+          ctSkills: ["Generalisation", "Pattern recognition", "Algorithmic thinking"],
+          misconceptions: ["Distributing only over the first term: 5(2x + 3) = 10x + 3.", "Forgetting signs when distributing a negative."],
+          assessmentIdeas: ["Compute 6 × 99.", "Expand 5(2x + 3)."],
+          differentiation: ["Support: area diagram of distribution.", "Stretch: factor 12x² + 18x."],
+        },
         intro:
           "The distributive property: a × (b + c) = a × b + a × c. We can use it to break tricky multiplications into easier pieces.",
         examples: [
@@ -5045,6 +5129,20 @@ export const curriculum = [
           "Solve direct and inverse proportion problems",
         ],
         activities: ["Recipe & map-scale proportion tasks"],
+        teacherNotes: {
+          overview:
+            "Direct vs inverse proportion is a frequent point of confusion. Pose problems where students must decide which kind first, then compute.",
+          lessonPlan: [
+            { stage: "Direct", minutes: 12, detail: "Show 4 pens cost ₹60; pairs solve 7 pens at the same rate." },
+            { stage: "Inverse", minutes: 13, detail: "5 workers do a job in 12 days; how long for 10 workers? Discuss why time goes down." },
+            { stage: "Decide", minutes: 10, detail: "Mixed problem set: students label each as direct or inverse before solving." },
+            { stage: "Connect", minutes: 5, detail: "Real applications: speed × time = distance (inverse), recipe scaling (direct)." },
+          ],
+          ctSkills: ["Proportional reasoning", "Pattern recognition", "Algorithmic thinking"],
+          misconceptions: ["Treating every word problem as direct proportion.", "Multiplying when division is needed."],
+          assessmentIdeas: ["3 books cost ₹120; 5 books?", "8 taps fill in 6 h; 4 taps?"],
+          differentiation: ["Support: rate-table scaffold.", "Stretch: introduce a 3-quantity proportion."],
+        },
         intro:
           "A ratio compares two quantities (like 2:3). A proportion is two equal ratios. In direct proportion, both quantities grow together; in inverse proportion, one grows as the other shrinks.",
         examples: [
@@ -5100,6 +5198,20 @@ export const curriculum = [
           "Apply the lifecycle to a small classroom problem",
         ],
         activities: ["Plan an AI project canvas in groups"],
+        teacherNotes: {
+          overview:
+            "The AI lifecycle is the umbrella for all AI work. Use a small classroom problem to walk through the stages and note that data work dominates real timelines.",
+          lessonPlan: [
+            { stage: "Map the stages", minutes: 10, detail: "Whole class names the stages: problem → data → model → evaluate → deploy → monitor." },
+            { stage: "Pick a problem", minutes: 8, detail: "Each group picks a small classroom problem (e.g. classify recyclable vs non-recyclable items)." },
+            { stage: "Plan", minutes: 17, detail: "Groups fill an AI canvas with what data they'd need, how to label it, how to evaluate, and risks." },
+            { stage: "Reflect", minutes: 5, detail: "Which stage felt hardest? Most likely to fail?" },
+          ],
+          ctSkills: ["Decomposition", "Evaluation", "Algorithmic thinking"],
+          misconceptions: ["Believing the 'training the model' step is the longest in real projects.", "Skipping the monitoring stage after deployment."],
+          assessmentIdeas: ["Which is the FIRST stage of an AI project?", "Why is data quality so important?"],
+          differentiation: ["Support: provide a fill-in canvas template.", "Stretch: write success metrics for each stage."],
+        },
         intro:
           "Every AI project follows a similar journey: define the problem, collect data, prepare the data, train a model, evaluate it, and deploy it. After deployment, you keep monitoring and improving it.",
         examples: [
@@ -5171,6 +5283,20 @@ export const curriculum = [
           "Map AI applications to daily-life examples",
         ],
         activities: ["Daily-life AI inventory worksheet"],
+        teacherNotes: {
+          overview:
+            "Tie the four AI capabilities (analyse / recognise / learn / predict) to apps students use, so the abstractions become concrete.",
+          lessonPlan: [
+            { stage: "Inventory", minutes: 12, detail: "Pairs list AI features in their phones — face unlock, autocorrect, voice search, photo search, recommendations." },
+            { stage: "Tag", minutes: 13, detail: "Tag each feature with which capability is most prominent (analyse / pattern / learn / predict)." },
+            { stage: "Discuss", minutes: 10, detail: "Where would no-AI versions of these apps still work fine? Where would they fail?" },
+            { stage: "Connect", minutes: 5, detail: "Most real systems combine all four capabilities." },
+          ],
+          ctSkills: ["Classification", "Abstraction", "Evaluation"],
+          misconceptions: ["Treating recommendations as 'just luck'.", "Confusing 'analyse' with 'predict'."],
+          assessmentIdeas: ["Translation app — main capability?", "Map app suggesting a route — what is it doing?"],
+          differentiation: ["Support: pre-listed features to tag.", "Stretch: classify a less-obvious feature like spell-check."],
+        },
         intro:
           "AI systems usually do four things: analyse data, recognise patterns, learn from experience, and make predictions or decisions. We meet AI in maps, search, photos, voice assistants and many other apps.",
         examples: [
@@ -5234,6 +5360,20 @@ export const curriculum = [
           "Reason about fairness and representativeness",
         ],
         activities: ["Audit a sample dataset for fairness"],
+        teacherNotes: {
+          overview:
+            "Move past 'AI is biased' as a slogan. Make students audit a small dataset, find what's missing, and propose a fix.",
+          lessonPlan: [
+            { stage: "Audit", minutes: 14, detail: "Show a small (toy) dataset for choosing class captains; pairs identify which groups are under-represented." },
+            { stage: "Predict harm", minutes: 8, detail: "Pairs name who could be harmed if a model trains on this data." },
+            { stage: "Fix", minutes: 13, detail: "Propose concrete ways to fix the data and to monitor outcomes after deployment." },
+            { stage: "Connect", minutes: 5, detail: "Real-world parallel: hiring AI, school admissions, healthcare AI." },
+          ],
+          ctSkills: ["Evaluation", "Decomposition", "Abstraction"],
+          misconceptions: ["Believing 'more data = fairer'.", "Thinking fairness is a one-time check."],
+          assessmentIdeas: ["Why is one-sided data unfair?", "One way to make AI fairer."],
+          differentiation: ["Support: dataset with labelled gaps.", "Stretch: design a fairness-test for a new model."],
+        },
         intro:
           "An AI is only as good as its data. Data should be accurate, complete and representative of all the groups who will use the system. Otherwise the AI may give bad or unfair results.",
         examples: [
@@ -5297,6 +5437,20 @@ export const curriculum = [
           "Apply them to evaluate a real AI tool",
         ],
         activities: ["Class debate: 'Should AI grade homework?'"],
+        teacherNotes: {
+          overview:
+            "Wrap the AI strand with ethics. Debating concrete cases lets students apply the principles rather than memorise them.",
+          lessonPlan: [
+            { stage: "Principles", minutes: 8, detail: "Recap fairness, transparency, privacy, accountability, human-in-the-loop." },
+            { stage: "Cases", minutes: 12, detail: "Three short cases: AI grading homework, AI choosing who gets a loan, AI moderating a chatroom. Class identifies which principles each touches." },
+            { stage: "Debate", minutes: 15, detail: "Class debate on 'Should AI grade homework?' — split into for and against, 5-min prep + 10-min debate." },
+            { stage: "Reflect", minutes: 5, detail: "Each student writes one principle they will respect when they build or use AI." },
+          ],
+          ctSkills: ["Evaluation", "Decomposition", "Abstraction"],
+          misconceptions: ["Treating ethics as common-sense without principles.", "Thinking transparency means publishing the model's code only."],
+          assessmentIdeas: ["Which is NOT a principle of responsible AI?", "What is human-in-the-loop?"],
+          differentiation: ["Support: principle cards as cues.", "Stretch: write a 5-clause AI charter for a school."],
+        },
         intro:
           "Responsible AI follows principles such as fairness, transparency, privacy, accountability and human oversight. Anyone building or using AI should ask: who benefits, who could be harmed, and how can we keep humans in the loop?",
         examples: [
