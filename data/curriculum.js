@@ -794,6 +794,47 @@ export const curriculum = [
           "Describe shapes by their properties",
         ],
         activities: ["Shape hunt around the classroom"],
+        intro:
+          "Shapes are everywhere — wheels are circles, books are rectangles, dice are cubes. We can describe shapes by counting their sides, corners, or — for 3D shapes — their faces, edges and vertices.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Naming a 3D shape",
+            problem:
+              "A solid has 6 rectangular faces, 12 edges and 8 corners. What is it?",
+            solution: "A cuboid (like a brick or a matchbox).",
+          },
+          {
+            id: "ex-2",
+            title: "2D shapes around us",
+            problem: "Name the 2D shape that the face of a clock most often is.",
+            solution: "A circle.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "Which of these is a 3D shape?",
+            options: ["Triangle", "Sphere", "Square", "Pentagon"],
+            answerIndex: 1,
+            explanation: "A sphere is a solid (3D) shape. The others are flat (2D).",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "How many faces does a cuboid have?",
+            answer: "6",
+            explanation: "A cuboid has 6 rectangular faces.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: A football is a 2D shape.",
+            answer: false,
+            explanation: "A football is a sphere, which is 3D.",
+          },
+        ],
       },
       {
         id: "c4-ct-2",
@@ -804,6 +845,55 @@ export const curriculum = [
           "Apply logical elimination to puzzles",
         ],
         activities: ["Number-clue 'guess who' game"],
+        intro:
+          "When we have many possibilities, each clue lets us cross some out. The answer is whatever is left after all the clues are used. This careful reasoning is called logical elimination.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Find the number",
+            problem:
+              "I am thinking of a number from 1 to 10. It is even. It is greater than 6. It is not 10. What is it?",
+            solution:
+              "From 1-10, even numbers are 2, 4, 6, 8, 10. 'Greater than 6' leaves 8 and 10. 'Not 10' leaves 8.",
+          },
+          {
+            id: "ex-2",
+            title: "Cross them out",
+            problem:
+              "Three friends are 9, 10 and 11 years old. Aru is not 11. Riya is older than Aru. Who is 10?",
+            solution:
+              "Aru is 9 or 10. Riya is older than Aru. If Aru is 10, Riya is 11. The third friend is 9. So Aru is 10? Yes — Aru is 10, Riya is 11, the third is 9.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "I am a number between 1 and 20. I am odd and I am a multiple of 5. Which number am I?",
+            options: ["5", "10", "15", "20"],
+            answerIndex: 2,
+            explanation:
+              "Multiples of 5 between 1 and 20: 5, 10, 15, 20. Odd ones: 5 and 15. The question allows either, but 15 is also between 1 and 20 — both 5 and 15 fit. Pick the larger one if asked between 10 and 20: 15.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt:
+              "I am a 2-digit number. My tens digit is 4 and my ones digit is 7. What number am I?",
+            answer: "47",
+            explanation: "Tens 4 + ones 7 → 47.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Each clue should usually let you cross out at least one possibility.",
+            answer: true,
+            explanation:
+              "Yes — that is what makes a clue useful. Clues that don't reduce the possibilities don't help.",
+          },
+        ],
       },
       {
         id: "c4-ct-3",
@@ -867,6 +957,47 @@ export const curriculum = [
           "Compare and order four-digit numbers",
         ],
         activities: ["Place-value cards for 4-digit numbers"],
+        intro:
+          "Four-digit numbers are made of thousands, hundreds, tens and ones. To compare them, look at the leftmost digit first.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Read 4308",
+            problem: "Write the number 4308 in words.",
+            solution: "Four thousand three hundred eight.",
+          },
+          {
+            id: "ex-2",
+            title: "Compare 2945 and 2954",
+            problem: "Which is bigger?",
+            solution:
+              "Thousands match (2 = 2). Hundreds match (9 = 9). Tens: 4 vs 5, so 2954 is bigger.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is the largest four-digit number?",
+            answer: "9999",
+            explanation: "9999 is the biggest four-digit number.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which of these is the smallest?",
+            options: ["2310", "2103", "2301", "2031"],
+            answerIndex: 3,
+            explanation: "Compare digit by digit; 2031 has the smallest hundreds digit (0).",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt: "What is the value of the digit 7 in 5703?",
+            answer: "700",
+            explanation: "7 is in the hundreds place: 7 × 100 = 700.",
+          },
+        ],
       },
       {
         id: "c4-ct-5",
@@ -877,6 +1008,46 @@ export const curriculum = [
           "Use simple fractions for sharing",
         ],
         activities: ["Equal-share story problems"],
+        intro:
+          "When a whole is split into equal parts, each part is a fraction. Half (1/2), quarter (1/4) and one-third (1/3) describe how big each share is.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Half of a pizza",
+            problem: "A pizza is cut into 2 equal pieces. What is each piece called?",
+            solution: "Each piece is one-half (1/2) of the pizza.",
+          },
+          {
+            id: "ex-2",
+            title: "Sharing into quarters",
+            problem: "A cake is cut into 4 equal pieces. What is each piece called?",
+            solution: "Each piece is one-quarter (1/4) of the cake.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "If you cut a chapati into 4 equal parts, each part is called:",
+            options: ["A half", "A whole", "A quarter", "A double"],
+            answerIndex: 2,
+            explanation: "One out of four equal parts is one-quarter (1/4).",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "How many halves make a whole?",
+            answer: "2",
+            explanation: "Two halves make a whole.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: 1/2 is bigger than 1/4.",
+            answer: true,
+            explanation: "Yes — half a pizza is more than a quarter of a pizza.",
+          },
+        ],
       },
       {
         id: "c4-ct-6",
@@ -887,6 +1058,47 @@ export const curriculum = [
           "Convert between units of length",
         ],
         activities: ["Estimate-then-measure relay"],
+        intro:
+          "We measure length using a ruler or a tape. The most common units are centimetres (cm) and metres (m). 100 cm = 1 m.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Convert 250 cm to metres",
+            problem: "How many metres is 250 cm?",
+            solution: "100 cm = 1 m. 250 ÷ 100 = 2 m 50 cm, or 2.5 m.",
+          },
+          {
+            id: "ex-2",
+            title: "Estimate the length",
+            problem: "Which is the best estimate for the length of a school bench: 5 cm, 1 m or 50 m?",
+            solution: "1 m is closest. 5 cm is too short; 50 m is far too long.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many centimetres are there in 1 metre?",
+            answer: "100",
+            explanation: "1 metre = 100 cm.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "Which unit is best for measuring the length of a pencil?",
+            options: ["Kilometres", "Metres", "Centimetres", "Litres"],
+            answerIndex: 2,
+            explanation: "A pencil is small — centimetres are the right unit.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt: "How many metres is 400 cm?",
+            answer: "4",
+            explanation: "400 ÷ 100 = 4 m.",
+          },
+        ],
       },
       {
         id: "c4-ct-7",
@@ -897,6 +1109,49 @@ export const curriculum = [
           "Make decisions from simple data",
         ],
         activities: ["Compare cleanliness scores across villages"],
+        intro:
+          "Bar graphs let us compare values quickly. The taller the bar, the larger the value. We can also subtract heights to find a difference.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Reading a bar graph",
+            problem:
+              "Village A scored 60, B scored 75, C scored 50. Which village is cleanest?",
+            solution: "Village B with 75.",
+          },
+          {
+            id: "ex-2",
+            title: "Difference between bars",
+            problem: "Village A scored 60 and Village C scored 50. How much higher is A?",
+            solution: "60 − 50 = 10.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "In a bar graph, which village had the LEAST score: A=70, B=85, C=60, D=90?",
+            options: ["A", "B", "C", "D"],
+            answerIndex: 2,
+            explanation: "60 is the smallest, so village C.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "If two villages scored 80 and 95, what is the difference?",
+            answer: "15",
+            explanation: "95 − 80 = 15.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A bar graph helps us see which group has the most.",
+            answer: true,
+            explanation: "Yes — the tallest bar marks the largest value.",
+          },
+        ],
       },
       {
         id: "c4-ct-8",
@@ -907,6 +1162,47 @@ export const curriculum = [
           "Add/subtract values in standard units",
         ],
         activities: ["Pouring-puzzle with two jugs"],
+        intro:
+          "Weight is measured in grams (g) and kilograms (kg). Capacity is measured in millilitres (ml) and litres (l). 1 kg = 1000 g and 1 l = 1000 ml.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Add weights",
+            problem: "A bag of rice is 2 kg and a bag of dal is 500 g. What is the total weight?",
+            solution: "2 kg = 2000 g. Total = 2000 + 500 = 2500 g, or 2 kg 500 g.",
+          },
+          {
+            id: "ex-2",
+            title: "Subtract capacities",
+            problem: "A jug has 1 litre of water. 350 ml is poured out. How much is left?",
+            solution: "1 l = 1000 ml. 1000 − 350 = 650 ml.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many grams are there in 1 kilogram?",
+            answer: "1000",
+            explanation: "1 kg = 1000 g.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "A bottle holds 750 ml. How much more is needed to make 1 litre?",
+            options: ["150 ml", "250 ml", "350 ml", "500 ml"],
+            answerIndex: 1,
+            explanation: "1000 − 750 = 250 ml.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: A litre is bigger than a millilitre.",
+            answer: true,
+            explanation: "Yes, 1 litre = 1000 ml, so 1 litre is much bigger.",
+          },
+        ],
       },
       {
         id: "c4-ct-9",
@@ -917,6 +1213,49 @@ export const curriculum = [
           "Form arrays for given products",
         ],
         activities: ["Array-builder dice game"],
+        intro:
+          "When we have many equal groups, multiplication is a quick way to count. An array is a rectangle of dots arranged in equal rows.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Array of dots",
+            problem: "An array has 4 rows and 6 dots in each row. How many dots in total?",
+            solution: "4 × 6 = 24 dots.",
+          },
+          {
+            id: "ex-2",
+            title: "From repeated addition",
+            problem: "Write 7 + 7 + 7 as a multiplication.",
+            solution: "Three 7s, so 3 × 7 = 21.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is 5 × 8?",
+            answer: "40",
+            explanation: "5 × 8 = 40.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "An array has 9 rows and 3 dots in each row. How many dots in total?",
+            options: ["12", "27", "30", "33"],
+            answerIndex: 1,
+            explanation: "9 × 3 = 27.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: 4 × 6 and 6 × 4 give the same answer.",
+            answer: true,
+            explanation:
+              "Yes — multiplication is commutative; the order doesn't change the product.",
+          },
+        ],
       },
       {
         id: "c4-ct-10",
@@ -927,6 +1266,49 @@ export const curriculum = [
           "Interpret remainders in context",
         ],
         activities: ["Wildlife counting & sharing problems"],
+        intro:
+          "Division splits a total into equal groups. Sometimes the total does not divide evenly — what is left over is the remainder.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Even share",
+            problem:
+              "A zoo has 24 animals divided equally into 4 cages. How many animals per cage?",
+            solution: "24 ÷ 4 = 6 animals per cage.",
+          },
+          {
+            id: "ex-2",
+            title: "Remainder",
+            problem:
+              "There are 23 mangoes to share equally among 5 children. How many each, and how many leftover?",
+            solution: "23 ÷ 5 = 4 with remainder 3. Each child gets 4 mangoes; 3 are leftover.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Share 36 leaves equally into 6 piles. How many leaves per pile?",
+            answer: "6",
+            explanation: "36 ÷ 6 = 6.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "What is the remainder when 25 is divided by 4?",
+            options: ["1", "2", "3", "4"],
+            answerIndex: 0,
+            explanation: "4 × 6 = 24; 25 − 24 = 1.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: If a number divides evenly, the remainder is 0.",
+            answer: true,
+            explanation: "Yes — no leftover means remainder 0.",
+          },
+        ],
       },
       {
         id: "c4-ct-11",
@@ -937,6 +1319,49 @@ export const curriculum = [
           "Complete symmetric drawings",
         ],
         activities: ["Mirror-fold paper symmetry"],
+        intro:
+          "A figure is symmetric if you can fold it along a line so the two halves match exactly. That fold-line is called a line of symmetry.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Lines in a square",
+            problem: "How many lines of symmetry does a square have?",
+            solution:
+              "A square has 4 lines of symmetry: 2 through opposite sides and 2 through the diagonals.",
+          },
+          {
+            id: "ex-2",
+            title: "Symmetric letter",
+            problem: "Is the letter A symmetric?",
+            solution: "Yes — A has one vertical line of symmetry through its top.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many lines of symmetry does an equilateral triangle have?",
+            answer: "3",
+            explanation: "An equilateral triangle has 3 lines of symmetry.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which of these letters has a line of symmetry?",
+            options: ["F", "G", "H", "J"],
+            answerIndex: 2,
+            explanation: "H is symmetric — both vertically and horizontally.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A circle has only one line of symmetry.",
+            answer: false,
+            explanation:
+              "False — a circle has infinitely many lines of symmetry through its centre.",
+          },
+        ],
       },
       {
         id: "c4-ct-12",
@@ -947,6 +1372,47 @@ export const curriculum = [
           "Compute durations across days and months",
         ],
         activities: ["Plan a 3-day school trip on a calendar"],
+        intro:
+          "Clocks measure time in hours and minutes; calendars measure days, weeks and months. Knowing how to add and subtract time helps us plan.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Find the duration",
+            problem: "School starts at 8:30 and ends at 2:00. How long is school?",
+            solution:
+              "From 8:30 to 12:30 is 4 hours; from 12:30 to 2:00 is 1 hour 30 minutes. Total: 5 hours 30 minutes.",
+          },
+          {
+            id: "ex-2",
+            title: "Days between dates",
+            problem: "How many days are there from 5 March to 12 March?",
+            solution: "12 − 5 = 7 days.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many minutes are there in 2 hours?",
+            answer: "120",
+            explanation: "2 × 60 = 120 minutes.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which month has 28 or 29 days?",
+            options: ["January", "April", "February", "December"],
+            answerIndex: 2,
+            explanation: "February has 28 days, or 29 in a leap year.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: A year has 12 months.",
+            answer: true,
+            explanation: "Yes — January through December is 12 months.",
+          },
+        ],
       },
       {
         id: "c4-ct-13",
@@ -957,6 +1423,50 @@ export const curriculum = [
           "Spot the most/least frequent category",
         ],
         activities: ["Tally vehicles passing the school gate"],
+        intro:
+          "Tally marks (||||) help us count quickly. A table summarises the totals for each category, so we can see what was most or least common.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Reading tally marks",
+            problem:
+              "A row of tally marks looks like four vertical bars with one diagonal across them. What number is it?",
+            solution: "That standard tally pattern stands for 5.",
+          },
+          {
+            id: "ex-2",
+            title: "Find the most common",
+            problem:
+              "Cars 12, Buses 5, Bikes 18, Trucks 7. Which vehicle was seen the most?",
+            solution: "Bikes, with 18.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Cars 8, Bikes 14, Buses 3. How many vehicles in total?",
+            options: ["22", "24", "25", "27"],
+            answerIndex: 2,
+            explanation: "8 + 14 + 3 = 25.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt:
+              "If 3 groups of 5 tally marks were drawn, what total do they show?",
+            answer: "15",
+            explanation: "3 × 5 = 15.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: Tally marks make counting fast for big totals.",
+            answer: true,
+            explanation: "Yes — grouping in fives makes counting easier.",
+          },
+        ],
       },
       {
         id: "c4-ct-14",
@@ -967,6 +1477,50 @@ export const curriculum = [
           "Read pictographs and bar graphs",
         ],
         activities: ["Class-favourite-fruit pictograph"],
+        intro:
+          "We can collect data by asking questions, then organise it in a table or chart. Pictographs use pictures; bar graphs use bars. Both let us compare quickly.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Bar graph",
+            problem:
+              "Apples 6, Bananas 9, Mangoes 12. Which fruit was chosen the least?",
+            solution: "Apples, with only 6.",
+          },
+          {
+            id: "ex-2",
+            title: "Pictograph value",
+            problem: "Each ★ stands for 4 children. A row has 5 stars. How many children?",
+            solution: "5 × 4 = 20 children.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "If each picture stands for 5 books, how many books does a row of 8 pictures show?",
+            answer: "40",
+            explanation: "8 × 5 = 40.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "From a graph: Class 4A has 25 students, Class 4B has 32. How many more in 4B?",
+            options: ["5", "7", "9", "10"],
+            answerIndex: 1,
+            explanation: "32 − 25 = 7.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A pictograph and a bar graph can show the same information in different ways.",
+            answer: true,
+            explanation: "Yes — both are visual ways to compare counts.",
+          },
+        ],
       },
     ],
   },
