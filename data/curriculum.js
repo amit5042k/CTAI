@@ -2984,6 +2984,20 @@ export const curriculum = [
           "Predict the next term using a rule",
         ],
         activities: ["Build patterns with dot diagrams"],
+        teacherNotes: {
+          overview:
+            "Patterns are the heart of CT. Move beyond 'add a constant' to richer rules — squares, triangulars, doubling.",
+          lessonPlan: [
+            { stage: "Spot", minutes: 8, detail: "Show 3 sequences (linear, doubling, squares); pairs guess each rule." },
+            { stage: "Build", minutes: 14, detail: "Build dot diagrams for 1, 3, 6, 10 and explain what's added each step." },
+            { stage: "Generalise", minutes: 13, detail: "Pairs invent their own rule and write the first 5 terms; partner discovers it." },
+            { stage: "Connect", minutes: 5, detail: "Where do these rules show up in nature (petals, branches)?" },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Algorithmic thinking"],
+          misconceptions: ["Spotting only first differences and missing second differences.", "Believing every rule must be 'add a fixed number'."],
+          assessmentIdeas: ["Continue: 1, 4, 9, 16, ?", "What is the rule for 2, 4, 8, 16, …?"],
+          differentiation: ["Support: only linear rules.", "Stretch: try Fibonacci 1, 1, 2, 3, 5, 8."],
+        },
         intro:
           "Many number sequences follow a rule — add a constant, multiply by a constant, or follow a more complex pattern (like squares or triangular numbers). Spotting the rule lets us predict what comes next.",
         examples: [
@@ -3036,6 +3050,20 @@ export const curriculum = [
           "Measure angles using a protractor",
         ],
         activities: ["Angle-hunt around the classroom"],
+        teacherNotes: {
+          overview:
+            "Geometry vocabulary needs to be paired with physical exploration. Hunt for angles, measure them, then formalise the names.",
+          lessonPlan: [
+            { stage: "Hunt", minutes: 8, detail: "Pairs find 5 angles in the room and estimate each as acute / right / obtuse." },
+            { stage: "Measure", minutes: 14, detail: "Use protractors to measure 5 listed angles; compare to estimates." },
+            { stage: "Pair angles", minutes: 13, detail: "Linear pair (sum 180°), vertically opposite — show on board, students compute missing values." },
+            { stage: "Connect", minutes: 5, detail: "Why do angles on a straight line always add to 180°?" },
+          ],
+          ctSkills: ["Algorithmic thinking", "Estimation", "Pattern recognition"],
+          misconceptions: ["Reading the wrong scale on a protractor.", "Assuming 'big-looking arms' mean a big angle."],
+          assessmentIdeas: ["180° − 65° = ?", "Classify 92°."],
+          differentiation: ["Support: bold-marked protractors.", "Stretch: introduce reflex angles."],
+        },
         intro:
           "Angles can be acute (<90°), right (=90°), obtuse (90°–180°), straight (=180°) or reflex (>180°). Pairs of angles on a straight line add up to 180°.",
         examples: [
@@ -3088,6 +3116,20 @@ export const curriculum = [
           "Reason about properties of numbers",
         ],
         activities: ["Number-tricks investigation"],
+        teacherNotes: {
+          overview:
+            "Number play builds reasoning. The aim is for students to argue why a property holds, not just compute that it does.",
+          lessonPlan: [
+            { stage: "Trick", minutes: 8, detail: "Demo: pick a number, double it, add 4, halve it, subtract original. Always 2." },
+            { stage: "Why", minutes: 14, detail: "Class re-runs the trick algebraically with n; surface the cancellation." },
+            { stage: "Investigate", minutes: 13, detail: "Pairs pose: 'is the sum of three odd numbers always odd?' Test and explain." },
+            { stage: "Reflect", minutes: 5, detail: "What's the difference between checking a few cases and proving?" },
+          ],
+          ctSkills: ["Generalisation", "Decomposition", "Evaluation"],
+          misconceptions: ["Believing 'a few examples' = proof.", "Confusing odd/even with positive/negative."],
+          assessmentIdeas: ["Sum of digits of 1234.", "Is 13 × 4 odd or even?"],
+          differentiation: ["Support: small-number tables.", "Stretch: 'is the product of three primes ever a perfect square?'"],
+        },
         intro:
           "Numbers have rich properties — they can be even/odd, prime/composite, factors of others. Spotting these properties helps in mental maths and puzzles.",
         examples: [
@@ -3139,6 +3181,20 @@ export const curriculum = [
           "Choose an appropriate chart for a question",
         ],
         activities: ["Survey & bar graph project"],
+        teacherNotes: {
+          overview:
+            "Choosing the right chart is itself a thinking skill. Show side-by-side comparisons of bar, line, pictograph and pie for the same data so the differences are obvious.",
+          lessonPlan: [
+            { stage: "Compare charts", minutes: 10, detail: "Same dataset, three chart types — class discusses which best answers a given question." },
+            { stage: "Survey", minutes: 12, detail: "Students design a 1-question survey, collect data from the class." },
+            { stage: "Build", minutes: 13, detail: "Pairs render the data as both a bar chart and a pictograph, defending the chosen scales." },
+            { stage: "Connect", minutes: 5, detail: "Find the mode of the dataset and discuss when mode is more useful than mean." },
+          ],
+          ctSkills: ["Abstraction", "Evaluation", "Decomposition"],
+          misconceptions: ["Choosing a y-axis scale that distorts the picture.", "Reporting the mode as the highest value rather than the most frequent."],
+          assessmentIdeas: ["Pick the best chart for change over time.", "Mode of 2, 5, 5, 6, 7, 5, 2."],
+          differentiation: ["Support: chart-template handouts.", "Stretch: compute mean and median too."],
+        },
         intro:
           "Different charts answer different questions. Bar charts compare categories; line charts show change over time; pie charts show parts of a whole.",
         examples: [
@@ -3193,6 +3249,20 @@ export const curriculum = [
           "Apply prime factorisation",
         ],
         activities: ["Sieve of Eratosthenes hands-on"],
+        teacherNotes: {
+          overview:
+            "Primes are the building blocks of integers. The Sieve of Eratosthenes is a great hands-on algorithm: cross out multiples and what remains is prime.",
+          lessonPlan: [
+            { stage: "Sieve", minutes: 15, detail: "On a 1-100 grid, students cross out multiples of 2, 3, 5, 7. The numbers that survive are the primes." },
+            { stage: "Decompose", minutes: 12, detail: "Pairs factorise 12, 30, 60 into primes using factor trees." },
+            { stage: "Reasoning", minutes: 8, detail: "Why is 1 not prime? Discuss the 'exactly two factors' definition." },
+            { stage: "Connect", minutes: 5, detail: "Encryption (peek ahead) uses very large primes." },
+          ],
+          ctSkills: ["Algorithmic thinking (sieve)", "Decomposition", "Generalisation"],
+          misconceptions: ["Calling 1 prime.", "Thinking all odd numbers are prime."],
+          assessmentIdeas: ["Prime factorisation of 60.", "Smallest prime greater than 50."],
+          differentiation: ["Support: pre-printed 1-100 grid.", "Stretch: extend the sieve to 200."],
+        },
         intro:
           "A prime number is a number greater than 1 with exactly two factors: 1 and itself. Numbers that are not prime (and greater than 1) are composite. Every composite number can be written as a product of primes — its prime factorisation.",
         examples: [
@@ -3245,6 +3315,20 @@ export const curriculum = [
           "Compare shapes with the same perimeter",
         ],
         activities: ["Grid-paper shape-design challenge"],
+        teacherNotes: {
+          overview:
+            "Perimeter and area are commonly confused. Use grid paper so students literally count the boundary squares (perimeter) and inside squares (area).",
+          lessonPlan: [
+            { stage: "Build & count", minutes: 12, detail: "Students draw 3 rectangles on grid paper; count perimeter and area without formulas." },
+            { stage: "Formulas", minutes: 13, detail: "Generalise: 2(l + w) and l × w. Verify with the rectangles built." },
+            { stage: "Same vs different", minutes: 12, detail: "Pose: rectangles with perimeter 16 — find areas. Discuss why a square gives the largest." },
+            { stage: "Connect", minutes: 5, detail: "What real-life problems care about perimeter? About area?" },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Decomposition"],
+          misconceptions: ["Using the area formula to compute perimeter.", "Forgetting units (cm vs cm²)."],
+          assessmentIdeas: ["Perimeter and area of a 7×3 rectangle.", "Which has more area: 5×3 or 4×4 rectangle (same perimeter)?"],
+          differentiation: ["Support: grid paper with shapes pre-drawn.", "Stretch: design a rectangle with area 24 and perimeter 22."],
+        },
         intro:
           "Perimeter is the total length around a shape. Area is the space inside it. For a rectangle: perimeter = 2(l + w), area = l × w.",
         examples: [
@@ -3297,6 +3381,20 @@ export const curriculum = [
           "Convert between fractions and decimals",
         ],
         activities: ["Fraction-bar matching cards"],
+        teacherNotes: {
+          overview:
+            "Fluency with fractions and their decimal counterparts unlocks Class 7+ topics. Mistakes here cluster around 'different denominators'.",
+          lessonPlan: [
+            { stage: "Common denominator", minutes: 12, detail: "Show 1/2 + 1/3 step by step using fraction strips of 1/6." },
+            { stage: "Practice", minutes: 13, detail: "Five sums and three subtractions with mixed denominators." },
+            { stage: "Convert", minutes: 12, detail: "Match cards: 1/2 = 0.5, 3/4 = 0.75, 1/5 = 0.2 etc." },
+            { stage: "Connect", minutes: 5, detail: "Why is 1/3 a non-terminating decimal?" },
+          ],
+          ctSkills: ["Algorithmic thinking", "Pattern recognition", "Generalisation"],
+          misconceptions: ["Adding tops and bottoms separately.", "Forgetting to simplify the answer."],
+          assessmentIdeas: ["1/4 + 1/4 in simplest form.", "0.75 as a fraction."],
+          differentiation: ["Support: fraction strips for denominators 2, 3, 4, 6.", "Stretch: 5/6 − 1/4."],
+        },
         intro:
           "To add or subtract fractions with different denominators, first find a common denominator. Some fractions have neat decimal forms: 1/2 = 0.5, 1/4 = 0.25, 3/4 = 0.75.",
         examples: [
@@ -3348,6 +3446,20 @@ export const curriculum = [
           "Reason about congruence",
         ],
         activities: ["Construct an equilateral triangle"],
+        teacherNotes: {
+          overview:
+            "Geometric construction is precise procedure-following — a perfect CT activity. Insist on light arcs and consistent radius.",
+          lessonPlan: [
+            { stage: "Demo", minutes: 10, detail: "Teacher constructs an equilateral triangle on the board: line, two arcs, join." },
+            { stage: "Practice", minutes: 18, detail: "Each student constructs an equilateral triangle of side 6 cm and a perpendicular bisector of a 8 cm segment." },
+            { stage: "Reason", minutes: 7, detail: "Why does the arc method give equal sides? Discuss radius = side." },
+            { stage: "Connect", minutes: 5, detail: "Two triangles with the same three sides are congruent (SSS)." },
+          ],
+          ctSkills: ["Algorithmic thinking", "Decomposition", "Pattern recognition"],
+          misconceptions: ["Changing compass radius mid-construction.", "Erasing arcs that were used to define points."],
+          assessmentIdeas: ["Construct a 60° angle.", "Are two triangles with sides 5, 6, 7 congruent?"],
+          differentiation: ["Support: pre-marked starting line.", "Stretch: construct a regular hexagon with one compass setting."],
+        },
         intro:
           "Using just a ruler and a compass, we can draw exact figures. Two figures that have the same shape and size are called congruent.",
         examples: [
@@ -3404,6 +3516,20 @@ export const curriculum = [
           "Create symmetric designs",
         ],
         activities: ["Mirror-paint symmetric butterflies"],
+        teacherNotes: {
+          overview:
+            "Distinguish line symmetry from rotational symmetry; both can coexist in one figure.",
+          lessonPlan: [
+            { stage: "Spot lines", minutes: 8, detail: "Sort eight shapes by number of lines of symmetry." },
+            { stage: "Build", minutes: 14, detail: "Mirror-paint or fold-cut a shape with at least two lines of symmetry." },
+            { stage: "Rotate", minutes: 13, detail: "Use tracing paper to test rotational symmetry order; tabulate findings for regular polygons." },
+            { stage: "Connect", minutes: 5, detail: "Which letters have line symmetry, rotational symmetry, both, neither?" },
+          ],
+          ctSkills: ["Pattern recognition", "Generalisation", "Abstraction"],
+          misconceptions: ["Confusing diagonal lines of a rectangle as lines of symmetry.", "Counting 360° as a non-trivial rotation."],
+          assessmentIdeas: ["Lines of symmetry of a regular hexagon.", "Order of rotation of a square."],
+          differentiation: ["Support: tracing paper aid.", "Stretch: design a logo with order 3 rotation but no line symmetry."],
+        },
         intro:
           "A figure has line symmetry if it can be folded along a line so the two halves match. It has rotational symmetry if it looks the same after a partial turn.",
         examples: [
@@ -3457,6 +3583,20 @@ export const curriculum = [
           "Add and subtract positive and negative integers",
         ],
         activities: ["Temperature-change number-line tasks"],
+        teacherNotes: {
+          overview:
+            "Negative integers are abstract until anchored. Temperature, debt and lifts above/below ground level all give physical referents.",
+          lessonPlan: [
+            { stage: "Anchor", minutes: 8, detail: "Show a thermometer scale; ask 'what is 5°C drop 8°?' and place on the line." },
+            { stage: "Number line", minutes: 14, detail: "Whole-class moves on a giant number line; teacher calls additions and subtractions of small integers." },
+            { stage: "Rules", minutes: 13, detail: "Generalise: adding a negative is subtracting; subtracting a negative is adding." },
+            { stage: "Connect", minutes: 5, detail: "Compare two negative numbers — why is −5 less than −2?" },
+          ],
+          ctSkills: ["Algorithmic thinking", "Generalisation", "Pattern recognition"],
+          misconceptions: ["Believing −5 > −2 because '5 > 2'.", "Forgetting the sign in answers."],
+          assessmentIdeas: ["3 − 9 = ?", "(−4) + (−7) = ?"],
+          differentiation: ["Support: physical number-line on the floor.", "Stretch: solve a 3-step integer expression."],
+        },
         intro:
           "Integers extend the number line below zero. Negative numbers represent things like below-zero temperatures or money owed. Adding a negative is the same as subtracting.",
         examples: [
@@ -3508,6 +3648,20 @@ export const curriculum = [
           "Spot AI in everyday tools (search, voice, recommendations)",
         ],
         activities: ["AI/non-AI sort cards", "Story: a day with smart helpers"],
+        teacherNotes: {
+          overview:
+            "First exposure to AI. Lead with examples students already use. The key contrast: AI learns from data; automation just follows fixed rules.",
+          lessonPlan: [
+            { stage: "Brainstorm", minutes: 8, detail: "What does 'intelligence' mean? Collect ideas; refine to learn / reason / solve / decide." },
+            { stage: "AI vs not-AI sort", minutes: 14, detail: "Pairs sort 10 example cards (calculator, voice assistant, bus schedule, photo search, etc.) into AI / not AI." },
+            { stage: "Story circle", minutes: 13, detail: "A typical school day; spot 5 places where AI is quietly at work." },
+            { stage: "Connect", minutes: 5, detail: "Discuss: does 'doing maths fast' make a calculator AI?" },
+          ],
+          ctSkills: ["Classification", "Abstraction", "Evaluation"],
+          misconceptions: ["Thinking any computer program is AI.", "Believing AI is always physical robots."],
+          assessmentIdeas: ["Is a fixed-rule alarm clock AI? Why?", "Two everyday AI examples."],
+          differentiation: ["Support: pre-grouped cards.", "Stretch: identify which AI domain each example belongs to."],
+        },
         intro:
           "Intelligence is the ability to learn, reason and solve problems. Artificial Intelligence (AI) means making machines do tasks that need such intelligence, by learning from data instead of following only fixed rules.",
         examples: [
@@ -3571,6 +3725,20 @@ export const curriculum = [
           "Classify data as numbers, text, images, audio or video",
         ],
         activities: ["Collect class attendance and present as data"],
+        teacherNotes: {
+          overview:
+            "Build the data → information distinction. Stress that data without structure is hard to use; that's why we tabulate, chart and summarise.",
+          lessonPlan: [
+            { stage: "Collect", minutes: 10, detail: "Capture daily attendance for the past week as raw data." },
+            { stage: "Organise", minutes: 12, detail: "Pairs put it in a table and compute averages or maxima." },
+            { stage: "Classify types", minutes: 13, detail: "Sort 8 example items into numeric / text / image / audio / video." },
+            { stage: "Connect", minutes: 5, detail: "What kind of data does an AI need most? Discuss." },
+          ],
+          ctSkills: ["Abstraction", "Classification", "Decomposition"],
+          misconceptions: ["Treating data and information as identical.", "Thinking only numeric data 'counts' as data."],
+          assessmentIdeas: ["Tag 4 items by data type.", "Give one example of information from raw attendance data."],
+          differentiation: ["Support: pre-built data tables.", "Stretch: design a 1-question dataset and pick a chart."],
+        },
         intro:
           "Data is raw, unorganised facts. When we organise and analyse data, it becomes information that helps us decide things.",
         examples: [
@@ -3641,6 +3809,20 @@ export const curriculum = [
           "Use observed patterns to make simple decisions",
         ],
         activities: ["Rule-based decision tree on paper"],
+        teacherNotes: {
+          overview:
+            "Pattern recognition and decision rules are entry points to ML thinking. Decision trees made with paper give a tactile feel for rule-based decisions.",
+          lessonPlan: [
+            { stage: "Spot", minutes: 8, detail: "Show 3 patterns (numeric, shape, colour); pairs find rules." },
+            { stage: "If-then", minutes: 12, detail: "Build a 3-rule classifier on the board: IF X then Y. Apply to 5 inputs." },
+            { stage: "Tree", minutes: 15, detail: "Pairs draw a decision tree to recommend an outdoor activity based on weather and time." },
+            { stage: "Reflect", minutes: 5, detail: "Where do simple if-then rules fail? Hint at machine learning." },
+          ],
+          ctSkills: ["Pattern recognition", "Algorithmic thinking", "Generalisation"],
+          misconceptions: ["Believing more rules always means a better decision.", "Confusing pattern with coincidence."],
+          assessmentIdeas: ["Continue 5, 10, 20, 40, ?", "Apply: IF battery<20% THEN alert."],
+          differentiation: ["Support: 2-rule trees.", "Stretch: include exceptions in the tree."],
+        },
         intro:
           "AI systems often work by spotting patterns and making decisions from them. We can practise this by hand using simple if-then rules and decision trees.",
         examples: [
