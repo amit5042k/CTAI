@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { findUserByEmail, findSchoolByCode } from "@/lib/db";
 import { signSession, setSessionCookie } from "@/lib/auth";
+import { signChallenge } from "@/lib/twoFactor";
 
 export async function POST(req) {
   try {
@@ -27,9 +28,6 @@ export async function POST(req) {
       );
     }
 
-    // If signing in via a school-scoped page, ensure the user belongs to
-    // that school. Superadmins are not school-scoped and can sign in from
-    // any URL — but they should use /login.
     if (schoolCode) {
       const school = findSchoolByCode(schoolCode);
       if (!school) {
@@ -50,6 +48,14 @@ export async function POST(req) {
           { status: 403 },
         );
       }
+    }
+
+    // If 2FA is enabled, do NOT issue the session yet — return a short-lived
+    // challenge token that the client exchanges for a session by submitting
+    // the TOTP code to /api/auth/2fa/verify.
+    if (user.twoFactorEnabled) {
+      const challenge = await signChallenge(user.id);
+      return NextResponse.json({ needs2FA: true, challenge });
     }
 
     const token = await signSession({ uid: user.id, role: user.role });
