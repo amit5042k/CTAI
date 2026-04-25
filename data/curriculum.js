@@ -1540,6 +1540,52 @@ export const curriculum = [
           "Use distances and times in problem solving",
         ],
         activities: ["Plan a town tour with stops and timings"],
+        intro:
+          "Planning a journey means deciding the route, the stops and how long each part takes. Adding distances and times needs careful arithmetic.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Total distance",
+            problem:
+              "A bus goes 25 km from town A to B, then 40 km from B to C. What is the total distance?",
+            solution: "25 + 40 = 65 km.",
+          },
+          {
+            id: "ex-2",
+            title: "Trip duration",
+            problem:
+              "If a train leaves at 9:15 and reaches at 11:45, how long is the trip?",
+            solution:
+              "From 9:15 to 11:15 is 2 hours; from 11:15 to 11:45 is 30 minutes. Total: 2 hours 30 minutes.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "A car drives 35 km, then another 48 km. How many km altogether?",
+            answer: "83",
+            explanation: "35 + 48 = 83 km.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "A bus leaves at 7:00 and arrives at 9:30. How long is the journey?",
+            options: ["1 h 30 min", "2 h", "2 h 30 min", "3 h"],
+            answerIndex: 2,
+            explanation: "From 7:00 to 9:30 is 2 hours 30 minutes.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: To find total distance for a multi-stop journey, you add up each leg.",
+            answer: true,
+            explanation: "Yes — total distance = sum of all legs.",
+          },
+        ],
       },
       {
         id: "c5-ct-2",
@@ -1550,6 +1596,47 @@ export const curriculum = [
           "Compare and add like fractions",
         ],
         activities: ["Fraction strips & matching cards"],
+        intro:
+          "A fraction has a top number (numerator) and a bottom number (denominator). The bottom tells how many equal parts the whole is split into; the top tells how many parts we have.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Add like fractions",
+            problem: "Find 2/7 + 3/7.",
+            solution:
+              "Denominators are the same, so add the tops: 2 + 3 = 5. Answer: 5/7.",
+          },
+          {
+            id: "ex-2",
+            title: "Compare fractions",
+            problem: "Which is bigger: 3/8 or 5/8?",
+            solution: "Same denominator, so the bigger top wins: 5/8 > 3/8.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "What is 1/5 + 2/5? (write as a fraction like 3/5)",
+            answer: "3/5",
+            explanation: "1 + 2 = 3 over the same 5.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which is the largest fraction?",
+            options: ["1/4", "1/2", "1/3", "1/5"],
+            answerIndex: 1,
+            explanation: "With the same numerator, the smallest denominator gives the largest fraction.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: 4/4 is the same as 1 whole.",
+            answer: true,
+            explanation: "Yes — all 4 of 4 equal parts make a whole.",
+          },
+        ],
       },
       {
         id: "c5-ct-3",
@@ -1560,6 +1647,47 @@ export const curriculum = [
           "Identify right, acute and obtuse angles",
         ],
         activities: ["Turn-the-arrow direction game"],
+        intro:
+          "An angle is the amount of turn between two rays. A quarter turn is 90° (a right angle), a half turn is 180°, and a full turn is 360°. Angles smaller than 90° are acute; between 90° and 180° they are obtuse.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Right angle",
+            problem: "What kind of angle is exactly 90°?",
+            solution: "A right angle.",
+          },
+          {
+            id: "ex-2",
+            title: "Acute or obtuse?",
+            problem: "Is a 45° angle acute or obtuse?",
+            solution: "Acute — it is less than 90°.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many degrees are there in a full turn?",
+            answer: "360",
+            explanation: "A full turn = 360°.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which angle is obtuse?",
+            options: ["30°", "60°", "90°", "120°"],
+            answerIndex: 3,
+            explanation: "120° is greater than 90° and less than 180°, so it's obtuse.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A half turn is the same as a 180° angle.",
+            answer: true,
+            explanation: "Yes — a half turn is 180°.",
+          },
+        ],
       },
       {
         id: "c5-ct-4",
@@ -1570,6 +1698,49 @@ export const curriculum = [
           "Reason about distance and direction",
         ],
         activities: ["Treasure-hunt with grid coordinates"],
+        intro:
+          "On a grid map, places are described by columns (letters) and rows (numbers). Directions like North, South, East and West help us find our way.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Grid reference",
+            problem:
+              "On a grid, the school is at column B, row 3. Write its grid reference.",
+            solution: "B3.",
+          },
+          {
+            id: "ex-2",
+            title: "Direction sense",
+            problem: "If you are facing North and turn right, which direction do you face?",
+            solution: "East.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Facing East, you turn left. Which direction do you face now?",
+            options: ["North", "South", "East", "West"],
+            answerIndex: 0,
+            explanation: "East → left turn → North.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "If a place is at column D, row 5, write its grid reference.",
+            answer: "D5",
+            explanation: "Column letter then row number → D5.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A right turn from South leads to West.",
+            answer: true,
+            explanation: "Yes — South → right turn → West.",
+          },
+        ],
       },
       {
         id: "c5-ct-5",
@@ -1580,6 +1751,50 @@ export const curriculum = [
           "Use scaling on simple maps",
         ],
         activities: ["Pace-out distances and graph"],
+        intro:
+          "Estimating means making a sensible guess before measuring. On a map, a scale tells us how a small distance on paper stands for a real distance.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Use the scale",
+            problem:
+              "On a map, 1 cm represents 100 m. Two points are 4 cm apart on the map. What is the real distance?",
+            solution: "4 × 100 = 400 m.",
+          },
+          {
+            id: "ex-2",
+            title: "Best estimate",
+            problem:
+              "Which is the best estimate for the length of a school playground: 5 m, 50 m, or 5 km?",
+            solution: "50 m is most realistic.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "On a map where 1 cm = 200 m, what real distance is 3 cm?",
+            answer: "600",
+            explanation: "3 × 200 = 600 m.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which is closest to the height of a typical adult?",
+            options: ["1 m", "1.7 m", "5 m", "10 m"],
+            answerIndex: 1,
+            explanation: "Most adults are about 1.5 m to 1.8 m tall.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A scale on a map lets us turn a small distance on paper into a real-world distance.",
+            answer: true,
+            explanation: "Yes — that is what a scale is for.",
+          },
+        ],
       },
       {
         id: "c5-ct-6",
@@ -1590,6 +1805,51 @@ export const curriculum = [
           "Reason with rates (litres per cow)",
         ],
         activities: ["Plan daily milk supply for a school"],
+        intro:
+          "Rates compare two quantities — like litres of milk per cow per day. With a rate we can scale up (more cows, more milk) or scale down (fewer cows, less milk).",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Total milk",
+            problem:
+              "A cow gives 8 litres of milk a day. How much milk do 6 cows give in a day?",
+            solution: "6 × 8 = 48 litres.",
+          },
+          {
+            id: "ex-2",
+            title: "Per-cow milk",
+            problem:
+              "A farm collects 60 litres of milk in one day from 5 cows. How much per cow on average?",
+            solution: "60 ÷ 5 = 12 litres per cow.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "If each cow gives 7 litres a day, how many litres do 9 cows give in a day?",
+            answer: "63",
+            explanation: "9 × 7 = 63 litres.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "If 4 cows give 32 litres in a day, what is the average per cow?",
+            options: ["6 l", "7 l", "8 l", "9 l"],
+            answerIndex: 2,
+            explanation: "32 ÷ 4 = 8 litres per cow.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: To find total milk, you multiply the number of cows by the milk per cow.",
+            answer: true,
+            explanation: "Yes — total = number of cows × milk per cow.",
+          },
+        ],
       },
       {
         id: "c5-ct-7",
@@ -1600,6 +1860,48 @@ export const curriculum = [
           "Generate patterns from a rule",
         ],
         activities: ["Tessellation craft with paper polygons"],
+        intro:
+          "Polygons are flat shapes with straight sides. Some polygons fit together with no gaps to cover a surface — that is called a tiling or tessellation.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Polygon name",
+            problem: "What do we call a polygon with 8 sides?",
+            solution: "An octagon.",
+          },
+          {
+            id: "ex-2",
+            title: "Make a pattern",
+            problem:
+              "If a pattern starts 1, 4, 9, 16 (squares of 1, 2, 3, 4), what comes next?",
+            solution: "5² = 25.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many sides does a heptagon have?",
+            answer: "7",
+            explanation: "A heptagon has 7 sides.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which shape can tile a floor with no gaps?",
+            options: ["Circle", "Square", "Pentagon", "Heart"],
+            answerIndex: 1,
+            explanation: "Squares tile perfectly with no gaps.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: All polygons have straight sides.",
+            answer: true,
+            explanation: "Yes — by definition, polygons have straight sides.",
+          },
+        ],
       },
       {
         id: "c5-ct-8",
@@ -1610,6 +1912,47 @@ export const curriculum = [
           "Solve word problems with measures",
         ],
         activities: ["Kitchen recipe scaling"],
+        intro:
+          "We weigh things in grams (g) and kilograms (kg), and measure liquids in millilitres (ml) and litres (l). The big units are 1000 times the small ones: 1 kg = 1000 g, 1 l = 1000 ml.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Convert kg to g",
+            problem: "How many grams are in 3.5 kg?",
+            solution: "3.5 × 1000 = 3500 g.",
+          },
+          {
+            id: "ex-2",
+            title: "Recipe scaling",
+            problem:
+              "A recipe needs 250 ml of milk for 1 person. How much milk for 4 people?",
+            solution: "250 × 4 = 1000 ml = 1 l.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Convert 2 l to ml.",
+            answer: "2000",
+            explanation: "2 × 1000 = 2000 ml.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "How many grams are in half a kilogram?",
+            options: ["50 g", "100 g", "500 g", "5000 g"],
+            answerIndex: 2,
+            explanation: "1 kg = 1000 g; half is 500 g.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: 750 ml + 250 ml = 1 litre.",
+            answer: true,
+            explanation: "Yes — 750 + 250 = 1000 ml = 1 l.",
+          },
+        ],
       },
       {
         id: "c5-ct-9",
@@ -1620,6 +1963,50 @@ export const curriculum = [
           "Estimate and verify totals",
         ],
         activities: ["Yield-per-tree estimation puzzle"],
+        intro:
+          "On a farm we use multiplication to find totals (trees × fruit per tree) and division to share or to find the average per tree.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Total coconuts",
+            problem:
+              "A farm has 25 coconut trees. If each tree gives 12 coconuts a month, how many coconuts in a month?",
+            solution: "25 × 12 = 300 coconuts.",
+          },
+          {
+            id: "ex-2",
+            title: "Per tree",
+            problem:
+              "If 200 coconuts are shared equally among 8 baskets, how many per basket?",
+            solution: "200 ÷ 8 = 25 coconuts per basket.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "15 trees, each gives 20 coconuts. Total?",
+            answer: "300",
+            explanation: "15 × 20 = 300.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "If a farm produces 144 coconuts and packs them into baskets of 12, how many baskets?",
+            options: ["10", "11", "12", "14"],
+            answerIndex: 2,
+            explanation: "144 ÷ 12 = 12 baskets.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Estimating before computing helps you check whether your answer is reasonable.",
+            answer: true,
+            explanation: "Yes — estimation is a great check.",
+          },
+        ],
       },
       {
         id: "c5-ct-10",
@@ -1630,6 +2017,49 @@ export const curriculum = [
           "Design rangoli using symmetry rules",
         ],
         activities: ["Make a symmetric rangoli on paper"],
+        intro:
+          "A figure has rotational symmetry if it looks the same after a turn. The order of symmetry counts how many times it matches in one full turn.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Order of rotational symmetry",
+            problem:
+              "An equilateral triangle looks the same every 120° turn. What is its order of rotational symmetry?",
+            solution: "It matches 3 times in a full turn, so order = 3.",
+          },
+          {
+            id: "ex-2",
+            title: "Square symmetry",
+            problem: "What is the order of rotational symmetry of a square?",
+            solution: "A square matches every 90°, so order = 4.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt:
+              "What is the order of rotational symmetry of a regular hexagon?",
+            answer: "6",
+            explanation: "It matches every 60°, so order = 6.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "Which letter has rotational symmetry of order 2?",
+            options: ["A", "B", "S", "T"],
+            answerIndex: 2,
+            explanation: "S looks the same after a 180° turn — order 2.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A circle has rotational symmetry for any angle.",
+            answer: true,
+            explanation: "Yes — a circle is unchanged after any rotation.",
+          },
+        ],
       },
       {
         id: "c5-ct-11",
@@ -1640,6 +2070,50 @@ export const curriculum = [
           "Reason about area through tiles",
         ],
         activities: ["Design a 4x4 quilt with two colours"],
+        intro:
+          "A quilt is made of tiles. Counting tiles helps us see fractions of the whole and to reason about area.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Fraction of a quilt",
+            problem:
+              "A quilt has 16 squares; 4 are red. What fraction of the quilt is red?",
+            solution: "4/16, which simplifies to 1/4.",
+          },
+          {
+            id: "ex-2",
+            title: "Area in tiles",
+            problem:
+              "A rectangular patch is 3 tiles long and 5 tiles wide. How many tiles does it cover?",
+            solution: "3 × 5 = 15 tiles.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "Out of 20 tiles, 5 are blue. What fraction is blue (in simplest form)?",
+            options: ["1/2", "1/4", "1/5", "1/10"],
+            answerIndex: 1,
+            explanation: "5/20 = 1/4.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "A rectangle is 6 tiles by 4 tiles. How many tiles total?",
+            answer: "24",
+            explanation: "6 × 4 = 24.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: Counting unit tiles is one way to find the area of a rectangle.",
+            answer: true,
+            explanation: "Yes — counting tiles equals area in tile-units.",
+          },
+        ],
       },
       {
         id: "c5-ct-12",
@@ -1650,6 +2124,48 @@ export const curriculum = [
           "Compute durations and order events",
         ],
         activities: ["Stopwatch relay & timeline"],
+        intro:
+          "60 seconds make a minute and 60 minutes make an hour. To find a duration, subtract the start time from the end time.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Convert minutes to seconds",
+            problem: "How many seconds are in 5 minutes?",
+            solution: "5 × 60 = 300 seconds.",
+          },
+          {
+            id: "ex-2",
+            title: "Race times",
+            problem:
+              "Two runners finish at 1 minute 20 seconds and 1 minute 35 seconds. What is the difference?",
+            solution: "35 − 20 = 15 seconds.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "How many seconds are there in 1 hour?",
+            answer: "3600",
+            explanation: "60 × 60 = 3600 seconds.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt:
+              "Runner A: 42 s. Runner B: 38 s. Who is faster and by how much?",
+            options: ["A by 4 s", "B by 4 s", "A by 6 s", "B by 6 s"],
+            answerIndex: 1,
+            explanation: "Smaller time = faster. 42 − 38 = 4 s, so B is faster by 4 s.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt: "True or False: 90 seconds is the same as 1 minute 30 seconds.",
+            answer: true,
+            explanation: "Yes — 60 + 30 = 90 seconds.",
+          },
+        ],
       },
       {
         id: "c5-ct-13",
@@ -1660,6 +2176,47 @@ export const curriculum = [
           "Find missing numbers from sequences",
         ],
         activities: ["Number-line jump puzzles"],
+        intro:
+          "Every step on a number line is a jump of a fixed size. If we know the start, the jump and the number of jumps, we can find where we land.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Jumps of 4",
+            problem: "Start at 7 and take 3 jumps of 4 forward. Where do you land?",
+            solution: "7 + (3 × 4) = 7 + 12 = 19.",
+          },
+          {
+            id: "ex-2",
+            title: "Find the rule",
+            problem: "What rule continues the sequence 6, 11, 16, 21, ?",
+            solution: "Add 5 each time. Next: 21 + 5 = 26.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "short",
+            prompt: "Start at 12 and take 5 jumps of 3. Where do you land?",
+            answer: "27",
+            explanation: "12 + (5 × 3) = 27.",
+          },
+          {
+            id: "q2",
+            type: "mcq",
+            prompt: "What number is missing? 4, 9, 14, ?, 24",
+            options: ["18", "19", "20", "21"],
+            answerIndex: 1,
+            explanation: "Add 5 each step: 14 + 5 = 19.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: To go backward on a number line, you can use subtraction.",
+            answer: true,
+            explanation: "Yes — backward jumps are subtractions.",
+          },
+        ],
       },
       {
         id: "c5-ct-14",
@@ -1670,6 +2227,50 @@ export const curriculum = [
           "Locate places on simple maps",
         ],
         activities: ["Mark school landmarks on a grid"],
+        intro:
+          "A map uses scale to shrink distances, directions to show which way is which, and grid references to pinpoint locations. Together they help us find places quickly.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Scale to real distance",
+            problem:
+              "On a map 1 cm = 500 m. The library is 6 cm from the school on the map. How far in real life?",
+            solution: "6 × 500 = 3000 m, or 3 km.",
+          },
+          {
+            id: "ex-2",
+            title: "Combined direction",
+            problem:
+              "Start facing East. Take a half turn (180°). Which direction now?",
+            solution: "West.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt:
+              "On a 1 cm = 1 km map, two cities are 25 cm apart on paper. Real distance?",
+            options: ["2.5 km", "25 km", "100 km", "250 km"],
+            answerIndex: 1,
+            explanation: "25 × 1 km = 25 km.",
+          },
+          {
+            id: "q2",
+            type: "short",
+            prompt: "Facing North, turn through 90° clockwise. Which direction now?",
+            answer: "East",
+            explanation: "Clockwise from North → East.",
+          },
+          {
+            id: "q3",
+            type: "tf",
+            prompt:
+              "True or False: A grid reference like C4 tells you which column and row a place is in.",
+            answer: true,
+            explanation: "Yes — column letter and row number.",
+          },
+        ],
       },
       {
         id: "c5-ct-15",
