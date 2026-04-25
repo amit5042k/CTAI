@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { useState } from "react";
 
 const STATUS_LABEL = {
   not_started: "Not started",
@@ -22,36 +19,24 @@ export default function UnitCard({
   canTrack,
   classLevel,
 }) {
-  const [status, setStatus] = useState(initialStatus);
-  const [saving, setSaving] = useState(false);
-
   const hasPractice = (unit.exerciseCount || 0) > 0;
-
-  async function update(next) {
-    if (!canTrack) return;
-    setSaving(true);
-    try {
-      const res = await fetch("/api/progress", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ unitId: unit.id, status: next }),
-      });
-      if (res.ok) setStatus(next);
-    } finally {
-      setSaving(false);
-    }
-  }
+  const locked = !!unit.locked;
 
   return (
-    <article className="card flex flex-col">
+    <article className={`card flex flex-col ${locked ? "opacity-70" : ""}`}>
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-lg font-semibold text-slate-900">
-          Unit {index}: {unit.name}
+          Unit {index}: {unit.name}{" "}
+          {locked && (
+            <span className="ml-1 text-base" title="Locked by teacher">
+              🔒
+            </span>
+          )}
         </h3>
         <span
-          className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${STATUS_STYLE[status]}`}
+          className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${STATUS_STYLE[initialStatus] || STATUS_STYLE.not_started}`}
         >
-          {STATUS_LABEL[status]}
+          {STATUS_LABEL[initialStatus] || STATUS_LABEL.not_started}
         </span>
       </div>
 
@@ -67,37 +52,25 @@ export default function UnitCard({
       </div>
 
       <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-slate-100 pt-3">
-        <Link
-          href={`/curriculum/${classLevel}/${unit.id}`}
-          className="btn-primary"
-        >
-          {hasPractice ? "Open chapter & practice" : "Open chapter"}
-        </Link>
-        {hasPractice && (
+        {locked ? (
+          <span className="rounded-md border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs text-amber-900">
+            🔒 Waiting for teacher to unlock
+          </span>
+        ) : (
+          <Link
+            href={`/curriculum/${classLevel}/${unit.id}`}
+            className="btn-primary"
+          >
+            {hasPractice ? "Open chapter & practice" : "Open chapter"}
+          </Link>
+        )}
+        {hasPractice && !locked && (
           <span className="text-xs text-slate-500">
-            {unit.exerciseCount} graded question{unit.exerciseCount === 1 ? "" : "s"}
+            {unit.exerciseCount} graded question
+            {unit.exerciseCount === 1 ? "" : "s"}
           </span>
         )}
       </div>
-
-      {canTrack && (
-        <div className="mt-3 flex flex-wrap gap-2">
-          {["not_started", "in_progress", "completed"].map((s) => (
-            <button
-              key={s}
-              disabled={saving || status === s}
-              onClick={() => update(s)}
-              className={`btn text-xs ${
-                status === s
-                  ? "bg-brand-600 text-white"
-                  : "border border-slate-300 bg-white"
-              }`}
-            >
-              {STATUS_LABEL[s]}
-            </button>
-          ))}
-        </div>
-      )}
     </article>
   );
 }

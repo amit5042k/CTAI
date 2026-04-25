@@ -61,6 +61,18 @@ export default function SectionsManager({
     router.refresh();
   }
 
+  async function updateTeacherIds(id, teacherIds) {
+    const res = await fetch(`/api/admin/sections/${id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ teacherIds }),
+    });
+    if (!res.ok) return;
+    const { section } = await res.json();
+    setSections(sections.map((s) => (s.id === id ? section : s)));
+    router.refresh();
+  }
+
   async function remove(id) {
     if (!confirm("Delete this section? Students will be unassigned.")) return;
     const res = await fetch(`/api/admin/sections/${id}`, { method: "DELETE" });
@@ -154,7 +166,7 @@ export default function SectionsManager({
                 </thead>
                 <tbody>
                   {g.items.map((s) => (
-                    <tr key={s.id} className="border-b border-slate-100">
+                    <tr key={s.id} className="border-b border-slate-100 align-top">
                       <td className="py-2 pr-4 font-medium">
                         Class {s.classLevel} - {s.name}
                       </td>
@@ -173,6 +185,40 @@ export default function SectionsManager({
                             </option>
                           ))}
                         </select>
+                        <p className="mt-2 text-xs text-slate-500">
+                          Other teachers
+                        </p>
+                        <div className="mt-1 flex flex-wrap gap-2">
+                          {teachers.map((t) => {
+                            const ids = Array.isArray(s.teacherIds)
+                              ? s.teacherIds
+                              : [];
+                            const checked = ids.includes(t.id);
+                            return (
+                              <label
+                                key={t.id}
+                                className="flex items-center gap-1 text-xs"
+                              >
+                                <input
+                                  type="checkbox"
+                                  checked={checked}
+                                  onChange={(e) => {
+                                    const next = e.target.checked
+                                      ? [...new Set([...ids, t.id])]
+                                      : ids.filter((x) => x !== t.id);
+                                    updateTeacherIds(s.id, next);
+                                  }}
+                                />
+                                {t.name}
+                              </label>
+                            );
+                          })}
+                          {teachers.length === 0 && (
+                            <span className="text-xs text-slate-400">
+                              Enrol teachers to assign them here.
+                            </span>
+                          )}
+                        </div>
                       </td>
                       <td className="py-2 text-right">
                         <button

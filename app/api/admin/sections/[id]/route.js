@@ -22,6 +22,8 @@ export async function PATCH(req, { params }) {
   if (patch.name !== undefined) allowed.name = String(patch.name).trim();
   if (patch.classTeacherId !== undefined)
     allowed.classTeacherId = patch.classTeacherId || null;
+  if (patch.teacherIds !== undefined && Array.isArray(patch.teacherIds))
+    allowed.teacherIds = patch.teacherIds.filter(Boolean);
   const updated = updateSection(params.id, allowed);
   return NextResponse.json({ section: updated });
 }

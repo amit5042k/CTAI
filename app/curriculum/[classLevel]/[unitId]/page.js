@@ -3,9 +3,8 @@ import { notFound } from "next/navigation";
 import { getClass } from "@/data/curriculum";
 import { findUnit, publicUnit } from "@/lib/curriculumServer";
 import { getCurrentUser } from "@/lib/auth";
-import { getProgressForUser, setProgress } from "@/lib/db";
+import { getProgressForUser, isUnitUnlocked } from "@/lib/db";
 import Practice from "@/components/Practice";
-import StatusToggle from "@/components/StatusToggle";
 
 export default async function UnitDetailPage({ params }) {
   const cls = getClass(params.classLevel);
@@ -20,8 +19,13 @@ export default async function UnitDetailPage({ params }) {
   const status =
     progress.find((p) => p.unitId === unit.id)?.status || "not_started";
 
-  const canTrack =
+  const isOwnClassStudent =
     user?.role === "student" && user.classLevel === cls.classLevel;
+  const studentLocked =
+    isOwnClassStudent &&
+    user.sectionId &&
+    !isUnitUnlocked(user.sectionId, unit.id);
+  const canTrack = isOwnClassStudent && !studentLocked;
   const canSeeTeacherNotes =
     user?.role === "teacher" ||
     user?.role === "admin" ||
@@ -76,12 +80,24 @@ export default async function UnitDetailPage({ params }) {
           </div>
         </div>
 
-        {canTrack && (
-          <div className="mt-5 border-t border-slate-100 pt-4">
-            <StatusToggle unitId={unit.id} initialStatus={status} />
+        {isOwnClassStudent && (
+          <div className="mt-5 border-t border-slate-100 pt-4 text-sm">
+            <span className="text-slate-500">Status: </span>
+            <ProgressBadge status={status} />
+            <p className="mt-1 text-xs text-slate-500">
+              Your status updates automatically as you answer the practice
+              questions below.
+            </p>
           </div>
         )}
       </header>
+
+      {studentLocked && (
+        <div className="rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          🔒 This chapter is locked. Your teacher will unlock it when it's
+          time to learn it.
+        </div>
+      )}
 
       {(unit.examples || []).length > 0 ? (
         <section className="card">
@@ -121,11 +137,21 @@ export default async function UnitDetailPage({ params }) {
       )}
 
       {hasPractice ? (
-        <Practice
-          unitId={unit.id}
-          exercises={safeUnit.exercises}
-          canTrack={canTrack}
-        />
+        studentLocked ? (
+          <section className="card opacity-70">
+            <h2 className="text-lg font-semibold">Self-do practice</h2>
+            <p className="mt-1 text-sm text-slate-600">
+              Practice will be available once your teacher unlocks this
+              chapter.
+            </p>
+          </section>
+        ) : (
+          <Practice
+            unitId={unit.id}
+            exercises={safeUnit.exercises}
+            canTrack={canTrack}
+          />
+        )
       ) : (
         <section className="card">
           <h2 className="text-lg font-semibold">Self-do practice</h2>
@@ -269,5 +295,21 @@ export default async function UnitDetailPage({ params }) {
         )}
       </nav>
     </div>
+  );
+}
+
+function ProgressBadge({ status }) {
+  const map = {
+    not_started: ["bg-slate-100 text-slate-700", "Not started"],
+    in_progress: ["bg-amber-100 text-amber-800", "In progress"],
+    completed: ["bg-emerald-100 text-emerald-800", "Completed"],
+  };
+  const [cls, label] = map[status] || map.not_started;
+  return (
+    <span
+      className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${cls}`}
+    >
+      {label}
+    </span>
   );
 }

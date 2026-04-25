@@ -6,8 +6,10 @@ import {
   getAllProgress,
   listSections,
   findSchoolById,
+  listUnlocks,
 } from "@/lib/db";
 import { curriculum } from "@/data/curriculum";
+import UnlockRow from "@/components/UnlockRow";
 
 export default async function TeacherDashboard() {
   const user = await getCurrentUser();
@@ -21,48 +23,71 @@ export default async function TeacherDashboard() {
   const schoolId = user.schoolId;
   const school = schoolId ? findSchoolById(schoolId) : null;
   const filter = schoolId ? { schoolId } : {};
-  const students = listUsers({ ...filter, role: "student" });
+  const allSections = listSections(filter);
+
+  // A teacher only sees sections where they are class teacher OR
+  // listed in section.teacherIds. Other school sections are hidden.
+  const mySections = allSections.filter(
+    (s) =>
+      s.classTeacherId === user.id ||
+      (Array.isArray(s.teacherIds) && s.teacherIds.includes(user.id)),
+  );
+  const mySectionIds = new Set(mySections.map((s) => s.id));
+  const myClassLevels = new Set(mySections.map((s) => s.classLevel));
+
+  // Students restricted to teacher's sections.
+  const allStudents = listUsers({ ...filter, role: "student" });
+  const students = allStudents.filter((s) => mySectionIds.has(s.sectionId));
+
   const allProgress = getAllProgress();
   const studentIds = new Set(students.map((s) => s.id));
   const progress = allProgress.filter((p) => studentIds.has(p.userId));
-  const sections = listSections(filter);
-  const sectionById = Object.fromEntries(sections.map((s) => [s.id, s]));
-  const mySectionIds = new Set(
-    sections.filter((s) => s.classTeacherId === user.id).map((s) => s.id),
-  );
+  const sectionById = Object.fromEntries(allSections.map((s) => [s.id, s]));
 
-  const byClass = curriculum.map((cls) => {
-    const classStudents = students.filter(
-      (s) => s.classLevel === cls.classLevel,
-    );
-    const totalUnits = cls.units.length;
-    const sectionsForClass = sections
-      .filter((s) => s.classLevel === cls.classLevel)
-      .sort((a, b) => a.name.localeCompare(b.name));
-    return {
-      classLevel: cls.classLevel,
-      title: cls.title,
-      totalUnits,
-      sections: sectionsForClass,
-      students: classStudents.map((s) => {
-        const items = progress.filter((p) => p.userId === s.id);
-        const completed = items.filter((p) => p.status === "completed").length;
-        const inProgress = items.filter(
-          (p) => p.status === "in_progress",
-        ).length;
-        return {
-          ...s,
-          completed,
-          inProgress,
-          totalUnits,
-          pct: totalUnits ? Math.round((completed / totalUnits) * 100) : 0,
-        };
-      }),
-    };
-  });
+  const byClass = curriculum
+    .filter((cls) => myClassLevels.has(cls.classLevel))
+    .map((cls) => {
+      const classStudents = students.filter(
+        (s) => s.classLevel === cls.classLevel,
+      );
+      const totalUnits = cls.units.length;
+      const sectionsForClass = mySections
+        .filter((s) => s.classLevel === cls.classLevel)
+        .sort((a, b) => a.name.localeCompare(b.name));
+      return {
+        classLevel: cls.classLevel,
+        title: cls.title,
+        units: cls.units,
+        totalUnits,
+        sections: sectionsForClass,
+        students: classStudents.map((s) => {
+          const items = progress.filter((p) => p.userId === s.id);
+          const completed = items.filter(
+            (p) => p.status === "completed",
+          ).length;
+          const inProgress = items.filter(
+            (p) => p.status === "in_progress",
+          ).length;
+          return {
+            ...s,
+            completed,
+            inProgress,
+            totalUnits,
+            pct: totalUnits ? Math.round((completed / totalUnits) * 100) : 0,
+          };
+        }),
+      };
+    });
 
   const totalStudents = students.length;
   const completedAll = progress.filter((p) => p.status === "completed").length;
+  const allUnlocks = listUnlocks();
+  const unlockedBySection = mySections.reduce((acc, s) => {
+    acc[s.id] = new Set(
+      allUnlocks.filter((u) => u.sectionId === s.id).map((u) => u.unitId),
+    );
+    return acc;
+  }, {});
 
   return (
     <div className="space-y-8">
@@ -76,24 +101,25 @@ export default async function TeacherDashboard() {
             </span>
           )}
         </p>
-        {mySectionIds.size > 0 && (
+        {mySections.length > 0 ? (
           <p className="mt-2 text-sm text-slate-500">
-            You are class teacher of:{" "}
-            {[...mySectionIds]
-              .map((id) => {
-                const s = sectionById[id];
-                return s ? `Class ${s.classLevel}-${s.name}` : "";
-              })
-              .filter(Boolean)
+            Your sections:{" "}
+            {mySections
+              .map((s) => `Class ${s.classLevel}-${s.name}`)
               .join(", ")}
+          </p>
+        ) : (
+          <p className="mt-2 text-sm text-amber-700">
+            You are not yet assigned to any section. Ask your school admin to
+            add you as a class teacher or to a section.
           </p>
         )}
       </header>
 
       <section className="grid gap-4 sm:grid-cols-3">
-        <Stat label="Students enrolled" value={totalStudents} />
-        <Stat label="Units completed (all)" value={completedAll} />
-        <Stat label="Classes covered" value={curriculum.length} />
+        <Stat label="Your students" value={totalStudents} />
+        <Stat label="Units completed" value={completedAll} />
+        <Stat label="Classes" value={byClass.length} />
       </section>
 
       {byClass.map((c) => (
@@ -113,13 +139,44 @@ export default async function TeacherDashboard() {
 
           {c.sections.length > 0 && (
             <p className="mt-1 text-xs text-slate-500">
-              Sections: {c.sections.map((s) => s.name).join(", ")}
+              Sections you teach:{" "}
+              {c.sections.map((s) => s.name).join(", ")}
             </p>
           )}
 
+          <div className="mt-4 grid gap-4 lg:grid-cols-2">
+            {c.sections.map((sec) => {
+              const unlocked = unlockedBySection[sec.id] || new Set();
+              return (
+                <div
+                  key={sec.id}
+                  className="rounded-lg border border-slate-200 bg-slate-50 p-4"
+                >
+                  <h3 className="text-sm font-semibold text-slate-700">
+                    Class {sec.classLevel}-{sec.name} · chapter unlocks
+                  </h3>
+                  <p className="mt-1 text-xs text-slate-500">
+                    Tick a chapter to make it visible to students in this
+                    section.
+                  </p>
+                  <ul className="mt-3 max-h-56 space-y-1 overflow-y-auto pr-1 text-sm">
+                    {c.units.map((u) => (
+                      <UnlockRow
+                        key={u.id}
+                        sectionId={sec.id}
+                        unit={u}
+                        initiallyUnlocked={unlocked.has(u.id)}
+                      />
+                    ))}
+                  </ul>
+                </div>
+              );
+            })}
+          </div>
+
           {c.students.length === 0 ? (
-            <p className="mt-3 text-sm text-slate-500">
-              No students enrolled in this class yet.
+            <p className="mt-4 text-sm text-slate-500">
+              No students in your sections yet.
             </p>
           ) : (
             <div className="mt-4 overflow-x-auto">

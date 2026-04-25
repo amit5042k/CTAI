@@ -14,6 +14,17 @@ export default async function TeacherStudentDetail({ params }) {
   const student = findUserById(params.id);
   if (!student || student.role !== "student") return notFound();
 
+  // A teacher can only view a student in one of their assigned sections.
+  const studentSection = student.sectionId
+    ? findSectionById(student.sectionId)
+    : null;
+  const teaches =
+    studentSection &&
+    (studentSection.classTeacherId === user.id ||
+      (Array.isArray(studentSection.teacherIds) &&
+        studentSection.teacherIds.includes(user.id)));
+  if (!teaches) return notFound();
+
   const cls = getClass(student.classLevel);
   const section = student.sectionId ? findSectionById(student.sectionId) : null;
   const progress = getProgressForUser(student.id);

@@ -2,7 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getClass, curriculum } from "@/data/curriculum";
 import { getCurrentUser } from "@/lib/auth";
-import { getProgressForUser } from "@/lib/db";
+import { getProgressForUser, listUnlocks } from "@/lib/db";
 import UnitCard from "@/components/UnitCard";
 
 export function generateStaticParams() {
@@ -18,6 +18,13 @@ export default async function ClassPage({ params }) {
   const progressMap = Object.fromEntries(
     progress.map((p) => [p.unitId, p.status]),
   );
+  // Build a quick set of unit ids unlocked for the student's section.
+  let unlockedSet = null;
+  if (user?.role === "student" && user.sectionId) {
+    unlockedSet = new Set(
+      listUnlocks({ sectionId: user.sectionId }).map((u) => u.unitId),
+    );
+  }
 
   return (
     <div className="space-y-8">
@@ -79,22 +86,30 @@ export default async function ClassPage({ params }) {
           <section key={g.title} className="space-y-3">
             <h2 className="text-xl font-bold text-slate-900">{g.title}</h2>
             <div className="grid gap-4 md:grid-cols-2">
-              {g.units.map((u, i) => (
-                <UnitCard
-                  key={u.id}
-                  unit={{
-                    id: u.id,
-                    name: u.name,
-                    outcomes: u.outcomes,
-                    activities: u.activities,
-                    exerciseCount: (u.exercises || []).length,
-                  }}
-                  classLevel={cls.classLevel}
-                  index={i + 1}
-                  initialStatus={progressMap[u.id] || "not_started"}
-                  canTrack={canTrack}
-                />
-              ))}
+              {g.units.map((u, i) => {
+                const locked =
+                  user?.role === "student" &&
+                  user.classLevel === cls.classLevel &&
+                  user.sectionId &&
+                  !(unlockedSet && unlockedSet.has(u.id));
+                return (
+                  <UnitCard
+                    key={u.id}
+                    unit={{
+                      id: u.id,
+                      name: u.name,
+                      outcomes: u.outcomes,
+                      activities: u.activities,
+                      exerciseCount: (u.exercises || []).length,
+                      locked,
+                    }}
+                    classLevel={cls.classLevel}
+                    index={i + 1}
+                    initialStatus={progressMap[u.id] || "not_started"}
+                    canTrack={canTrack && !locked}
+                  />
+                );
+              })}
             </div>
           </section>
         ));
