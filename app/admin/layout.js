@@ -6,6 +6,7 @@ export default async function AdminLayout({ children }) {
   const user = await getCurrentUser();
   if (!user) redirect("/login");
   if (user.role !== "admin") {
+    if (user.role === "superadmin") redirect("/superadmin");
     redirect(user.role === "teacher" ? "/dashboard/teacher" : "/dashboard/student");
   }
   return (
@@ -18,6 +19,7 @@ export default async function AdminLayout({ children }) {
           <AdminLink href="/admin">Overview</AdminLink>
           <AdminLink href="/admin/sections">Classes & sections</AdminLink>
           <AdminLink href="/admin/users">Teachers & students</AdminLink>
+          <AdminLink href="/admin/security">Security</AdminLink>
         </nav>
       </aside>
       <div>{children}</div>

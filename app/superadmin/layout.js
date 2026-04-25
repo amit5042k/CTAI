@@ -20,6 +20,7 @@ export default async function SuperadminLayout({ children }) {
           <SLink href="/superadmin">Overview</SLink>
           <SLink href="/superadmin/schools">Schools</SLink>
           <SLink href="/superadmin/admins">School admins</SLink>
+          <SLink href="/superadmin/security">Security</SLink>
         </nav>
       </aside>
       <div>{children}</div>
