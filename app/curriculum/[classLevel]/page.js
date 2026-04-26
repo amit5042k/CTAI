@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getClass, curriculum } from "@/data/curriculum";
 import { getCurrentUser } from "@/lib/auth";
 import { getProgressForUser, listUnlocks } from "@/lib/db";
+import { getExerciseCount } from "@/lib/curriculumServer";
 import UnitCard from "@/components/UnitCard";
 
 export function generateStaticParams() {
@@ -100,7 +101,7 @@ export default async function ClassPage({ params }) {
                       name: u.name,
                       outcomes: u.outcomes,
                       activities: u.activities,
-                      exerciseCount: (u.exercises || []).length,
+                      exerciseCount: getExerciseCount(u.id, u.exercises),
                       locked,
                     }}
                     classLevel={cls.classLevel}
