@@ -60,7 +60,9 @@ if (password.length < 8) {
   process.exit(1);
 }
 
-const DATA_DIR = path.join(process.cwd(), "data");
+const DATA_DIR = process.env.CTAI_DATA_DIR
+  ? path.resolve(process.env.CTAI_DATA_DIR)
+  : path.join(process.cwd(), "data");
 const DB_FILE = path.join(DATA_DIR, "portal.db");
 if (!fs.existsSync(DATA_DIR)) fs.mkdirSync(DATA_DIR, { recursive: true });
 const db = new Database(DB_FILE);

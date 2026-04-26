@@ -2,9 +2,9 @@ import fs from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
 import { requireSuperadmin } from "@/lib/adminGuard";
-import { findSchoolById, updateSchool } from "@/lib/db";
+import { findSchoolById, updateSchool, ctaiDataDir } from "@/lib/db";
 
-const LOGO_DIR = path.join(process.cwd(), "data", "logos");
+const LOGO_DIR = path.join(ctaiDataDir, "logos");
 const ALLOWED = {
   "image/png": "png",
   "image/jpeg": "jpg",

@@ -1,9 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 import { NextResponse } from "next/server";
-import { findSchoolById } from "@/lib/db";
+import { findSchoolById, ctaiDataDir } from "@/lib/db";
 
-const LOGO_DIR = path.join(process.cwd(), "data", "logos");
+const LOGO_DIR = path.join(ctaiDataDir, "logos");
 
 export async function GET(_req, { params }) {
   const school = findSchoolById(params.id);

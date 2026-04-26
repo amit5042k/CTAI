@@ -14,17 +14,19 @@ You'll need:
 
 ---
 
-## 1. Prepare a folder on the NAS
+## 1. Prepare folders on the NAS
 
-In **File Station**:
+In **File Station**, create these two SEPARATE folders inside the `docker`
+shared folder:
 
-1. Inside the `docker` shared folder (create it if it doesn't exist), make a
-   new folder called `ctai`.
-2. Inside `ctai`, make an empty folder called `data`.
+1. `/volume1/docker/ctai-app-app/` — code and Dockerfile go here.
+2. `/volume1/docker/ctai-app-data/` — `portal.db` and uploaded school logos
+   go here.
 
-The full path will be `/volume1/docker/ctai/data`. SQLite (`portal.db`) and
-uploaded school logos will live here. Back this folder up however you back
-up the NAS.
+> **Why two folders?** Keeping the database OUTSIDE the app folder means
+> `git pull` / `git clone` / "redeploy" / "delete container and recreate"
+> can never wipe your accounts. The database is mounted into the
+> container as a volume from `ctai-data` and is independent of the code.
 
 ---
 
@@ -39,7 +41,7 @@ Two options. Pick whichever is easier for you.
 3. On the NAS:
 
    ```bash
-   cd /volume1/docker/ctai
+   cd /volume1/docker/ctai-app
    git clone -b claude/cbse-ctai-curriculum-app-kyooB \
      https://github.com/amit5042k/ctai.git app
    ```
@@ -48,27 +50,31 @@ Two options. Pick whichever is easier for you.
 
 1. On GitHub, **Code → Download ZIP** for the branch
    `claude/cbse-ctai-curriculum-app-kyooB`.
-2. In **File Station**, upload the zip into `/volume1/docker/ctai`, right-
+2. In **File Station**, upload the zip into `/volume1/docker/ctai-app`, right-
    click → **Extract here**, then rename the extracted folder to `app`.
 
-You should now have `/volume1/docker/ctai/app/Dockerfile` etc.
+You should now have `/volume1/docker/ctai-app/app/Dockerfile` etc.
 
 ---
 
-## 3. Set the JWT secret
+## 3. Set the JWT secret AND the data path
 
 1. Open **Text Editor** (DSM) on the file
-   `/volume1/docker/ctai/app/.env` (create it).
+   `/volume1/docker/ctai-app/app/.env` (create it).
 2. Generate a long random string. On a Mac/Linux:
    `openssl rand -hex 32`. On Windows PowerShell:
    `[Convert]::ToHexString((1..32 | ForEach-Object {Get-Random -Max 256}))`
-3. Save the file with one line:
+3. Save the file with these two lines:
 
    ```ini
    JWT_SECRET=paste-your-64-character-hex-string-here
+   CTAI_DATA_PATH=/volume1/docker/ctai-data
    ```
 
-`docker-compose.yml` reads this automatically.
+`docker-compose.yml` reads both. `CTAI_DATA_PATH` points the container's
+`/data` mount at the **separate** `ctai-data` folder you made in step 1.
+Because that folder is outside the app folder, every redeploy/rebuild/
+zip-extract leaves your database completely alone.
 
 ---
 
@@ -78,7 +84,7 @@ You should now have `/volume1/docker/ctai/app/Dockerfile` etc.
 
 1. Open **Container Manager**.
 2. **Project → Create**.
-3. Project name: `ctai`. Path: `/volume1/docker/ctai/app`.
+3. Project name: `ctai`. Path: `/volume1/docker/ctai-app/app`.
 4. Source: **Use existing docker-compose.yml**. Container Manager picks up
    the `docker-compose.yml` already in the folder.
 5. Click **Next → Next → Done**. Container Manager builds the image (this
@@ -91,7 +97,7 @@ You should now have `/volume1/docker/ctai/app/Dockerfile` etc.
 DSM 6 doesn't expose a Compose UI. SSH into the NAS:
 
 ```bash
-cd /volume1/docker/ctai/app
+cd /volume1/docker/ctai-app/app
 sudo docker compose up -d --build
 ```
 
@@ -143,26 +149,37 @@ You can now keep port 3000 closed on your router and only expose 443.
 
 ```bash
 ssh <dsm-user>@<nas-ip>
-cd /volume1/docker/ctai/app
+cd /volume1/docker/ctai-app/app
 git pull
 sudo docker compose up -d --build
 ```
 
-The SQLite database in `/volume1/docker/ctai/app/data/portal.db` is
-preserved across rebuilds because it lives on the host, not in the image.
-**Login credentials never reset.**
+The SQLite database in `/volume1/docker/ctai-data/portal.db` is preserved
+across every rebuild because it lives in a separate host folder mounted
+into the container as `/data`. **Login credentials never reset.**
+
+### Verify the database is alive after a redeploy
+
+```bash
+sudo docker exec ctai npm run db-status
+```
+
+That prints the path being used (`/data/portal.db`), the file size, last
+modified time, and counts for schools / users / progress. Run it before
+and after a redeploy to confirm the database is the same file on disk.
 
 ---
 
 ## 8. Backups
 
-Back up `/volume1/docker/ctai/app/data/`. That folder contains:
+Back up `/volume1/docker/ctai-data/`. That folder contains:
 
 - `portal.db` — every account, school, section, progress and attempt.
 - `logos/` — uploaded school logos.
 
 Synology's **Hyper Backup** can include this folder in your scheduled
-backup target.
+backup target. You do NOT need to back up `/volume1/docker/ctai-app/`
+— that's just the code, which is in git.
 
 ---
 
@@ -171,7 +188,8 @@ backup target.
 | Symptom | Likely cause | Fix |
 |---------|--------------|-----|
 | Build fails on `better-sqlite3` | Missing build tools | The Dockerfile already installs them; if you're not using Docker, run on the NAS shell: `apk add python3 make g++` (Alpine) or use the Docker path |
-| `503` after deploy | Container restarting because `JWT_SECRET` isn't set | Set it in `/volume1/docker/ctai/app/.env` and restart |
-| Login resets after every rebuild | `data/` not bound to the host | Confirm `volumes: - ./data:/app/data` in `docker-compose.yml` and that `/volume1/docker/ctai/app/data` exists on the NAS |
+| `503` after deploy | Container restarting because `JWT_SECRET` isn't set | Set it in `/volume1/docker/ctai-app/app/.env` and restart |
+| **All accounts disappear after a redeploy** | The data folder is inside the app folder and gets wiped, OR the volume isn't mounted | (1) Make sure `/volume1/docker/ctai-data` exists separately. (2) Make sure your `.env` has `CTAI_DATA_PATH=/volume1/docker/ctai-data`. (3) Run `sudo docker exec ctai npm run db-status` — the file path it reports must be `/data/portal.db` and the size > 0 |
 | Can't reach `http://<nas-ip>:3000` | DSM firewall | Control Panel → Security → Firewall → allow TCP 3000 in the NAS profile |
 | Port 3000 already used by another service | Port collision | Change the **left** side of `"3000:3000"` in `docker-compose.yml` to e.g. `"3100:3000"` and use `:3100` in URLs |
+| `docker compose down -v` wiped everything | The `-v` flag deletes named volumes | Don't use `-v`. The bind mount to `/volume1/docker/ctai-data` is what keeps your data safe; only `down` (without `-v`) is needed to recreate the container |

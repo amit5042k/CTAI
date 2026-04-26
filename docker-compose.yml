@@ -14,11 +14,15 @@ services:
       JWT_SECRET: ${JWT_SECRET:-change-me-please-use-a-long-random-string}
       NODE_ENV: production
       PORT: "3000"
+      # The app reads this and writes portal.db + logos here.
+      CTAI_DATA_DIR: /data
     volumes:
-      # SQLite database + uploaded school logos live here. Bind to a
-      # directory on the NAS (e.g. /volume1/docker/ctai/data) so they
-      # survive container rebuilds.
-      - ./data:/app/data
+      # IMPORTANT: keep your portal.db OUTSIDE the app folder so
+      # redeploys can never wipe it. On Synology a path like
+      #   /volume1/docker/ctai-data:/data
+      # is recommended. The default below uses ${CTAI_DATA_PATH} from
+      # your .env — set it to an absolute host path that is backed up.
+      - ${CTAI_DATA_PATH:-./data}:/data
     healthcheck:
       test: ["CMD", "wget", "-qO-", "http://localhost:3000/"]
       interval: 30s
