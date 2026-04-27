@@ -60,5 +60,15 @@ lib/
 
 ## Notes
 
-- The JSON store is ideal for dev / classroom prototypes. For production,
-  swap `lib/db.js` for a real database (Postgres, MongoDB, etc).
+- The store is now SQLite (`data/portal.db`), set the
+  `CTAI_DATA_DIR` env var to keep it OUTSIDE the deploy folder so
+  redeploys never wipe it.
+- For Postgres swap (Vercel-friendly), see `lib/db.js`.
+
+## Deploying
+
+- **Hostinger** (most common cause of "accounts wiped after commit"):
+  see `HOSTINGER.md`.
+- **Synology NAS** (Container Manager / Docker): see `SYNOLOGY.md`.
+- For a basic VPS, set `CTAI_DATA_DIR=/var/lib/ctai` (or any folder
+  outside the app) before `npm run start`.
