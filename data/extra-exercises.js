@@ -16,6 +16,8 @@ export const extraExercises = {
     { id: "q8", type: "short", prompt: "Decode 'C' if the shift was 2.", answer: "A", explanation: "C minus 2 = A." },
     { id: "q9", type: "tf", prompt: "True or False: Both sender and receiver need to know the shift.", answer: true, explanation: "Without the same key, the receiver can't decode." },
     { id: "q10", type: "mcq", prompt: "Encoded with shift 1, the word DOG becomes:", options: ["DOG", "EPH", "CFN", "FQI"], answerIndex: 1, explanation: "D→E, O→P, G→H." },
+    { id: "q11", type: "short", prompt: "If shift is 4, what letter does A become?", answer: "E", explanation: "A → B → C → D → E." },
+    { id: "q12", type: "mcq", prompt: "Caesar cipher with shift 13 turns A into:", options: ["L", "M", "N", "O"], answerIndex: 2, explanation: "13 letters after A is N." },
   ],
   "c3-ct-2": [
     { id: "q4", type: "mcq", prompt: "Which 3D shape has only one curved surface and no flat face?", options: ["Cube", "Cuboid", "Sphere", "Cone"], answerIndex: 2, explanation: "A sphere is fully curved; a cone has one flat circular base." },
