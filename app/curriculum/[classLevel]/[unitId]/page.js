@@ -11,7 +11,9 @@ export default async function UnitDetailPage({ params }) {
   if (!cls) return notFound();
   const idx = cls.units.findIndex((u) => u.id === params.unitId);
   if (idx === -1) return notFound();
-  const unit = cls.units[idx];
+  // findUnit merges data/extra-exercises.js into the chapter, so the
+  // practice panel shows the same 10+ questions the grader accepts.
+  const unit = findUnit(cls.units[idx].id).unit;
   const safeUnit = publicUnit(unit);
 
   const user = await getCurrentUser();

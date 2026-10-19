@@ -14,7 +14,6 @@ const STATUS_STYLE = {
 
 export default function UnitCard({
   unit,
-  index,
   initialStatus,
   canTrack,
   classLevel,
@@ -26,7 +25,7 @@ export default function UnitCard({
     <article className={`card flex flex-col ${locked ? "opacity-70" : ""}`}>
       <div className="flex items-start justify-between gap-3">
         <h3 className="text-lg font-semibold text-slate-900">
-          Unit {index}: {unit.name}{" "}
+          {unit.name}{" "}
           {locked && (
             <span className="ml-1 text-base" title="Locked by teacher">
               🔒

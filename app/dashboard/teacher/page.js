@@ -126,8 +126,7 @@ export default async function TeacherDashboard() {
         <section key={c.classLevel} className="card">
           <div className="flex items-center justify-between">
             <h2 className="text-lg font-semibold">
-              Class {c.classLevel} —{" "}
-              <span className="font-normal text-slate-600">{c.title}</span>
+              {c.title}
             </h2>
             <Link
               href={`/curriculum/${c.classLevel}`}
