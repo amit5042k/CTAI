@@ -11,7 +11,7 @@ export async function POST(req) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   const { password, code } = await req.json();
   const full = findUserById(me.id);
-  if (!full?.twoFactorEnabled)
+  if (!full?.twoFactorEnabled || !full?.twoFactorSecret)
     return NextResponse.json(
       { error: "2FA is not currently enabled" },
       { status: 400 },

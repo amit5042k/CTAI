@@ -52,8 +52,10 @@ export async function POST(req) {
 
     // If 2FA is enabled, do NOT issue the session yet — return a short-lived
     // challenge token that the client exchanges for a session by submitting
-    // the TOTP code to /api/auth/2fa/verify.
-    if (user.twoFactorEnabled) {
+    // the TOTP code to /api/auth/2fa/verify. Guard against the data-corruption
+    // case where twoFactorEnabled is on but no secret was ever stored
+    // (interrupted setup, direct DB edit) — that would lock the user out.
+    if (user.twoFactorEnabled && user.twoFactorSecret) {
       const challenge = await signChallenge(user.id);
       return NextResponse.json({ needs2FA: true, challenge });
     }

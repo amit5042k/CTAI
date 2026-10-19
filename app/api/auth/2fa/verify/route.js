@@ -13,7 +13,7 @@ export async function POST(req) {
       { status: 401 },
     );
   const user = findUserById(uid);
-  if (!user || !user.twoFactorEnabled)
+  if (!user || !user.twoFactorEnabled || !user.twoFactorSecret)
     return NextResponse.json(
       { error: "Account state changed. Sign in again." },
       { status: 401 },
