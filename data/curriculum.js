@@ -2973,7 +2973,7 @@ export const curriculum = [
     title: "Class 6 — Computational Thinking & Introduction to AI",
     pillars: ["Computational Thinking", "Artificial Intelligence"],
     description:
-      "Part 1 deepens CT through math-grounded patterns, geometry, primes, fractions and integers. Part 2 introduces AI in everyday life, basic data concepts, and pattern-recognition for decision making.",
+      "Part 1 deepens CT through math-grounded patterns, geometry, primes, fractions and integers. Part 2 introduces AI in everyday life, basic data concepts, pattern-recognition for decision making, and ethics & digital responsibility.",
     units: [
       {
         id: "c6-ct-1",
@@ -3869,6 +3869,91 @@ export const curriculum = [
               "True or False: A decision tree asks a series of yes/no questions to reach a decision.",
             answer: true,
             explanation: "Yes — that is exactly how decision trees work.",
+          },
+        ],
+      },
+      {
+        id: "c6-ai-4",
+        stream: "AI",
+        name: "Chapter 4: Ethics and Digital Responsibility",
+        outcomes: [
+          "Explain what ethics means and apply it to everyday technology use",
+          "Describe active and passive digital footprints",
+          "Recognise unsafe online behaviour such as phishing, weak passwords and plagiarism",
+        ],
+        activities: [
+          "Footprint trail: list everything you did online yesterday",
+          "Spot-the-scam message sorting game",
+        ],
+        teacherNotes: {
+          overview:
+            "Frame digital responsibility as the online version of rules students already follow offline — crossing roads, returning lost items, being kind. Keep it scenario-driven rather than rule-listing.",
+          lessonPlan: [
+            { stage: "Hook", minutes: 5, detail: "Ask: would you hand your house key to a stranger? Link the answer to sharing a password." },
+            { stage: "Footprint trail", minutes: 12, detail: "Pairs list yesterday's online actions and mark each as something they chose to share (active) or something collected automatically (passive)." },
+            { stage: "Scam sort", minutes: 13, detail: "Groups sort printed message cards into 'safe' and 'suspicious', underlining the clue that gave each one away (urgency, prizes, odd links, requests for OTPs)." },
+            { stage: "Class pledge", minutes: 5, detail: "Class agrees five rules for being a responsible digital citizen and displays them." },
+          ],
+          ctSkills: ["Evaluation (judging if a message is trustworthy)", "Pattern recognition (common scam clues)", "Decomposition (breaking a footprint into active vs passive parts)"],
+          misconceptions: [
+            "Believing deleted posts are gone for ever.",
+            "Thinking copying from the internet is fine because it is 'free'.",
+          ],
+          assessmentIdeas: [
+            "Exit ticket: write one active and one passive footprint you left today.",
+            "Give a sample message; students circle two clues that it is phishing.",
+          ],
+          differentiation: [
+            "Support: provide sentence starters ('This is unsafe because…').",
+            "Stretch: write a short guide for a younger sibling on choosing a strong password.",
+          ],
+        },
+        intro:
+          "Ethics means knowing what is right and choosing to do it. Online, that means being honest, respectful and careful — protecting your passwords and personal information, giving credit for others' work, and remembering that what you do online leaves a lasting digital footprint.",
+        examples: [
+          {
+            id: "ex-1",
+            title: "Active or passive footprint?",
+            problem:
+              "Riya posts a photo of her science project. A shopping app records which toys she looked at. Which footprint is which?",
+            solution:
+              "Posting the photo is an active footprint — Riya chose to share it. The app recording her browsing is a passive footprint — it was collected without her posting anything.",
+          },
+          {
+            id: "ex-2",
+            title: "Is this message safe?",
+            problem:
+              "A message says: 'You won a free tablet! Share the OTP sent to your phone within 10 minutes to claim it.' What should you do?",
+            solution:
+              "Do not reply or share the OTP. Urgency, a prize you never entered for, and a request for a one-time password are classic signs of phishing. Tell a parent or teacher.",
+          },
+        ],
+        exercises: [
+          {
+            id: "q1",
+            type: "mcq",
+            prompt: "Which is the strongest password?",
+            options: ["123456", "riya2014", "Blue!Kite#47Moon", "password"],
+            answerIndex: 2,
+            explanation:
+              "A long mix of upper and lower case letters, numbers and symbols that isn't your name or birthday is much harder to guess.",
+          },
+          {
+            id: "q2",
+            type: "tf",
+            prompt:
+              "True or False: Copying a paragraph from a website into your project without saying where it came from is plagiarism.",
+            answer: true,
+            explanation:
+              "Using someone else's work as if it were your own is plagiarism. Always give credit to the source.",
+          },
+          {
+            id: "q3",
+            type: "short",
+            prompt:
+              "What do we call the trail of information you leave behind when you use the internet? (two words)",
+            answer: "digital footprint",
+            explanation: "Everything you do online adds to your digital footprint.",
           },
         ],
       },

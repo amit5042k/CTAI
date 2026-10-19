@@ -517,8 +517,17 @@ export const extraExercises = {
     { id: "q6", type: "short", prompt: "Continue: 1, 2, 4, 8, 16, ?", answer: "32", explanation: "Doubling pattern." },
     { id: "q7", type: "mcq", prompt: "IF temperature > 30°C THEN turn on fan. Outside 32°C, what happens?", options: ["Nothing", "Fan turns on", "Fan turns off", "AC turns on"], answerIndex: 1, explanation: "32 > 30, condition true." },
     { id: "q8", type: "tf", prompt: "True or False: Simple rules can be wrong if the world doesn't fit them.", answer: true, explanation: "Rules need updating." },
-    { id: "q9", type: "short", prompt: "The opposite of recognising a pattern is ___.", answer: "noise", explanation: "Random/irrelevant variation." },
+    { id: "q9", type: "short", prompt: "What do we call a diagram of yes/no questions that leads step by step to a decision? (two words)", answer: "decision tree", explanation: "Each branch of a decision tree is a yes/no question; the leaves are the decisions." },
     { id: "q10", type: "mcq", prompt: "Which is a good rule to learn from data?", options: ["Always say yes", "If a customer often buys A, suggest A's pair B", "Pick randomly", "Never recommend"], answerIndex: 1, explanation: "Pattern-based suggestion." },
+  ],
+  "c6-ai-4": [
+    { id: "q4", type: "mcq", prompt: "Which of these is a PASSIVE digital footprint?", options: ["Posting a comment", "Uploading a video", "A website recording which pages you visited", "Sending an email"], answerIndex: 2, explanation: "Passive footprints are collected without you deliberately sharing them." },
+    { id: "q5", type: "tf", prompt: "True or False: It is safe to share an OTP with someone who says they are from your bank.", answer: false, explanation: "Banks never ask for your OTP. Anyone who does is trying to cheat you." },
+    { id: "q6", type: "mcq", prompt: "A message says 'Click this link in 5 minutes or your account will be blocked!'. This is most likely:", options: ["A normal reminder", "Phishing", "A school notice", "A software update"], answerIndex: 1, explanation: "Pressure to act fast plus an unknown link are common phishing clues." },
+    { id: "q7", type: "tf", prompt: "True or False: Once something is posted online, it can be copied and saved by others even if you delete it later.", answer: true, explanation: "Screenshots and shares mean posts can live on after deletion — think before you post." },
+    { id: "q8", type: "mcq", prompt: "Your friend's password is visible on their screen. What is the responsible thing to do?", options: ["Note it down", "Use it later as a joke", "Tell your friend and look away", "Share it with others"], answerIndex: 2, explanation: "Respecting others' privacy is part of digital ethics." },
+    { id: "q9", type: "short", prompt: "Being polite and respectful when communicating online is called ___ (one word, a mix of 'net' and 'etiquette').", answer: "netiquette", explanation: "Netiquette = good manners on the internet." },
+    { id: "q10", type: "mcq", prompt: "Which is the best way to use a picture from the internet in your school project?", options: ["Use it and say nothing", "Use it and mention where it came from", "Claim you drew it", "Change its colours and call it yours"], answerIndex: 1, explanation: "Giving credit to the source avoids plagiarism." },
   ],
 
   // ---------- CLASS 7 ----------
