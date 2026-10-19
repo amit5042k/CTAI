@@ -145,6 +145,7 @@ function SchoolRow({ school, onSave, onDelete }) {
   const [name, setName] = useState(school.name);
   const [code, setCode] = useState(school.code);
   const [logoVer, setLogoVer] = useState(0); // bust cache after upload
+  const [hasLogo, setHasLogo] = useState(!!school.logoExt);
   const [logoBusy, setLogoBusy] = useState(false);
   const dirty = name !== school.name || code !== school.code;
 
@@ -164,6 +165,7 @@ function SchoolRow({ school, onSave, onDelete }) {
       alert(data.error || "Upload failed");
       return;
     }
+    setHasLogo(true);
     setLogoVer(logoVer + 1);
   }
 
@@ -172,21 +174,24 @@ function SchoolRow({ school, onSave, onDelete }) {
     const res = await fetch(`/api/superadmin/schools/${school.id}/logo`, {
       method: "DELETE",
     });
-    if (res.ok) setLogoVer(logoVer + 1);
+    if (res.ok) setHasLogo(false);
   }
 
   return (
     <tr className="border-b border-slate-100 align-top">
       <td className="py-2 pr-4">
         <div className="flex items-center gap-3">
-          <img
-            src={`/api/schools/${school.id}/logo?v=${logoVer}`}
-            alt=""
-            className="h-10 w-10 rounded-md bg-slate-100 object-contain ring-1 ring-slate-200"
-            onError={(e) => {
-              e.currentTarget.style.visibility = "hidden";
-            }}
-          />
+          {hasLogo ? (
+            <img
+              src={`/api/schools/${school.id}/logo?v=${logoVer}`}
+              alt=""
+              className="h-10 w-10 rounded-md bg-slate-100 object-contain ring-1 ring-slate-200"
+            />
+          ) : (
+            <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-slate-100 text-sm font-semibold text-slate-500 ring-1 ring-slate-200">
+              {school.name?.[0]?.toUpperCase() || "S"}
+            </span>
+          )}
           <input
             className="input"
             value={name}

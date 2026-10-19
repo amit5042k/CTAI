@@ -157,9 +157,7 @@ export default function TwoFactorSection({ twoFactorEnabled }) {
           </ol>
           <div className="grid gap-4 md:grid-cols-[180px_1fr]">
             <img
-              src={`https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=${encodeURIComponent(
-                setup.otpauthUri,
-              )}`}
+              src={setup.qrDataUrl}
               alt="QR code for authenticator app"
               className="h-44 w-44 rounded-md bg-white ring-1 ring-slate-200"
             />

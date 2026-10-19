@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import QRCode from "qrcode";
 import { getCurrentUser } from "@/lib/auth";
 import { findUserById, updateUser } from "@/lib/db";
 import { generateBase32Secret, otpauthURI } from "@/lib/totp";
@@ -19,5 +20,8 @@ export async function POST() {
   const secret = generateBase32Secret(20);
   updateUser(me.id, { pendingTwoFactorSecret: secret });
   const uri = otpauthURI({ secret, label: me.email });
-  return NextResponse.json({ secret, otpauthUri: uri });
+  // Render the QR on our own server: a third-party QR service would
+  // receive the TOTP seed in its URL.
+  const qrDataUrl = await QRCode.toDataURL(uri, { margin: 1, width: 360 });
+  return NextResponse.json({ secret, otpauthUri: uri, qrDataUrl });
 }
