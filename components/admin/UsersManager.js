@@ -334,7 +334,7 @@ function StudentRow({
       <td className="py-2 pr-4 text-slate-600">{student.email}</td>
       <td className="py-2 pr-4">
         <select
-          className="input"
+          className="input min-w-[7.5rem]"
           value={student.classLevel ?? ""}
           onChange={(e) => onChangeClass(Number(e.target.value))}
         >

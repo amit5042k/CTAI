@@ -101,7 +101,7 @@ export default async function UnitDetailPage({ params }) {
         </div>
       )}
 
-      {(unit.examples || []).length > 0 ? (
+      {studentLocked ? null : (unit.examples || []).length > 0 ? (
         <section className="card">
           <h2 className="text-lg font-semibold">Worked examples</h2>
           <p className="mt-1 text-sm text-slate-500">
