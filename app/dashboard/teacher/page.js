@@ -163,6 +163,7 @@ export default async function TeacherDashboard() {
                       <UnlockRow
                         key={u.id}
                         sectionId={sec.id}
+                        classLevel={c.classLevel}
                         unit={u}
                         initiallyUnlocked={unlocked.has(u.id)}
                       />

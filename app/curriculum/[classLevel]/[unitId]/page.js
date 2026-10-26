@@ -47,9 +47,19 @@ export default async function UnitDetailPage({ params }) {
         >
           ← Class {cls.classLevel} units
         </Link>
-        <span className="tag">
-          {unit.stream === "AI" ? "Artificial Intelligence" : "Computational Thinking"}
-        </span>
+        <div className="flex items-center gap-2">
+          <span className="tag">
+            {unit.stream === "AI" ? "Artificial Intelligence" : "Computational Thinking"}
+          </span>
+          {canSeeTeacherNotes && (
+            <Link
+              href={`/curriculum/${cls.classLevel}/${unit.id}/present`}
+              className="btn-primary"
+            >
+              ▶ Present to class
+            </Link>
+          )}
+        </div>
       </div>
 
       <header className="card">
