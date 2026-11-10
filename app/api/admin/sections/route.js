@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { requireAdmin, scopedSchoolId } from "@/lib/adminGuard";
-import { listSections, createSection, findSchoolById } from "@/lib/db";
+import { listSections, createSection, findSchoolById, findUserById } from "@/lib/db";
 
 export async function GET(req) {
   const { user, response } = await requireAdmin();
@@ -40,6 +40,15 @@ export async function POST(req) {
       { error: "Section name is required (e.g. 'A')" },
       { status: 400 },
     );
+  }
+  if (classTeacherId) {
+    const t = findUserById(classTeacherId);
+    if (!t || t.role !== "teacher" || t.schoolId !== schoolId) {
+      return NextResponse.json(
+        { error: "Class teacher must be a teacher of this school" },
+        { status: 400 },
+      );
+    }
   }
   const result = createSection({
     classLevel: cl,

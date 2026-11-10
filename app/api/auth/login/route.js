@@ -1,8 +1,13 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { findUserByEmail, findSchoolByCode, publicUser } from "@/lib/db";
-import { signSession, setSessionCookie } from "@/lib/auth";
+import { startSession } from "@/lib/auth";
 import { signChallenge } from "@/lib/twoFactor";
+import { retryAfter, recordFailure, clearFailures, clientIp } from "@/lib/rateLimit";
+
+// Failed sign-ins allowed per 15 minutes, per account and per network address.
+const MAX_PER_ACCOUNT = 8;
+const MAX_PER_IP = 30;
 
 export async function POST(req) {
   try {
@@ -13,20 +18,29 @@ export async function POST(req) {
         { status: 400 },
       );
     }
+    const acctKey = `login:acct:${String(email).trim().toLowerCase()}`;
+    const ipKey = `login:ip:${clientIp(req)}`;
+    if (
+      retryAfter([acctKey], MAX_PER_ACCOUNT) ||
+      retryAfter([ipKey], MAX_PER_IP)
+    ) {
+      return NextResponse.json(
+        { error: "Too many failed attempts. Please wait 15 minutes and try again." },
+        { status: 429 },
+      );
+    }
     const user = findUserByEmail(email);
-    if (!user) {
-      return NextResponse.json(
-        { error: "Invalid email or password" },
-        { status: 401 },
-      );
-    }
-    const ok = await bcrypt.compare(password, user.passwordHash);
+    const ok = user
+      ? await bcrypt.compare(String(password), user.passwordHash)
+      : false;
     if (!ok) {
+      recordFailure([acctKey, ipKey]);
       return NextResponse.json(
         { error: "Invalid email or password" },
         { status: 401 },
       );
     }
+    clearFailures([acctKey]);
 
     if (schoolCode) {
       const school = findSchoolByCode(schoolCode);
@@ -60,8 +74,7 @@ export async function POST(req) {
       return NextResponse.json({ needs2FA: true, challenge });
     }
 
-    const token = await signSession({ uid: user.id, role: user.role });
-    await setSessionCookie(token);
+    await startSession(user);
     return NextResponse.json({ user: publicUser(user) });
   } catch {
     return NextResponse.json(

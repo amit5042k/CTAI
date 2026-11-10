@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { getClass } from "@/data/curriculum";
-import { findUnit, publicUnit } from "@/lib/curriculumServer";
+import { findUnit, publicUnit, studentBlockReason } from "@/lib/curriculumServer";
 import { getCurrentUser } from "@/lib/auth";
 import { getProgressForUser, isUnitUnlocked } from "@/lib/db";
 import Practice from "@/components/Practice";
@@ -23,10 +23,15 @@ export default async function UnitDetailPage({ params }) {
 
   const isOwnClassStudent =
     user?.role === "student" && user.classLevel === cls.classLevel;
-  const studentLocked =
-    isOwnClassStudent &&
-    user.sectionId &&
-    !isUnitUnlocked(user.sectionId, unit.id);
+  // Students only get examples and practice for unlocked chapters of their
+  // own class (and only once they are placed in a section).
+  const blockReason = studentBlockReason(
+    user,
+    cls.classLevel,
+    unit.id,
+    isUnitUnlocked,
+  );
+  const studentLocked = !!blockReason;
   const canTrack = isOwnClassStudent && !studentLocked;
   const canSeeTeacherNotes =
     user?.role === "teacher" ||
@@ -106,8 +111,12 @@ export default async function UnitDetailPage({ params }) {
 
       {studentLocked && (
         <div className="rounded-md border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-900">
-          🔒 This chapter is locked. Your teacher will unlock it when it's
-          time to learn it.
+          🔒{" "}
+          {blockReason === "other_class"
+            ? `This chapter is for Class ${cls.classLevel}. You can open the chapters of your own class (Class ${user.classLevel}).`
+            : blockReason === "no_section"
+              ? "You have not been placed in a section yet, so chapters are still locked. Ask your school admin."
+              : "This chapter is locked. Your teacher will unlock it when it's time to learn it."}
         </div>
       )}
 

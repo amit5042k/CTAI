@@ -59,8 +59,8 @@ export default async function ClassPage({ params }) {
       )}
       {user?.role === "student" && user.classLevel !== cls.classLevel && (
         <div className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-          You are enrolled in Class {user.classLevel}. You can browse this
-          class but progress can only be tracked in your own class.
+          You are enrolled in Class {user.classLevel}. You can see this
+          class&apos;s chapter list, but chapters open only in your own class.
         </div>
       )}
 
@@ -90,9 +90,11 @@ export default async function ClassPage({ params }) {
               {g.units.map((u, i) => {
                 const locked =
                   user?.role === "student" &&
-                  user.classLevel === cls.classLevel &&
-                  user.sectionId &&
-                  !(unlockedSet && unlockedSet.has(u.id));
+                  !(
+                    user.classLevel === cls.classLevel &&
+                    unlockedSet &&
+                    unlockedSet.has(u.id)
+                  );
                 return (
                   <UnitCard
                     key={u.id}

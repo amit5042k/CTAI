@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { createUser, findUserByEmail, countByRole, publicUser } from "@/lib/db";
-import { signSession, setSessionCookie } from "@/lib/auth";
+import { startSession } from "@/lib/auth";
 
 // One-time bootstrap to create the very first SUPERADMIN.
 // Disabled the moment a superadmin exists. After that all users are
@@ -48,8 +48,7 @@ export async function POST(req) {
       schoolId: null,
       passwordHash,
     });
-    const token = await signSession({ uid: user.id, role: user.role });
-    await setSessionCookie(token);
+    await startSession(user);
 
     return NextResponse.json({ user: publicUser(user) });
   } catch {

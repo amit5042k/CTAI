@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
-import { getCurrentUser } from "@/lib/auth";
+import { getCurrentUser, startSession } from "@/lib/auth";
 import { findUserById, updateUser } from "@/lib/db";
 
 export async function POST(req) {
@@ -39,6 +39,8 @@ export async function POST(req) {
     );
 
   const passwordHash = await bcrypt.hash(newPassword, 10);
-  updateUser(me.id, { passwordHash });
+  const updated = updateUser(me.id, { passwordHash });
+  // Changing the password signs out all other sessions; keep this one.
+  await startSession(updated);
   return NextResponse.json({ ok: true });
 }

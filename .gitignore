@@ -14,3 +14,4 @@ data/portal.db-wal
 data/portal.db-shm
 data/logos/
 *.migrated
+data/.jwt-secret

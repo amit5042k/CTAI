@@ -37,6 +37,11 @@ export async function PATCH(req, { params }) {
         { status: 400 },
       );
     }
+    if (target.role === "student" && cl === null)
+      return NextResponse.json(
+        { error: "A student must belong to a class (3..8)" },
+        { status: 400 },
+      );
     patch.classLevel = cl;
   }
   if (body.sectionId !== undefined) {
@@ -60,6 +65,16 @@ export async function PATCH(req, { params }) {
       }
       patch.sectionId = section.id;
     }
+  }
+  // Moving a student to another class without choosing a new section:
+  // drop the old section, which belongs to the previous class.
+  if (
+    target.role === "student" &&
+    patch.classLevel !== undefined &&
+    patch.classLevel !== target.classLevel &&
+    patch.sectionId === undefined
+  ) {
+    patch.sectionId = null;
   }
   if (body.password) {
     if (String(body.password).length < 6) {
