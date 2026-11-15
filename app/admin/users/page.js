@@ -2,6 +2,7 @@ import { listUsers, listSections, findSchoolById } from "@/lib/db";
 import { getCurrentUser } from "@/lib/auth";
 import { curriculum } from "@/data/curriculum";
 import UsersManager from "@/components/admin/UsersManager";
+import BulkImport from "@/components/admin/BulkImport";
 
 export default async function AdminUsersPage() {
   const user = await getCurrentUser();
@@ -24,7 +25,11 @@ export default async function AdminUsersPage() {
           students to a class &amp; section.
         </p>
       </header>
+      {school && <BulkImport schoolCode={school.code} />}
       <UsersManager
+        // Remount when the lists change (e.g. after a CSV import), since the
+        // manager keeps its own copy of the lists in state.
+        key={`${teachers.length}-${students.length}-${sections.length}`}
         initialTeachers={teachers}
         initialStudents={students}
         sections={sections}
