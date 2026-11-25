@@ -1,6 +1,8 @@
 import ChangePasswordForm from "@/components/ChangePasswordForm";
+import { requirePageRole } from "@/lib/pageGuard";
 
-export default function AdminSecurityPage() {
+export default async function AdminSecurityPage() {
+  await requirePageRole("admin");
   return (
     <div className="space-y-6">
       <header>

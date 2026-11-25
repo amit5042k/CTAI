@@ -65,6 +65,12 @@ export async function POST(req) {
     return NextResponse.json({ error: "Unknown school" }, { status: 400 });
   }
 
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).trim())) {
+    return NextResponse.json(
+      { error: "Enter a valid email address" },
+      { status: 400 },
+    );
+  }
   if (findUserByEmail(email)) {
     return NextResponse.json(
       { error: "An account with this email already exists" },

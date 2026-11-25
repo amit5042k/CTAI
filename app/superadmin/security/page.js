@@ -1,10 +1,10 @@
 import ChangePasswordForm from "@/components/ChangePasswordForm";
+import { requirePageRole } from "@/lib/pageGuard";
 import TwoFactorSection from "@/components/superadmin/TwoFactorSection";
-import { getCurrentUser } from "@/lib/auth";
 import { findUserById } from "@/lib/db";
 
 export default async function SuperadminSecurityPage() {
-  const me = await getCurrentUser();
+  const me = await requirePageRole("superadmin");
   const full = me ? findUserById(me.id) : null;
   const twoFactorEnabled = !!full?.twoFactorEnabled;
 

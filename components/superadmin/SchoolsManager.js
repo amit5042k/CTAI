@@ -61,7 +61,11 @@ export default function SchoolsManager({ initialSchools }) {
     const res = await fetch(`/api/superadmin/schools/${id}`, {
       method: "DELETE",
     });
-    if (!res.ok) return;
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      alert(data.error || "Could not delete the school");
+      return;
+    }
     setSchools(schools.filter((s) => s.id !== id));
     router.refresh();
   }

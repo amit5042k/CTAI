@@ -1,7 +1,9 @@
 import { listSchools, listUsers } from "@/lib/db";
+import { requirePageRole } from "@/lib/pageGuard";
 import SchoolsManager from "@/components/superadmin/SchoolsManager";
 
-export default function SuperadminSchoolsPage() {
+export default async function SuperadminSchoolsPage() {
+  await requirePageRole("superadmin");
   const schools = listSchools();
   const users = listUsers();
   const decorated = schools.map((s) => {

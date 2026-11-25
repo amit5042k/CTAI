@@ -94,21 +94,11 @@ Click **Save**. Hostinger restarts the app for you.
 
 ## 5. Add a startup file the app can use
 
-Hostinger's Node.js app launcher needs a single startup file. Add
-`server.js` to the **root of your repo** and commit it:
+Hostinger's Node.js app launcher needs a single startup file. The repo
+already contains `server.js` for this: it runs Next.js inside the same
+process, so a restart from hPanel cleanly stops the old server.
 
-```js
-// server.js — used by Hostinger's Node.js app launcher.
-const { spawn } = require("node:child_process");
-const port = process.env.PORT || 3000;
-const child = spawn("npx", ["next", "start", "-p", String(port)], {
-  stdio: "inherit",
-  env: process.env,
-});
-child.on("exit", (code) => process.exit(code));
-```
-
-Then in hPanel set **Application startup file** = `server.js`.
+In hPanel set **Application startup file** = `server.js`.
 
 > If you're already using a different startup approach that works,
 > skip this step.

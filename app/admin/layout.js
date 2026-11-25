@@ -22,7 +22,20 @@ export default async function AdminLayout({ children }) {
           <AdminLink href="/admin/security">Security</AdminLink>
         </nav>
       </aside>
-      <div>{children}</div>
+      <div>
+        {user.schoolId ? (
+          children
+        ) : (
+          // Without a school every admin page would list all schools' data.
+          <div className="card border-amber-200 bg-amber-50 text-amber-900">
+            <h1 className="text-lg font-semibold">No school linked</h1>
+            <p className="mt-1 text-sm">
+              This admin account is not linked to a school yet. Ask the portal
+              owner (superadmin) to assign it to your school.
+            </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

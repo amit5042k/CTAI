@@ -1,7 +1,9 @@
 import { listSchools, listUsers } from "@/lib/db";
+import { requirePageRole } from "@/lib/pageGuard";
 import AdminsManager from "@/components/superadmin/AdminsManager";
 
-export default function SuperadminAdminsPage() {
+export default async function SuperadminAdminsPage() {
+  await requirePageRole("superadmin");
   const schools = listSchools();
   const admins = listUsers({ role: "admin" });
   return (

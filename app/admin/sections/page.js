@@ -1,11 +1,14 @@
 import { listSections, listUsers, findSchoolById } from "@/lib/db";
-import { getCurrentUser } from "@/lib/auth";
+import { requirePageRole } from "@/lib/pageGuard";
 import { curriculum } from "@/data/curriculum";
 import SectionsManager from "@/components/admin/SectionsManager";
 
 export default async function AdminSectionsPage() {
-  const user = await getCurrentUser();
+  const user = await requirePageRole("admin");
   const schoolId = user?.schoolId;
+  // The admin layout shows a notice for admins without a school; never
+  // query here with an empty (all-schools) filter.
+  if (!schoolId) return null;
   const school = schoolId ? findSchoolById(schoolId) : null;
 
   const filter = schoolId ? { schoolId } : {};

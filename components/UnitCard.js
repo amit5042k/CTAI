@@ -27,7 +27,7 @@ export default function UnitCard({
         <h3 className="text-lg font-semibold text-slate-900">
           {unit.name}{" "}
           {locked && (
-            <span className="ml-1 text-base" title="Locked by teacher">
+            <span className="ml-1 text-base" title="Locked">
               🔒
             </span>
           )}
@@ -53,7 +53,12 @@ export default function UnitCard({
       <div className="mt-3 flex flex-wrap items-center gap-2 border-t border-slate-100 pt-3">
         {locked ? (
           <span className="rounded-md border border-amber-300 bg-amber-50 px-3 py-1.5 text-xs text-amber-900">
-            🔒 Waiting for teacher to unlock
+            🔒{" "}
+            {unit.lockReason === "other_class"
+              ? "Only for Class " + classLevel + " students"
+              : unit.lockReason === "no_section"
+                ? "Opens once you are placed in a section"
+                : "Waiting for teacher to unlock"}
           </span>
         ) : (
           <Link

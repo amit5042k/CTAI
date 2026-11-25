@@ -1,16 +1,30 @@
-// Startup file for hosts that launch a Node.js app from a single
-// entry point (Hostinger's Node.js Apps, cPanel's Setup Node.js App,
-// Phusion Passenger, etc.).
+// Startup file for hosts that launch a Node.js app from a single entry
+// point (Hostinger's Node.js Apps, cPanel's Setup Node.js App, Phusion
+// Passenger, etc.). Docker and local use `npm run start` instead.
 //
-// In production, just run `npm run start` instead — this file exists
-// because some managed hosts insist on a JS file as the launcher.
+// Runs Next.js inside this process rather than spawning `npx next start`:
+// a spawned child was not stopped when the host restarted the app, so the
+// old server kept the port and the new one failed (503 errors).
 
-const { spawn } = require("node:child_process");
+const http = require("node:http");
+const next = require("next");
 
-const port = process.env.PORT || 3000;
-const child = spawn("npx", ["next", "start", "-p", String(port)], {
-  stdio: "inherit",
-  env: process.env,
-});
+const port = process.env.PORT || 3000; // may be a socket path under Passenger
+const app = next({ dev: false, dir: __dirname });
+const handle = app.getRequestHandler();
 
-child.on("exit", (code) => process.exit(code || 0));
+app
+  .prepare()
+  .then(() => {
+    const server = http.createServer((req, res) => handle(req, res));
+    server.listen(port, () => {
+      console.log(`CTAI Portal ready on ${port}`);
+    });
+    const stop = () => server.close(() => process.exit(0));
+    process.on("SIGTERM", stop);
+    process.on("SIGINT", stop);
+  })
+  .catch((err) => {
+    console.error("Failed to start CTAI Portal:", err);
+    process.exit(1);
+  });

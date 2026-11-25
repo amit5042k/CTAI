@@ -88,13 +88,17 @@ export default async function ClassPage({ params }) {
             <h2 className="text-xl font-bold text-slate-900">{g.title}</h2>
             <div className="grid gap-4 md:grid-cols-2">
               {g.units.map((u, i) => {
-                const locked =
-                  user?.role === "student" &&
-                  !(
-                    user.classLevel === cls.classLevel &&
-                    unlockedSet &&
-                    unlockedSet.has(u.id)
-                  );
+                const lockReason =
+                  user?.role !== "student"
+                    ? null
+                    : user.classLevel !== cls.classLevel
+                      ? "other_class"
+                      : !user.sectionId
+                        ? "no_section"
+                        : unlockedSet && unlockedSet.has(u.id)
+                          ? null
+                          : "locked";
+                const locked = !!lockReason;
                 return (
                   <UnitCard
                     key={u.id}
@@ -105,6 +109,7 @@ export default async function ClassPage({ params }) {
                       activities: u.activities,
                       exerciseCount: getExerciseCount(u.id, u.exercises),
                       locked,
+                      lockReason,
                     }}
                     classLevel={cls.classLevel}
                     index={i + 1}

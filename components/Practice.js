@@ -13,6 +13,7 @@ export default function Practice({ unitId, exercises, canTrack }) {
   const [shortText, setShortText] = useState("");
   const [feedback, setFeedback] = useState(null); // { correct, explanation, correctAnswer }
   const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [results, setResults] = useState(() => new Array(total).fill(null));
 
   const current = exercises[idx];
@@ -32,6 +33,7 @@ export default function Practice({ unitId, exercises, canTrack }) {
     if (response === null || response === undefined || response === "") return;
     if (feedback || submitting) return;
     setPicked(response);
+    setError("");
     setSubmitting(true);
     try {
       const res = await fetch("/api/exercises/check", {
@@ -52,7 +54,14 @@ export default function Practice({ unitId, exercises, canTrack }) {
       // progress without a manual reload.
       if (canTrack) router.refresh();
     } catch (e) {
-      setFeedback({ correct: false, explanation: e.message });
+      // Not an answer result (network problem, chapter locked meanwhile…):
+      // say so and let the student try again instead of marking it wrong.
+      setPicked(null);
+      setError(
+        e.message === "Failed to fetch"
+          ? "Could not reach the server. Check your connection and try again."
+          : e.message,
+      );
     } finally {
       setSubmitting(false);
     }
@@ -60,6 +69,7 @@ export default function Practice({ unitId, exercises, canTrack }) {
 
   function next() {
     setPicked(null);
+    setError("");
     setShortText("");
     setFeedback(null);
     setIdx((i) => Math.min(i + 1, total - 1));
@@ -67,6 +77,7 @@ export default function Practice({ unitId, exercises, canTrack }) {
 
   function prev() {
     setPicked(null);
+    setError("");
     setShortText("");
     setFeedback(null);
     setIdx((i) => Math.max(i - 1, 0));
@@ -74,6 +85,7 @@ export default function Practice({ unitId, exercises, canTrack }) {
 
   function reset() {
     setPicked(null);
+    setError("");
     setShortText("");
     setFeedback(null);
     setIdx(0);
@@ -209,6 +221,12 @@ export default function Practice({ unitId, exercises, canTrack }) {
             <span className="font-semibold">
               {String(feedback.correctAnswer)}
             </span>
+          </p>
+        )}
+
+        {error && (
+          <p className="mt-4 rounded-md border border-amber-300 bg-amber-50 px-3 py-2 text-sm text-amber-900" role="alert">
+            {error}
           </p>
         )}
 

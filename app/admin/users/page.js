@@ -1,12 +1,15 @@
 import { listUsers, listSections, findSchoolById } from "@/lib/db";
-import { getCurrentUser } from "@/lib/auth";
+import { requirePageRole } from "@/lib/pageGuard";
 import { curriculum } from "@/data/curriculum";
 import UsersManager from "@/components/admin/UsersManager";
 import BulkImport from "@/components/admin/BulkImport";
 
 export default async function AdminUsersPage() {
-  const user = await getCurrentUser();
+  const user = await requirePageRole("admin");
   const schoolId = user?.schoolId;
+  // The admin layout shows a notice for admins without a school; never
+  // query here with an empty (all-schools) filter.
+  if (!schoolId) return null;
   const school = schoolId ? findSchoolById(schoolId) : null;
 
   const filter = schoolId ? { schoolId } : {};

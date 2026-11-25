@@ -1,7 +1,9 @@
 import Link from "next/link";
+import { requirePageRole } from "@/lib/pageGuard";
 import { listSchools, listUsers } from "@/lib/db";
 
-export default function SuperadminOverview() {
+export default async function SuperadminOverview() {
+  await requirePageRole("superadmin");
   const schools = listSchools();
   const users = listUsers();
   const admins = users.filter((u) => u.role === "admin");

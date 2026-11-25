@@ -55,7 +55,11 @@ export default function SectionsManager({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ classTeacherId: classTeacherId || null }),
     });
-    if (!res.ok) return;
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      alert(data.error || "Could not update the section");
+      return;
+    }
     const { section } = await res.json();
     setSections(sections.map((s) => (s.id === id ? section : s)));
     router.refresh();
@@ -67,7 +71,11 @@ export default function SectionsManager({
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ teacherIds }),
     });
-    if (!res.ok) return;
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      alert(data.error || "Could not update the section");
+      return;
+    }
     const { section } = await res.json();
     setSections(sections.map((s) => (s.id === id ? section : s)));
     router.refresh();
@@ -76,7 +84,11 @@ export default function SectionsManager({
   async function remove(id) {
     if (!confirm("Delete this section? Students will be unassigned.")) return;
     const res = await fetch(`/api/admin/sections/${id}`, { method: "DELETE" });
-    if (!res.ok) return;
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      alert(data.error || "Could not delete the section");
+      return;
+    }
     setSections(sections.filter((s) => s.id !== id));
     router.refresh();
   }
